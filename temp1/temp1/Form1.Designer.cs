@@ -55,36 +55,44 @@
             // lblApplicantNumber
             // 
             this.lblApplicantNumber.AutoSize = true;
+            this.lblApplicantNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApplicantNumber.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblApplicantNumber.Location = new System.Drawing.Point(40, 63);
             this.lblApplicantNumber.Name = "lblApplicantNumber";
-            this.lblApplicantNumber.Size = new System.Drawing.Size(116, 13);
+            this.lblApplicantNumber.Size = new System.Drawing.Size(160, 16);
             this.lblApplicantNumber.TabIndex = 0;
             this.lblApplicantNumber.Text = "APPLICANT NUMBER";
             // 
             // lblPosition
             // 
             this.lblPosition.AutoSize = true;
+            this.lblPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPosition.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblPosition.Location = new System.Drawing.Point(40, 127);
             this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(58, 13);
+            this.lblPosition.Size = new System.Drawing.Size(79, 16);
             this.lblPosition.TabIndex = 1;
             this.lblPosition.Text = "POSITION";
             // 
             // lblStaffNumber
             // 
             this.lblStaffNumber.AutoSize = true;
+            this.lblStaffNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStaffNumber.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblStaffNumber.Location = new System.Drawing.Point(368, 63);
             this.lblStaffNumber.Name = "lblStaffNumber";
-            this.lblStaffNumber.Size = new System.Drawing.Size(93, 13);
+            this.lblStaffNumber.Size = new System.Drawing.Size(129, 16);
             this.lblStaffNumber.TabIndex = 2;
             this.lblStaffNumber.Text = "STAFF  NUMBER";
             // 
             // lblTypeOfApplication
             // 
             this.lblTypeOfApplication.AutoSize = true;
+            this.lblTypeOfApplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTypeOfApplication.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTypeOfApplication.Location = new System.Drawing.Point(368, 128);
             this.lblTypeOfApplication.Name = "lblTypeOfApplication";
-            this.lblTypeOfApplication.Size = new System.Drawing.Size(125, 13);
+            this.lblTypeOfApplication.Size = new System.Drawing.Size(174, 16);
             this.lblTypeOfApplication.TabIndex = 3;
             this.lblTypeOfApplication.Text = "TYPE OF APPLICATION";
             // 
@@ -97,7 +105,7 @@
             "Interview",
             "Technical",
             "Assessment"});
-            this.cmbApplicationType.Location = new System.Drawing.Point(514, 127);
+            this.cmbApplicationType.Location = new System.Drawing.Point(566, 123);
             this.cmbApplicationType.Name = "cmbApplicationType";
             this.cmbApplicationType.Size = new System.Drawing.Size(229, 21);
             this.cmbApplicationType.TabIndex = 4;
@@ -114,7 +122,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Tomato;
+            this.groupBox1.BackColor = System.Drawing.Color.RosyBrown;
             this.groupBox1.Controls.Add(this.comboBox4);
             this.groupBox1.Controls.Add(this.comboBox3);
             this.groupBox1.Controls.Add(this.textBox4);
@@ -125,6 +133,7 @@
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.txtHeading);
+            this.groupBox1.ForeColor = System.Drawing.Color.Tomato;
             this.groupBox1.Location = new System.Drawing.Point(57, 297);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(786, 206);
@@ -242,21 +251,21 @@
             // 
             // txtApplicationNumber
             // 
-            this.txtApplicationNumber.Location = new System.Drawing.Point(171, 60);
+            this.txtApplicationNumber.Location = new System.Drawing.Point(207, 59);
             this.txtApplicationNumber.Name = "txtApplicationNumber";
             this.txtApplicationNumber.Size = new System.Drawing.Size(155, 20);
             this.txtApplicationNumber.TabIndex = 8;
             // 
             // txtPosition
             // 
-            this.txtPosition.Location = new System.Drawing.Point(171, 125);
+            this.txtPosition.Location = new System.Drawing.Point(207, 126);
             this.txtPosition.Name = "txtPosition";
             this.txtPosition.Size = new System.Drawing.Size(155, 20);
             this.txtPosition.TabIndex = 10;
             // 
             // txtStaffNumber
             // 
-            this.txtStaffNumber.Location = new System.Drawing.Point(514, 60);
+            this.txtStaffNumber.Location = new System.Drawing.Point(566, 60);
             this.txtStaffNumber.Name = "txtStaffNumber";
             this.txtStaffNumber.Size = new System.Drawing.Size(155, 20);
             this.txtStaffNumber.TabIndex = 11;

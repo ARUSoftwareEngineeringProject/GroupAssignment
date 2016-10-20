@@ -16,5 +16,20 @@ namespace temp1
         {
             InitializeComponent();
         }
+
+        private void lblPosition_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPosition_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbSectionOptions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

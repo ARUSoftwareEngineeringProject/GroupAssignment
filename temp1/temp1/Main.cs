@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
@@ -35,14 +29,12 @@ namespace temp1
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (comboBox1.Text == "ApplicantID")
-            //{
+            
                 SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tmhun\Source\Repos\GroupAssignment5\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
                 SqlDataAdapter sda = new SqlDataAdapter("SELECT ApplicantID, FullName, Address, telephoneNo, Email, DOB FROM Applicants ", con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
                 dataGridView1.DataSource = dt;
-            //}
             
         }
 
@@ -63,6 +55,15 @@ namespace temp1
         private void dataGridView1_CellContentClick(object sender, MouseEventArgs e)
         {
             
+        }
+
+        private void lblStaffID_TextChanged(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tmhun\Source\Repos\GroupAssignment5\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) From Staff where StaffID='" + lblStaffID.Text + "', FullName='" + lblStaffName.Text + "' and Contact='" + lblContact.Text + "'", con);
+            DataTable table = new DataTable();
+            sda.Fill(table);
+           
         }
     }
 }

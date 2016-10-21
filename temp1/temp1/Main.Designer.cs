@@ -57,6 +57,11 @@
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dOBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeOfApplicationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblSelection = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblStaffName = new System.Windows.Forms.Label();
+            this.lblContact = new System.Windows.Forms.Label();
+            this.lblStaffID = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicantsBindingSource)).BeginInit();
@@ -315,12 +320,63 @@
             this.typeOfApplicationDataGridViewTextBoxColumn.Name = "typeOfApplicationDataGridViewTextBoxColumn";
             this.typeOfApplicationDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // lblSelection
+            // 
+            this.lblSelection.AutoSize = true;
+            this.lblSelection.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSelection.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblSelection.Location = new System.Drawing.Point(30, 97);
+            this.lblSelection.Name = "lblSelection";
+            this.lblSelection.Size = new System.Drawing.Size(199, 20);
+            this.lblSelection.TabIndex = 11;
+            this.lblSelection.Text = "Please Select Applicant";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(300, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 12;
+            // 
+            // lblStaffName
+            // 
+            this.lblStaffName.AutoSize = true;
+            this.lblStaffName.Location = new System.Drawing.Point(234, 41);
+            this.lblStaffName.Name = "lblStaffName";
+            this.lblStaffName.Size = new System.Drawing.Size(60, 13);
+            this.lblStaffName.TabIndex = 13;
+            this.lblStaffName.Text = "Staff Name";
+            // 
+            // lblContact
+            // 
+            this.lblContact.AutoSize = true;
+            this.lblContact.Location = new System.Drawing.Point(451, 41);
+            this.lblContact.Name = "lblContact";
+            this.lblContact.Size = new System.Drawing.Size(44, 13);
+            this.lblContact.TabIndex = 14;
+            this.lblContact.Text = "Contact";
+            // 
+            // lblStaffID
+            // 
+            this.lblStaffID.AutoSize = true;
+            this.lblStaffID.Location = new System.Drawing.Point(57, 41);
+            this.lblStaffID.Name = "lblStaffID";
+            this.lblStaffID.Size = new System.Drawing.Size(43, 13);
+            this.lblStaffID.TabIndex = 15;
+            this.lblStaffID.Text = "Staff ID";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(896, 611);
+            this.Controls.Add(this.lblStaffID);
+            this.Controls.Add(this.lblContact);
+            this.Controls.Add(this.lblStaffName);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblSelection);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnSaveTemplate);
             this.Controls.Add(this.groupBox1);
@@ -370,6 +426,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dOBDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeOfApplicationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label lblSelection;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblStaffName;
+        private System.Windows.Forms.Label lblContact;
+        private System.Windows.Forms.Label lblStaffID;
     }
 }
 

@@ -30,7 +30,7 @@ namespace temp1
             DataTable table = new DataTable();
             sda.Fill(table);
             if (table.Rows[0][0].ToString() =="1")
-            {
+            {                   
                 this.Hide();
                 Main ss = new Main();
                 ss.Show();

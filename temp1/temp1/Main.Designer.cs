@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblApplicantNumber = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
             this.lblPosition = new System.Windows.Forms.Label();
             this.btnAddSection = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -43,21 +43,27 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtHeading = new System.Windows.Forms.TextBox();
             this.btnSaveTemplate = new System.Windows.Forms.Button();
-            this.txtApplicationNumber = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.applicantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.happyTechDatabaseDataSet = new temp1.HappyTechDatabaseDataSet();
+            this.applicantsTableAdapter = new temp1.HappyTechDatabaseDataSetTableAdapters.ApplicantsTableAdapter();
+            this.happyTechDatabaseDataSet1 = new temp1.HappyTechDatabaseDataSet1();
+            this.applicantsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.applicantsTableAdapter1 = new temp1.HappyTechDatabaseDataSet1TableAdapters.ApplicantsTableAdapter();
+            this.applicantIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telephoneNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dOBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeOfApplicationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.applicantsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.applicantsBindingSource1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblApplicantNumber
-            // 
-            this.lblApplicantNumber.AutoSize = true;
-            this.lblApplicantNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApplicantNumber.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblApplicantNumber.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblApplicantNumber.Location = new System.Drawing.Point(40, 63);
-            this.lblApplicantNumber.Name = "lblApplicantNumber";
-            this.lblApplicantNumber.Size = new System.Drawing.Size(110, 16);
-            this.lblApplicantNumber.TabIndex = 0;
-            this.lblApplicantNumber.Text = "APPLICANT ID";
             // 
             // lblPosition
             // 
@@ -72,9 +78,9 @@
             // 
             // btnAddSection
             // 
-            this.btnAddSection.Location = new System.Drawing.Point(34, 139);
+            this.btnAddSection.Location = new System.Drawing.Point(34, 229);
             this.btnAddSection.Name = "btnAddSection";
-            this.btnAddSection.Size = new System.Drawing.Size(134, 38);
+            this.btnAddSection.Size = new System.Drawing.Size(75, 38);
             this.btnAddSection.TabIndex = 5;
             this.btnAddSection.Text = "ADD SECTION";
             this.btnAddSection.UseVisualStyleBackColor = true;
@@ -93,7 +99,7 @@
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.txtHeading);
             this.groupBox1.ForeColor = System.Drawing.Color.Tomato;
-            this.groupBox1.Location = new System.Drawing.Point(34, 210);
+            this.groupBox1.Location = new System.Drawing.Point(34, 273);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(786, 206);
             this.groupBox1.TabIndex = 6;
@@ -202,44 +208,140 @@
             // 
             // btnSaveTemplate
             // 
-            this.btnSaveTemplate.Location = new System.Drawing.Point(686, 446);
+            this.btnSaveTemplate.Location = new System.Drawing.Point(686, 485);
             this.btnSaveTemplate.Name = "btnSaveTemplate";
             this.btnSaveTemplate.Size = new System.Drawing.Size(134, 38);
             this.btnSaveTemplate.TabIndex = 7;
             this.btnSaveTemplate.Text = "SAVE TEMPLATE";
             this.btnSaveTemplate.UseVisualStyleBackColor = true;
             // 
-            // txtApplicationNumber
+            // dataGridView1
             // 
-            this.txtApplicationNumber.Location = new System.Drawing.Point(207, 59);
-            this.txtApplicationNumber.Name = "txtApplicationNumber";
-            this.txtApplicationNumber.Size = new System.Drawing.Size(155, 20);
-            this.txtApplicationNumber.TabIndex = 8;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.applicantIDDataGridViewTextBoxColumn,
+            this.fullNameDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn,
+            this.telephoneNoDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.dOBDataGridViewTextBoxColumn,
+            this.typeOfApplicationDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.applicantsBindingSource1;
+            this.dataGridView1.Location = new System.Drawing.Point(34, 120);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(764, 100);
+            this.dataGridView1.TabIndex = 9;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // Form1
+            // applicantsBindingSource
+            // 
+            this.applicantsBindingSource.DataMember = "Applicants";
+            this.applicantsBindingSource.DataSource = this.happyTechDatabaseDataSet;
+            // 
+            // happyTechDatabaseDataSet
+            // 
+            this.happyTechDatabaseDataSet.DataSetName = "HappyTechDatabaseDataSet";
+            this.happyTechDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // applicantsTableAdapter
+            // 
+            this.applicantsTableAdapter.ClearBeforeFill = true;
+            // 
+            // happyTechDatabaseDataSet1
+            // 
+            this.happyTechDatabaseDataSet1.DataSetName = "HappyTechDatabaseDataSet1";
+            this.happyTechDatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // applicantsBindingSource1
+            // 
+            this.applicantsBindingSource1.DataMember = "Applicants";
+            this.applicantsBindingSource1.DataSource = this.happyTechDatabaseDataSet1;
+            // 
+            // applicantsTableAdapter1
+            // 
+            this.applicantsTableAdapter1.ClearBeforeFill = true;
+            // 
+            // applicantIDDataGridViewTextBoxColumn
+            // 
+            this.applicantIDDataGridViewTextBoxColumn.DataPropertyName = "ApplicantID";
+            this.applicantIDDataGridViewTextBoxColumn.HeaderText = "ApplicantID";
+            this.applicantIDDataGridViewTextBoxColumn.Name = "applicantIDDataGridViewTextBoxColumn";
+            this.applicantIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            this.fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
+            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            this.fullNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // telephoneNoDataGridViewTextBoxColumn
+            // 
+            this.telephoneNoDataGridViewTextBoxColumn.DataPropertyName = "telephoneNo";
+            this.telephoneNoDataGridViewTextBoxColumn.HeaderText = "telephoneNo";
+            this.telephoneNoDataGridViewTextBoxColumn.Name = "telephoneNoDataGridViewTextBoxColumn";
+            this.telephoneNoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dOBDataGridViewTextBoxColumn
+            // 
+            this.dOBDataGridViewTextBoxColumn.DataPropertyName = "DOB";
+            this.dOBDataGridViewTextBoxColumn.HeaderText = "DOB";
+            this.dOBDataGridViewTextBoxColumn.Name = "dOBDataGridViewTextBoxColumn";
+            this.dOBDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // typeOfApplicationDataGridViewTextBoxColumn
+            // 
+            this.typeOfApplicationDataGridViewTextBoxColumn.DataPropertyName = "typeOfApplication";
+            this.typeOfApplicationDataGridViewTextBoxColumn.HeaderText = "typeOfApplication";
+            this.typeOfApplicationDataGridViewTextBoxColumn.Name = "typeOfApplicationDataGridViewTextBoxColumn";
+            this.typeOfApplicationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(896, 611);
-            this.Controls.Add(this.txtApplicationNumber);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnSaveTemplate);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAddSection);
             this.Controls.Add(this.lblPosition);
-            this.Controls.Add(this.lblApplicantNumber);
-            this.Name = "Form1";
+            this.Name = "Main";
             this.Text = "TEMPLATE";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.applicantsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.applicantsBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblApplicantNumber;
         private System.Windows.Forms.Label lblPosition;
         private System.Windows.Forms.Button btnAddSection;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -254,7 +356,20 @@
         private System.Windows.Forms.TextBox txtHeading;
         private System.Windows.Forms.Button btnSaveTemplate;
         private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.TextBox txtApplicationNumber;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private HappyTechDatabaseDataSet happyTechDatabaseDataSet;
+        private System.Windows.Forms.BindingSource applicantsBindingSource;
+        private HappyTechDatabaseDataSetTableAdapters.ApplicantsTableAdapter applicantsTableAdapter;
+        private HappyTechDatabaseDataSet1 happyTechDatabaseDataSet1;
+        private System.Windows.Forms.BindingSource applicantsBindingSource1;
+        private HappyTechDatabaseDataSet1TableAdapters.ApplicantsTableAdapter applicantsTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn applicantIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telephoneNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dOBDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeOfApplicationDataGridViewTextBoxColumn;
     }
 }
 

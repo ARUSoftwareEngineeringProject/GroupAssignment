@@ -59,6 +59,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HappyTechDatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HappyTechDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HappyTechDatabaseDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HappyTechDatabaseDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +98,28 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="HappyTechDatabaseDataSet.xsc">
+      <DependentUpon>HappyTechDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HappyTechDatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HappyTechDatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HappyTechDatabaseDataSet.xss">
+      <DependentUpon>HappyTechDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HappyTechDatabaseDataSet1.xsc">
+      <DependentUpon>HappyTechDatabaseDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="HappyTechDatabaseDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HappyTechDatabaseDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HappyTechDatabaseDataSet1.xss">
+      <DependentUpon>HappyTechDatabaseDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

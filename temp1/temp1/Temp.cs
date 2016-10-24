@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Reflection;
 
 namespace temp1
 {
@@ -14,59 +15,21 @@ namespace temp1
             InitializeComponent();
         }
 
-        private void lblPosition_Click(object sender, EventArgs e)
+       private void Main_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void txtPosition_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbSectionOptions_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tmhun\Source\Repos\GroupAssignment5\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
-                SqlDataAdapter sda = new SqlDataAdapter("SELECT ApplicantID, FullName, Address, telephoneNo, Email, DOB FROM Applicants ", con);
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
-                dataGridView1.DataSource = dt;
-            
-        }
-
-        private void Main_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'happyTechDatabaseDataSet1.Applicants' table. You can move, or remove it, as needed.
-            //this.applicantsTableAdapter1.Fill(this.happyTechDatabaseDataSet1.Applicants);
-            // TODO: This line of code loads data into the 'happyTechDatabaseDataSet.Applicants' table. You can move, or remove it, as needed.
-            //this.applicantsTableAdapter.Fill(this.happyTechDatabaseDataSet.Applicants);
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, MouseEventArgs e)
-        {
-            
-        }
-
-        private void lblStaffID_TextChanged(object sender, EventArgs e)
-        {
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tmhun\Source\Repos\GroupAssignment5\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
-            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) From Staff where StaffID='" + lblStaffID.Text + "', FullName='" + lblStaffName.Text + "' and Contact='" + lblContact.Text + "'", con);
-            DataTable table = new DataTable();
-            sda.Fill(table);
            
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\software engineering\Happy Tech\GroupAssignment\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Applicants", con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            dataGridView1.DataSource = dt;
+                   
+            SqlDataAdapter sda1 = new SqlDataAdapter("SELECT * FROM Staff ", con);
+            DataTable table = new DataTable();
+            sda1.Fill(table);
+            dtgStaffDetails.DataSource = table;
         }
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -100,6 +63,51 @@ namespace temp1
             return txt;
 
         }
+
+        private void btnAddSection_Click(object sender, EventArgs e)
+        {
+            GroupBox select = (GroupBox)CloneObject(grpSection);
+        }
+
+        private object CloneObject(object o)
+        {
+            Type t = o.GetType();
+            PropertyInfo[] properties = t.GetProperties();
+
+            Object p = t.InvokeMember("", System.Reflection.BindingFlags.CreateInstance, null, o, null);
+
+            foreach (PropertyInfo pi in properties)
+            {
+                if (pi.CanWrite)
+                {
+                    pi.SetValue(p, pi.GetValue(o, null), null);
+               
+                }
+               
+            }
+            return p;
+        }
+
+        private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            txtApplicantID.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            txtName.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            txtAddress.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            txtTelephoneNo.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            txtEmail.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            txtDOB.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+            txtTypeOfApplication.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
+            
+        }
+
+        private void dtgStaffDetails_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            txtStaffID.Text = dtgStaffDetails.SelectedRows[0].Cells[0].Value.ToString();
+            txtStaffName.Text = dtgStaffDetails.SelectedRows[0].Cells[1].Value.ToString();
+            txtStaffContact.Text = dtgStaffDetails.SelectedRows[0].Cells[2].Value.ToString();
+        }
+
+        
     }
     }
 

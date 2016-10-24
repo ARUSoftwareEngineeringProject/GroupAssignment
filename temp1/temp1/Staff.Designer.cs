@@ -91,7 +91,6 @@
             this.txtStaffID.Name = "txtStaffID";
             this.txtStaffID.Size = new System.Drawing.Size(100, 20);
             this.txtStaffID.TabIndex = 5;
-            this.txtStaffID.TextChanged += new System.EventHandler(this.txtStaffID_TextChanged);
             // 
             // txtPassword
             // 
@@ -100,11 +99,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPassword.Location = new System.Drawing.Point(190, 123);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 6;
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
-            // Login
+            // Staff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -117,7 +116,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
-            this.Name = "Login";
+            this.Name = "Staff";
             this.ResumeLayout(false);
             this.PerformLayout();
 

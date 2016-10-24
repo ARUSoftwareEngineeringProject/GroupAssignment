@@ -26,21 +26,19 @@ namespace temp1
         private void btnLogin_Click(object sender, EventArgs e)
         {
             SqlConnection con =
-                new SqlConnection(
-                    @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tmhun\Source\Repos\GroupAssignment5\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+                new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\software engineering\Happy Tech\GroupAssignment\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
             SqlDataAdapter sda =
                 new SqlDataAdapter(
-                    "Select Count(*) From Login where StaffNumber='" + txtStaffID.Text + "' and Password ='" +
+                    "Select Count(*) From Login where LoginID='" + txtStaffID.Text + "' and Password ='" +
                     txtPassword.Text + "'", con);
-            DataTable table = new DataTable();
-        
+            DataTable table = new DataTable();       
 
-       // sda.Fill(table);
-           if (table.Rows[0][0].ToString() =="1")
+           sda.Fill(table);
+           if (table.Rows[0][0].ToString() == "1")
             {                   
                 this.Hide();
-        Temp ss = new Temp();
-        ss.Show();
+                Temp ss = new Temp();
+                ss.Show();
             }
             else
             {
@@ -48,15 +46,7 @@ namespace temp1
             }
         }
 
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtStaffID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
        
 }

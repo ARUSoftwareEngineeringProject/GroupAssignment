@@ -1,6 +1,6 @@
 ﻿namespace temp1
 {
-    partial class Main
+    partial class Temp
     {
         /// <summary>
         /// Required designer variable.
@@ -44,12 +44,6 @@
             this.txtHeading = new System.Windows.Forms.TextBox();
             this.btnSaveTemplate = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.applicantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.happyTechDatabaseDataSet = new temp1.HappyTechDatabaseDataSet();
-            this.applicantsTableAdapter = new temp1.HappyTechDatabaseDataSetTableAdapters.ApplicantsTableAdapter();
-            this.happyTechDatabaseDataSet1 = new temp1.HappyTechDatabaseDataSet1();
-            this.applicantsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.applicantsTableAdapter1 = new temp1.HappyTechDatabaseDataSet1TableAdapters.ApplicantsTableAdapter();
             this.applicantIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,12 +51,18 @@
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dOBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeOfApplicationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.applicantsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.happyTechDatabaseDataSet1 = new temp1.HappyTechDatabaseDataSet1();
+            this.applicantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.happyTechDatabaseDataSet = new temp1.HappyTechDatabaseDataSet();
+            this.applicantsTableAdapter = new temp1.HappyTechDatabaseDataSetTableAdapters.ApplicantsTableAdapter();
+            this.applicantsTableAdapter1 = new temp1.HappyTechDatabaseDataSet1TableAdapters.ApplicantsTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.applicantsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicantsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.applicantsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblPosition
@@ -70,17 +70,19 @@
             this.lblPosition.AutoSize = true;
             this.lblPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPosition.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblPosition.Location = new System.Drawing.Point(40, 120);
+            this.lblPosition.Location = new System.Drawing.Point(60, 185);
+            this.lblPosition.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(0, 16);
+            this.lblPosition.Size = new System.Drawing.Size(0, 25);
             this.lblPosition.TabIndex = 1;
             this.lblPosition.Click += new System.EventHandler(this.lblPosition_Click);
             // 
             // btnAddSection
             // 
-            this.btnAddSection.Location = new System.Drawing.Point(34, 229);
+            this.btnAddSection.Location = new System.Drawing.Point(51, 352);
+            this.btnAddSection.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddSection.Name = "btnAddSection";
-            this.btnAddSection.Size = new System.Drawing.Size(75, 38);
+            this.btnAddSection.Size = new System.Drawing.Size(112, 58);
             this.btnAddSection.TabIndex = 5;
             this.btnAddSection.Text = "ADD SECTION";
             this.btnAddSection.UseVisualStyleBackColor = true;
@@ -99,9 +101,11 @@
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.txtHeading);
             this.groupBox1.ForeColor = System.Drawing.Color.Tomato;
-            this.groupBox1.Location = new System.Drawing.Point(34, 273);
+            this.groupBox1.Location = new System.Drawing.Point(51, 420);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(786, 206);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(1179, 317);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
@@ -114,9 +118,10 @@
             "Move Down",
             "Edit",
             "Delete"});
-            this.comboBox4.Location = new System.Drawing.Point(641, 146);
+            this.comboBox4.Location = new System.Drawing.Point(962, 225);
+            this.comboBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(64, 21);
+            this.comboBox4.Size = new System.Drawing.Size(94, 28);
             this.comboBox4.TabIndex = 19;
             // 
             // comboBox3
@@ -128,38 +133,44 @@
             "Move Down",
             "Edit",
             "Delete"});
-            this.comboBox3.Location = new System.Drawing.Point(641, 109);
+            this.comboBox3.Location = new System.Drawing.Point(962, 168);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(64, 21);
+            this.comboBox3.Size = new System.Drawing.Size(94, 28);
             this.comboBox3.TabIndex = 19;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(12, 110);
+            this.textBox4.Location = new System.Drawing.Point(18, 169);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(149, 20);
+            this.textBox4.Size = new System.Drawing.Size(222, 26);
             this.textBox4.TabIndex = 16;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 147);
+            this.textBox3.Location = new System.Drawing.Point(18, 226);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(149, 20);
+            this.textBox3.Size = new System.Drawing.Size(222, 26);
             this.textBox3.TabIndex = 15;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(211, 147);
+            this.textBox2.Location = new System.Drawing.Point(316, 226);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(414, 20);
+            this.textBox2.Size = new System.Drawing.Size(619, 26);
             this.textBox2.TabIndex = 14;
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(211, 110);
+            this.textBox9.Location = new System.Drawing.Point(316, 169);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(414, 20);
+            this.textBox9.Size = new System.Drawing.Size(619, 26);
             this.textBox9.TabIndex = 13;
+            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // cmbSectionOptions
             // 
@@ -171,18 +182,20 @@
             "Edit",
             "Delete",
             "Add Heading"});
-            this.cmbSectionOptions.Location = new System.Drawing.Point(576, 35);
+            this.cmbSectionOptions.Location = new System.Drawing.Point(864, 54);
+            this.cmbSectionOptions.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbSectionOptions.Name = "cmbSectionOptions";
-            this.cmbSectionOptions.Size = new System.Drawing.Size(146, 21);
+            this.cmbSectionOptions.Size = new System.Drawing.Size(217, 28);
             this.cmbSectionOptions.TabIndex = 8;
             this.cmbSectionOptions.SelectedIndexChanged += new System.EventHandler(this.cmbSectionOptions_SelectedIndexChanged);
             // 
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(728, 35);
+            this.btnDelete.Location = new System.Drawing.Point(1092, 54);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(36, 24);
+            this.btnDelete.Size = new System.Drawing.Size(54, 37);
             this.btnDelete.TabIndex = 8;
             this.btnDelete.Text = "X";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -190,27 +203,31 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(12, 63);
+            this.btnAdd.Location = new System.Drawing.Point(18, 97);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(46, 29);
+            this.btnAdd.Size = new System.Drawing.Size(69, 45);
             this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "+";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtHeading
             // 
             this.txtHeading.BackColor = System.Drawing.Color.Beige;
-            this.txtHeading.Location = new System.Drawing.Point(12, 21);
+            this.txtHeading.Location = new System.Drawing.Point(18, 32);
+            this.txtHeading.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtHeading.Name = "txtHeading";
-            this.txtHeading.Size = new System.Drawing.Size(155, 20);
+            this.txtHeading.Size = new System.Drawing.Size(230, 26);
             this.txtHeading.TabIndex = 0;
             this.txtHeading.Text = "HEADING";
             // 
             // btnSaveTemplate
             // 
-            this.btnSaveTemplate.Location = new System.Drawing.Point(686, 485);
+            this.btnSaveTemplate.Location = new System.Drawing.Point(1029, 746);
+            this.btnSaveTemplate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSaveTemplate.Name = "btnSaveTemplate";
-            this.btnSaveTemplate.Size = new System.Drawing.Size(134, 38);
+            this.btnSaveTemplate.Size = new System.Drawing.Size(201, 58);
             this.btnSaveTemplate.TabIndex = 7;
             this.btnSaveTemplate.Text = "SAVE TEMPLATE";
             this.btnSaveTemplate.UseVisualStyleBackColor = true;
@@ -230,41 +247,14 @@
             this.dOBDataGridViewTextBoxColumn,
             this.typeOfApplicationDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.applicantsBindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(34, 120);
+            this.dataGridView1.Location = new System.Drawing.Point(51, 185);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(764, 100);
+            this.dataGridView1.Size = new System.Drawing.Size(1146, 154);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // applicantsBindingSource
-            // 
-            this.applicantsBindingSource.DataMember = "Applicants";
-            this.applicantsBindingSource.DataSource = this.happyTechDatabaseDataSet;
-            // 
-            // happyTechDatabaseDataSet
-            // 
-            this.happyTechDatabaseDataSet.DataSetName = "HappyTechDatabaseDataSet";
-            this.happyTechDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // applicantsTableAdapter
-            // 
-            this.applicantsTableAdapter.ClearBeforeFill = true;
-            // 
-            // happyTechDatabaseDataSet1
-            // 
-            this.happyTechDatabaseDataSet1.DataSetName = "HappyTechDatabaseDataSet1";
-            this.happyTechDatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // applicantsBindingSource1
-            // 
-            this.applicantsBindingSource1.DataMember = "Applicants";
-            this.applicantsBindingSource1.DataSource = this.happyTechDatabaseDataSet1;
-            // 
-            // applicantsTableAdapter1
-            // 
-            this.applicantsTableAdapter1.ClearBeforeFill = true;
             // 
             // applicantIDDataGridViewTextBoxColumn
             // 
@@ -315,27 +305,56 @@
             this.typeOfApplicationDataGridViewTextBoxColumn.Name = "typeOfApplicationDataGridViewTextBoxColumn";
             this.typeOfApplicationDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // Main
+            // applicantsBindingSource1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.applicantsBindingSource1.DataMember = "Applicants";
+            this.applicantsBindingSource1.DataSource = this.happyTechDatabaseDataSet1;
+            // 
+            // happyTechDatabaseDataSet1
+            // 
+            this.happyTechDatabaseDataSet1.DataSetName = "HappyTechDatabaseDataSet1";
+            this.happyTechDatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // applicantsBindingSource
+            // 
+            this.applicantsBindingSource.DataMember = "Applicants";
+            this.applicantsBindingSource.DataSource = this.happyTechDatabaseDataSet;
+            // 
+            // happyTechDatabaseDataSet
+            // 
+            this.happyTechDatabaseDataSet.DataSetName = "HappyTechDatabaseDataSet";
+            this.happyTechDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // applicantsTableAdapter
+            // 
+            this.applicantsTableAdapter.ClearBeforeFill = true;
+            // 
+            // applicantsTableAdapter1
+            // 
+            this.applicantsTableAdapter1.ClearBeforeFill = true;
+            // 
+            // Temp
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateGray;
-            this.ClientSize = new System.Drawing.Size(896, 611);
+            this.ClientSize = new System.Drawing.Size(1344, 940);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnSaveTemplate);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAddSection);
             this.Controls.Add(this.lblPosition);
-            this.Name = "Main";
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "Temp";
             this.Text = "TEMPLATE";
             this.Load += new System.EventHandler(this.Main_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.applicantsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicantsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.applicantsBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

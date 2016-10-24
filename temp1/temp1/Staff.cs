@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace temp1
 {
-    public partial class Login : Form
+    public partial class Staff : Form
     {
-        public Login()
+        public Staff()
         {
             InitializeComponent();
         }
@@ -32,7 +32,7 @@ namespace temp1
             if (table.Rows[0][0].ToString() =="1")
             {
                 this.Hide();
-                Main ss = new Main();
+                Temp ss = new Temp();
                 ss.Show();
             }
             else

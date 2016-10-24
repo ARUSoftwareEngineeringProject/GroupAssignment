@@ -1,6 +1,6 @@
 ﻿namespace temp1
 {
-    partial class Login
+    partial class Staff
     {
         /// <summary>
         /// Required designer variable.

@@ -5,9 +5,11 @@ using System.Data.SqlClient;
 
 namespace temp1
 {
-    public partial class Main : Form
+    public partial class Temp : Form
     {
-        public Main()
+        int cRight = 1;
+        int cLeft = 1;
+        public Temp()
         {
             InitializeComponent();
         }
@@ -41,7 +43,7 @@ namespace temp1
         private void Main_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'happyTechDatabaseDataSet1.Applicants' table. You can move, or remove it, as needed.
-            this.applicantsTableAdapter1.Fill(this.happyTechDatabaseDataSet1.Applicants);
+            //this.applicantsTableAdapter1.Fill(this.happyTechDatabaseDataSet1.Applicants);
             // TODO: This line of code loads data into the 'happyTechDatabaseDataSet.Applicants' table. You can move, or remove it, as needed.
             //this.applicantsTableAdapter.Fill(this.happyTechDatabaseDataSet.Applicants);
 
@@ -65,5 +67,39 @@ namespace temp1
             sda.Fill(table);
            
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddNewTextBox2();
+            AddNewTextBox();
+
+        }
+
+        TextBox AddNewTextBox2()
+        {
+            TextBox txt1 = new TextBox();
+            this.Controls.Add(txt1);
+            txt1.Top = cRight * 25;
+            txt1.Left = 150;
+            txt1.Text = " " + this.cRight.ToString();
+            cRight = cRight + 1;
+            return txt1;
+
+        }
+
+        
+             TextBox AddNewTextBox()
+
+        {
+            TextBox txt = new TextBox();
+            this.Controls.Add(txt);
+            txt.Top = cLeft * 25;
+            txt.Left = 270;
+            txt.Text = " " + this.cLeft.ToString();
+            cLeft = cLeft + 1;
+            return txt;
+
+        }
     }
-}
+    }
+

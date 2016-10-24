@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace temp1
 {
-    public partial class Login : Form
+    public partial class Staff : Form
     {
-        public Login()
+        public Staff()
         {
             InitializeComponent();
         }
@@ -25,15 +25,22 @@ namespace temp1
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tmhun\Source\Repos\GroupAssignment5\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
-            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) From Login where StaffNumber='" + txtStaffID.Text + "' and Password ='" + txtPassword.Text + "'", con);
+            SqlConnection con =
+                new SqlConnection(
+                    @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tmhun\Source\Repos\GroupAssignment5\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlDataAdapter sda =
+                new SqlDataAdapter(
+                    "Select Count(*) From Login where StaffNumber='" + txtStaffID.Text + "' and Password ='" +
+                    txtPassword.Text + "'", con);
             DataTable table = new DataTable();
-            sda.Fill(table);
-            if (table.Rows[0][0].ToString() =="1")
+        
+
+       // sda.Fill(table);
+           if (table.Rows[0][0].ToString() =="1")
             {                   
                 this.Hide();
-                Main ss = new Main();
-                ss.Show();
+        Temp ss = new Temp();
+        ss.Show();
             }
             else
             {

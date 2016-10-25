@@ -3,6 +3,7 @@ using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Reflection;
+using System.Drawing;
 
 namespace temp1
 {
@@ -18,7 +19,7 @@ namespace temp1
        private void Main_Load(object sender, EventArgs e)
         {
            
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\software engineering\Happy Tech\GroupAssignment\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\software engineering\Happy Tech\GroupAssignment2\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
             SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Applicants", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -33,31 +34,32 @@ namespace temp1
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddNewTextBox2();
-            AddNewTextBox();
+            GroupBox gb = (GroupBox)(((Button)sender).Parent);
+            AddNewTextBox2(gb);
+            AddNewTextBox(gb);
 
         }
 
-        TextBox AddNewTextBox2()
+        TextBox AddNewTextBox2(GroupBox gb)
         {
             TextBox txt1 = new TextBox();
-            this.Controls.Add(txt1);
+            gb.Controls.Add(txt1);
+            //this.Controls.Add(txt1);
             txt1.Top = cRight * 25;
-            txt1.Left = 150;
+            txt1.Left = 270;
             txt1.Text = " " + this.cRight.ToString();
             cRight = cRight + 1;
             return txt1;
 
         }
 
-        
-             TextBox AddNewTextBox()
-
+        TextBox AddNewTextBox(GroupBox gb)
         {
             TextBox txt = new TextBox();
-            this.Controls.Add(txt);
+           gb.Controls.Add(txt);
+          //  this.Controls.Add(txt);
             txt.Top = cLeft * 25;
-            txt.Left = 270;
+            txt.Left = 150;
             txt.Text = " " + this.cLeft.ToString();
             cLeft = cLeft + 1;
             return txt;
@@ -66,7 +68,32 @@ namespace temp1
 
         private void btnAddSection_Click(object sender, EventArgs e)
         {
-            GroupBox select = (GroupBox)CloneObject(grpSection);
+            //GroupBox select = (GroupBox)CloneObject(grpSection);
+            GroupBox groupBox = new GroupBox();
+            groupBox.BackColor = System.Drawing.Color.Blue;
+            groupBox.Controls.Add(this.comboBox4);
+            groupBox.Controls.Add(this.comboBox3);
+            /*           this.grpSection.Controls.Add(this.textBox4);
+                       this.grpSection.Controls.Add(this.textBox3);
+                       this.grpSection.Controls.Add(this.textBox2);
+                       this.grpSection.Controls.Add(this.textBox9);
+                       this.grpSection.Controls.Add(this.cmbSectionOptions);
+                       this.grpSection.Controls.Add(this.btnDelete);
+                       this.grpSection.Controls.Add(this.btnAdd);
+                       this.grpSection.Controls.Add(this.txtHeading);
+                       this.grpSection.ForeColor = System.Drawing.Color.Tomato;
+                       this.grpSection.Location = new System.Drawing.Point(34, 273);
+                       this.grpSection.Name = "grpSection";
+                       this.grpSection.Size = new System.Drawing.Size(786, 161);
+                       this.grpSection.TabIndex = 6;
+                       this.grpSection.TabStop = false;
+                       this.grpSection.Enter += new System.EventHandler(this.grpSection_Enter);
+                       */
+            groupBox.Size = new System.Drawing.Size(786, 161);
+            groupBox.ForeColor = System.Drawing.Color.Green;
+            groupBox.Location = new System.Drawing.Point(34, 600);
+            this.Controls.Add(groupBox);
+
         }
 
         private object CloneObject(object o)
@@ -107,7 +134,16 @@ namespace temp1
             txtStaffContact.Text = dtgStaffDetails.SelectedRows[0].Cells[2].Value.ToString();
         }
 
-        
-    }
+        private void grpSection_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtHeading_Click(object sender, EventArgs e)
+        {
+            txtHeading.Clear();
+        }
+
+}
     }
 

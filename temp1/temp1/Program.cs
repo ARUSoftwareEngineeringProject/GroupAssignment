@@ -16,7 +16,8 @@ namespace temp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Staff());
+            //            Application.Run(new Staff());
+            Application.Run(new Temp());
         }
     }
 }

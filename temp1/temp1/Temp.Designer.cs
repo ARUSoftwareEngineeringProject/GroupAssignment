@@ -61,6 +61,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblStaffID = new System.Windows.Forms.Label();
             this.dtgStaffDetails = new System.Windows.Forms.DataGridView();
+            this.staffIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.happyTechDatabaseDataSet2 = new temp1.HappyTechDatabaseDataSet2();
             this.txtApplicantID = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -75,17 +80,23 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.happyTechDatabaseDataSet2 = new temp1.HappyTechDatabaseDataSet2();
-            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.staffTableAdapter = new temp1.HappyTechDatabaseDataSet2TableAdapters.StaffTableAdapter();
-            this.staffIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtStaffContact = new System.Windows.Forms.TextBox();
             this.txtStaffName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtStaffID = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.grpSection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicantsBindingSource1)).BeginInit();
@@ -93,8 +104,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.applicantsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgStaffDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet2)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblPosition
@@ -119,7 +131,7 @@
             // 
             // grpSection
             // 
-            this.grpSection.BackColor = System.Drawing.Color.RosyBrown;
+            this.grpSection.BackColor = System.Drawing.Color.Transparent;
             this.grpSection.Controls.Add(this.comboBox4);
             this.grpSection.Controls.Add(this.comboBox3);
             this.grpSection.Controls.Add(this.textBox4);
@@ -131,11 +143,12 @@
             this.grpSection.Controls.Add(this.btnAdd);
             this.grpSection.Controls.Add(this.txtHeading);
             this.grpSection.ForeColor = System.Drawing.Color.Tomato;
-            this.grpSection.Location = new System.Drawing.Point(34, 273);
+            this.grpSection.Location = new System.Drawing.Point(31, 273);
             this.grpSection.Name = "grpSection";
-            this.grpSection.Size = new System.Drawing.Size(786, 206);
+            this.grpSection.Size = new System.Drawing.Size(786, 161);
             this.grpSection.TabIndex = 6;
             this.grpSection.TabStop = false;
+            this.grpSection.Enter += new System.EventHandler(this.grpSection_Enter);
             // 
             // comboBox4
             // 
@@ -146,7 +159,7 @@
             "Move Down",
             "Edit",
             "Delete"});
-            this.comboBox4.Location = new System.Drawing.Point(641, 146);
+            this.comboBox4.Location = new System.Drawing.Point(641, 111);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(64, 21);
             this.comboBox4.TabIndex = 19;
@@ -160,35 +173,35 @@
             "Move Down",
             "Edit",
             "Delete"});
-            this.comboBox3.Location = new System.Drawing.Point(641, 109);
+            this.comboBox3.Location = new System.Drawing.Point(641, 74);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(64, 21);
             this.comboBox3.TabIndex = 19;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(12, 110);
+            this.textBox4.Location = new System.Drawing.Point(12, 74);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(149, 20);
             this.textBox4.TabIndex = 16;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 147);
+            this.textBox3.Location = new System.Drawing.Point(12, 112);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(149, 20);
             this.textBox3.TabIndex = 15;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(211, 147);
+            this.textBox2.Location = new System.Drawing.Point(211, 112);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(414, 20);
             this.textBox2.TabIndex = 14;
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(211, 110);
+            this.textBox9.Location = new System.Drawing.Point(211, 74);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(414, 20);
             this.textBox9.TabIndex = 13;
@@ -221,9 +234,9 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(12, 63);
+            this.btnAdd.Location = new System.Drawing.Point(178, 10);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(46, 29);
+            this.btnAdd.Size = new System.Drawing.Size(35, 32);
             this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "+";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -237,10 +250,11 @@
             this.txtHeading.Size = new System.Drawing.Size(155, 20);
             this.txtHeading.TabIndex = 0;
             this.txtHeading.Text = "HEADING";
+            this.txtHeading.Click += new System.EventHandler(this.txtHeading_Click);
             // 
             // btnSaveTemplate
             // 
-            this.btnSaveTemplate.Location = new System.Drawing.Point(686, 485);
+            this.btnSaveTemplate.Location = new System.Drawing.Point(686, 640);
             this.btnSaveTemplate.Name = "btnSaveTemplate";
             this.btnSaveTemplate.Size = new System.Drawing.Size(134, 38);
             this.btnSaveTemplate.TabIndex = 7;
@@ -394,6 +408,37 @@
             this.dtgStaffDetails.TabIndex = 16;
             this.dtgStaffDetails.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dtgStaffDetails_MouseDoubleClick);
             // 
+            // staffIDDataGridViewTextBoxColumn
+            // 
+            this.staffIDDataGridViewTextBoxColumn.DataPropertyName = "StaffID";
+            this.staffIDDataGridViewTextBoxColumn.HeaderText = "StaffID";
+            this.staffIDDataGridViewTextBoxColumn.Name = "staffIDDataGridViewTextBoxColumn";
+            this.staffIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fullNameDataGridViewTextBoxColumn1
+            // 
+            this.fullNameDataGridViewTextBoxColumn1.DataPropertyName = "FullName";
+            this.fullNameDataGridViewTextBoxColumn1.HeaderText = "FullName";
+            this.fullNameDataGridViewTextBoxColumn1.Name = "fullNameDataGridViewTextBoxColumn1";
+            this.fullNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // contactDataGridViewTextBoxColumn
+            // 
+            this.contactDataGridViewTextBoxColumn.DataPropertyName = "Contact";
+            this.contactDataGridViewTextBoxColumn.HeaderText = "Contact";
+            this.contactDataGridViewTextBoxColumn.Name = "contactDataGridViewTextBoxColumn";
+            this.contactDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // staffBindingSource
+            // 
+            this.staffBindingSource.DataMember = "Staff";
+            this.staffBindingSource.DataSource = this.happyTechDatabaseDataSet2;
+            // 
+            // happyTechDatabaseDataSet2
+            // 
+            this.happyTechDatabaseDataSet2.DataSetName = "HappyTechDatabaseDataSet2";
+            this.happyTechDatabaseDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // txtApplicantID
             // 
             this.txtApplicantID.Location = new System.Drawing.Point(362, 115);
@@ -513,40 +558,9 @@
             this.label8.TabIndex = 30;
             this.label8.Text = "TELEPHONE NO";
             // 
-            // happyTechDatabaseDataSet2
-            // 
-            this.happyTechDatabaseDataSet2.DataSetName = "HappyTechDatabaseDataSet2";
-            this.happyTechDatabaseDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // staffBindingSource
-            // 
-            this.staffBindingSource.DataMember = "Staff";
-            this.staffBindingSource.DataSource = this.happyTechDatabaseDataSet2;
-            // 
             // staffTableAdapter
             // 
             this.staffTableAdapter.ClearBeforeFill = true;
-            // 
-            // staffIDDataGridViewTextBoxColumn
-            // 
-            this.staffIDDataGridViewTextBoxColumn.DataPropertyName = "StaffID";
-            this.staffIDDataGridViewTextBoxColumn.HeaderText = "StaffID";
-            this.staffIDDataGridViewTextBoxColumn.Name = "staffIDDataGridViewTextBoxColumn";
-            this.staffIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fullNameDataGridViewTextBoxColumn1
-            // 
-            this.fullNameDataGridViewTextBoxColumn1.DataPropertyName = "FullName";
-            this.fullNameDataGridViewTextBoxColumn1.HeaderText = "FullName";
-            this.fullNameDataGridViewTextBoxColumn1.Name = "fullNameDataGridViewTextBoxColumn1";
-            this.fullNameDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // contactDataGridViewTextBoxColumn
-            // 
-            this.contactDataGridViewTextBoxColumn.DataPropertyName = "Contact";
-            this.contactDataGridViewTextBoxColumn.HeaderText = "Contact";
-            this.contactDataGridViewTextBoxColumn.Name = "contactDataGridViewTextBoxColumn";
-            this.contactDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // txtStaffContact
             // 
@@ -590,12 +604,134 @@
             this.txtStaffID.Size = new System.Drawing.Size(64, 20);
             this.txtStaffID.TabIndex = 35;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.RosyBrown;
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.comboBox5);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.textBox8);
+            this.groupBox1.ForeColor = System.Drawing.Color.Tomato;
+            this.groupBox1.Location = new System.Drawing.Point(31, 453);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(786, 161);
+            this.groupBox1.TabIndex = 36;
+            this.groupBox1.TabStop = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.Color.Beige;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Move Up",
+            "Move Down",
+            "Edit",
+            "Delete"});
+            this.comboBox1.Location = new System.Drawing.Point(641, 111);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(64, 21);
+            this.comboBox1.TabIndex = 19;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.BackColor = System.Drawing.Color.Beige;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Move Up",
+            "Move Down",
+            "Edit",
+            "Delete"});
+            this.comboBox2.Location = new System.Drawing.Point(641, 74);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(64, 21);
+            this.comboBox2.TabIndex = 19;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 74);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(149, 20);
+            this.textBox1.TabIndex = 16;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(12, 112);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(149, 20);
+            this.textBox5.TabIndex = 15;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(211, 112);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(414, 20);
+            this.textBox6.TabIndex = 14;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(211, 74);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(414, 20);
+            this.textBox7.TabIndex = 13;
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.BackColor = System.Drawing.Color.Beige;
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Items.AddRange(new object[] {
+            "Move Up",
+            "Move Down",
+            "Edit",
+            "Delete",
+            "Add Heading"});
+            this.comboBox5.Location = new System.Drawing.Point(576, 35);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(146, 21);
+            this.comboBox5.TabIndex = 8;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(728, 35);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(36, 24);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(178, 10);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(35, 32);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "+";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // textBox8
+            // 
+            this.textBox8.BackColor = System.Drawing.Color.Beige;
+            this.textBox8.Location = new System.Drawing.Point(12, 21);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(155, 20);
+            this.textBox8.TabIndex = 0;
+            this.textBox8.Text = "HEADING";
+            // 
             // Temp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateGray;
-            this.ClientSize = new System.Drawing.Size(896, 476);
+            this.ClientSize = new System.Drawing.Size(1409, 681);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtStaffID);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -636,8 +772,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.applicantsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgStaffDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet2)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -701,6 +839,17 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtStaffID;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox8;
     }
 }
 

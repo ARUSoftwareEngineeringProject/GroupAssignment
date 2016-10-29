@@ -34,15 +34,15 @@
             this.grpSection = new System.Windows.Forms.GroupBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtSubHeading = new System.Windows.Forms.TextBox();
+            this.txtSubHeading2 = new System.Windows.Forms.TextBox();
+            this.txtComment2 = new System.Windows.Forms.TextBox();
+            this.txtComment = new System.Windows.Forms.TextBox();
             this.cmbSectionOptions = new System.Windows.Forms.ComboBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtHeading = new System.Windows.Forms.TextBox();
-            this.btnSaveTemplate = new System.Windows.Forms.Button();
+            this.btn_SaveTemplate = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.applicantIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -134,10 +134,10 @@
             this.grpSection.BackColor = System.Drawing.Color.Transparent;
             this.grpSection.Controls.Add(this.comboBox4);
             this.grpSection.Controls.Add(this.comboBox3);
-            this.grpSection.Controls.Add(this.textBox4);
-            this.grpSection.Controls.Add(this.textBox3);
-            this.grpSection.Controls.Add(this.textBox2);
-            this.grpSection.Controls.Add(this.textBox9);
+            this.grpSection.Controls.Add(this.txtSubHeading);
+            this.grpSection.Controls.Add(this.txtSubHeading2);
+            this.grpSection.Controls.Add(this.txtComment2);
+            this.grpSection.Controls.Add(this.txtComment);
             this.grpSection.Controls.Add(this.cmbSectionOptions);
             this.grpSection.Controls.Add(this.btnDelete);
             this.grpSection.Controls.Add(this.btnAdd);
@@ -178,33 +178,33 @@
             this.comboBox3.Size = new System.Drawing.Size(64, 21);
             this.comboBox3.TabIndex = 19;
             // 
-            // textBox4
+            // txtSubHeading
             // 
-            this.textBox4.Location = new System.Drawing.Point(12, 74);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(149, 20);
-            this.textBox4.TabIndex = 16;
+            this.txtSubHeading.Location = new System.Drawing.Point(12, 74);
+            this.txtSubHeading.Name = "txtSubHeading";
+            this.txtSubHeading.Size = new System.Drawing.Size(149, 20);
+            this.txtSubHeading.TabIndex = 16;
             // 
-            // textBox3
+            // txtSubHeading2
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 112);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(149, 20);
-            this.textBox3.TabIndex = 15;
+            this.txtSubHeading2.Location = new System.Drawing.Point(12, 112);
+            this.txtSubHeading2.Name = "txtSubHeading2";
+            this.txtSubHeading2.Size = new System.Drawing.Size(149, 20);
+            this.txtSubHeading2.TabIndex = 15;
             // 
-            // textBox2
+            // txtComment2
             // 
-            this.textBox2.Location = new System.Drawing.Point(211, 112);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(414, 20);
-            this.textBox2.TabIndex = 14;
+            this.txtComment2.Location = new System.Drawing.Point(211, 112);
+            this.txtComment2.Name = "txtComment2";
+            this.txtComment2.Size = new System.Drawing.Size(414, 20);
+            this.txtComment2.TabIndex = 14;
             // 
-            // textBox9
+            // txtComment
             // 
-            this.textBox9.Location = new System.Drawing.Point(211, 74);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(414, 20);
-            this.textBox9.TabIndex = 13;
+            this.txtComment.Location = new System.Drawing.Point(211, 74);
+            this.txtComment.Name = "txtComment";
+            this.txtComment.Size = new System.Drawing.Size(414, 20);
+            this.txtComment.TabIndex = 13;
             // 
             // cmbSectionOptions
             // 
@@ -252,14 +252,16 @@
             this.txtHeading.Text = "HEADING";
             this.txtHeading.Click += new System.EventHandler(this.txtHeading_Click);
             // 
-            // btnSaveTemplate
+            // btn_SaveTemplate
             // 
-            this.btnSaveTemplate.Location = new System.Drawing.Point(686, 640);
-            this.btnSaveTemplate.Name = "btnSaveTemplate";
-            this.btnSaveTemplate.Size = new System.Drawing.Size(134, 38);
-            this.btnSaveTemplate.TabIndex = 7;
-            this.btnSaveTemplate.Text = "SAVE TEMPLATE";
-            this.btnSaveTemplate.UseVisualStyleBackColor = true;
+            this.btn_SaveTemplate.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SaveTemplate.Location = new System.Drawing.Point(758, 25);
+            this.btn_SaveTemplate.Name = "btn_SaveTemplate";
+            this.btn_SaveTemplate.Size = new System.Drawing.Size(91, 43);
+            this.btn_SaveTemplate.TabIndex = 7;
+            this.btn_SaveTemplate.Text = "SAVE TEMPLATE";
+            this.btn_SaveTemplate.UseVisualStyleBackColor = true;
+            this.btn_SaveTemplate.Click += new System.EventHandler(this.btnSaveTemplate_Click);
             // 
             // dataGridView1
             // 
@@ -730,7 +732,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateGray;
-            this.ClientSize = new System.Drawing.Size(1409, 681);
+            this.ClientSize = new System.Drawing.Size(1224, 681);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtStaffID);
             this.Controls.Add(this.label10);
@@ -756,7 +758,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblSelection);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnSaveTemplate);
+            this.Controls.Add(this.btn_SaveTemplate);
             this.Controls.Add(this.grpSection);
             this.Controls.Add(this.btnAddSection);
             this.Controls.Add(this.lblPosition);
@@ -786,15 +788,15 @@
         private System.Windows.Forms.Button btnAddSection;
         private System.Windows.Forms.GroupBox grpSection;
         private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtSubHeading;
+        private System.Windows.Forms.TextBox txtSubHeading2;
+        private System.Windows.Forms.TextBox txtComment2;
+        private System.Windows.Forms.TextBox txtComment;
         private System.Windows.Forms.ComboBox cmbSectionOptions;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox txtHeading;
-        private System.Windows.Forms.Button btnSaveTemplate;
+        private System.Windows.Forms.Button btn_SaveTemplate;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private HappyTechDatabaseDataSet happyTechDatabaseDataSet;

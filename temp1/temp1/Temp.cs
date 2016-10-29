@@ -15,11 +15,11 @@ namespace temp1
         {
             InitializeComponent();
         }
-
-       private void Main_Load(object sender, EventArgs e)
+      
+        private void Main_Load(object sender, EventArgs e)
         {
            
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\software engineering\Happy Tech\GroupAssignment2\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Najat\Desktop\SEAssignment\GroupAssignment\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
             SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Applicants", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -144,6 +144,28 @@ namespace temp1
             txtHeading.Clear();
         }
 
-}
+        private void btnSaveTemplate_Click(object sender, EventArgs e)
+        {
+            if (txtStaffID.Text!= "" & txtStaffName.Text!="" & txtStaffContact.Text!="" & txtHeading.Text != "" & txtSubHeading.Text != "" & txtComment.Text != "")
+            { 
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Najat\Desktop\SEAssignment\GroupAssignment\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlCommand command = new SqlCommand();
+                command.Connection = con;
+                command.CommandType = CommandType.Text;
+                con.Open();
+                command.CommandText = "insert into Template (StaffID, StaffName, Heading, subHeading, comment) value('" + txtStaffID.Text + "','" + txtStaffName.Text + "','" + txtStaffContact.Text + "','" + txtHeading.Text + "', '" + txtSubHeading.Text + "', '" + txtComment.Text + "', '" + txtSubHeading2.Text + "', '" + txtComment2.Text + "' )";
+                command.ExecuteNonQuery();
+                con.Close();
+
+                MessageBox.Show("Datas Saved");
+      
+                txtHeading.Clear();
+                txtSubHeading.Clear();
+                txtComment.Clear();
+
+            }
+
+        }
+    }
     }
 

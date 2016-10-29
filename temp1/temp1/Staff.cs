@@ -26,7 +26,7 @@ namespace temp1
         private void btnLogin_Click(object sender, EventArgs e)
         {
             SqlConnection con =
-                new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\software engineering\Happy Tech\GroupAssignment2\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+                new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Najat\Desktop\SEAssignment\GroupAssignment\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
             SqlDataAdapter sda =
                 new SqlDataAdapter(
                     "Select Count(*) From Login where LoginID='" + txtStaffID.Text + "' and Password ='" +

@@ -19,7 +19,7 @@ namespace temp1
         private void Main_Load(object sender, EventArgs e)
         {
            
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Najat\Desktop\SEAssignment\GroupAssignment\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\software engineering\Happy Tech\GroupAssign2\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
             SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Applicants", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -44,7 +44,6 @@ namespace temp1
         {
             TextBox txt1 = new TextBox();
             gb.Controls.Add(txt1);
-            //this.Controls.Add(txt1);
             txt1.Top = cRight * 25;
             txt1.Left = 270;
             txt1.Text = " " + this.cRight.ToString();
@@ -57,8 +56,7 @@ namespace temp1
         {
             TextBox txt = new TextBox();
            gb.Controls.Add(txt);
-          //  this.Controls.Add(txt);
-            txt.Top = cLeft * 25;
+           txt.Top = cLeft * 25;
             txt.Left = 150;
             txt.Text = " " + this.cLeft.ToString();
             cLeft = cLeft + 1;
@@ -68,27 +66,25 @@ namespace temp1
 
         private void btnAddSection_Click(object sender, EventArgs e)
         {
-            //GroupBox select = (GroupBox)CloneObject(grpSection);
             GroupBox groupBox = new GroupBox();
             groupBox.BackColor = System.Drawing.Color.Blue;
             groupBox.Controls.Add(this.comboBox4);
             groupBox.Controls.Add(this.comboBox3);
-            /*           this.grpSection.Controls.Add(this.textBox4);
-                       this.grpSection.Controls.Add(this.textBox3);
-                       this.grpSection.Controls.Add(this.textBox2);
-                       this.grpSection.Controls.Add(this.textBox9);
-                       this.grpSection.Controls.Add(this.cmbSectionOptions);
-                       this.grpSection.Controls.Add(this.btnDelete);
-                       this.grpSection.Controls.Add(this.btnAdd);
-                       this.grpSection.Controls.Add(this.txtHeading);
-                       this.grpSection.ForeColor = System.Drawing.Color.Tomato;
-                       this.grpSection.Location = new System.Drawing.Point(34, 273);
-                       this.grpSection.Name = "grpSection";
-                       this.grpSection.Size = new System.Drawing.Size(786, 161);
-                       this.grpSection.TabIndex = 6;
-                       this.grpSection.TabStop = false;
-                       this.grpSection.Enter += new System.EventHandler(this.grpSection_Enter);
-                       */
+            groupBox.Controls.Add(this.textBox1);
+            groupBox.Controls.Add(this.textBox5);
+            groupBox.Controls.Add(this.textBox6);
+            groupBox.Controls.Add(this.textBox7);
+            groupBox.Controls.Add(this.cmbSectionOptions);
+            groupBox.Controls.Add(this.btnDelete);
+            groupBox.Controls.Add(this.btnAdd);
+            groupBox.Controls.Add(this.txtHeading);
+            groupBox.ForeColor = System.Drawing.Color.Tomato;
+            groupBox.Location = new System.Drawing.Point(34, 273);
+            groupBox.Name = "grpSection";
+            groupBox.Size = new System.Drawing.Size(786, 161);
+            groupBox.TabIndex = 6;
+            groupBox.TabStop = false;
+            groupBox.Enter += new System.EventHandler(this.grpSection_Enter);
             groupBox.Size = new System.Drawing.Size(786, 161);
             groupBox.ForeColor = System.Drawing.Color.Green;
             groupBox.Location = new System.Drawing.Point(34, 600);
@@ -148,7 +144,7 @@ namespace temp1
         {
             if (txtStaffID.Text!= "" & txtStaffName.Text!="" & txtStaffContact.Text!="" & txtHeading.Text != "" & txtSubHeading.Text != "" & txtComment.Text != "")
             { 
-                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Najat\Desktop\SEAssignment\GroupAssignment\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\software engineering\Happy Tech\GroupAssign2\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
                 SqlCommand command = new SqlCommand();
                 command.Connection = con;
                 command.CommandType = CommandType.Text;
@@ -165,6 +161,15 @@ namespace temp1
 
             }
 
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            txtComment.Clear();
+            txtComment2.Clear();
+            txtHeading.Clear();
+            txtSubHeading.Clear();
+            txtSubHeading2.Clear();
         }
     }
     }

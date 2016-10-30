@@ -131,7 +131,7 @@
             // 
             // grpSection
             // 
-            this.grpSection.BackColor = System.Drawing.Color.Transparent;
+            this.grpSection.BackColor = System.Drawing.Color.RosyBrown;
             this.grpSection.Controls.Add(this.comboBox4);
             this.grpSection.Controls.Add(this.comboBox3);
             this.grpSection.Controls.Add(this.txtSubHeading);
@@ -230,6 +230,7 @@
             this.btnDelete.TabIndex = 8;
             this.btnDelete.Text = "X";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 

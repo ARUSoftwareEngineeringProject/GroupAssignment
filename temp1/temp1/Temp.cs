@@ -23,8 +23,7 @@ namespace temp1
             SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Applicants", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            dataGridView1.DataSource = dt;
-                   
+                           
             SqlDataAdapter sda1 = new SqlDataAdapter("SELECT * FROM Staff ", con);
             DataTable table = new DataTable();
             sda1.Fill(table);
@@ -70,10 +69,10 @@ namespace temp1
             groupBox.BackColor = System.Drawing.Color.Blue;
             groupBox.Controls.Add(this.comboBox4);
             groupBox.Controls.Add(this.comboBox3);
-            groupBox.Controls.Add(this.textBox1);
-            groupBox.Controls.Add(this.textBox5);
-            groupBox.Controls.Add(this.textBox6);
-            groupBox.Controls.Add(this.textBox7);
+            groupBox.Controls.Add(this.txtComment);
+            groupBox.Controls.Add(this.txtComment2);
+            groupBox.Controls.Add(this.txtSubHeading);
+            groupBox.Controls.Add(this.txtSubHeading2);
             groupBox.Controls.Add(this.cmbSectionOptions);
             groupBox.Controls.Add(this.btnDelete);
             groupBox.Controls.Add(this.btnAdd);
@@ -91,37 +90,7 @@ namespace temp1
             this.Controls.Add(groupBox);
 
         }
-
-        private object CloneObject(object o)
-        {
-            Type t = o.GetType();
-            PropertyInfo[] properties = t.GetProperties();
-
-            Object p = t.InvokeMember("", System.Reflection.BindingFlags.CreateInstance, null, o, null);
-
-            foreach (PropertyInfo pi in properties)
-            {
-                if (pi.CanWrite)
-                {
-                    pi.SetValue(p, pi.GetValue(o, null), null);
                
-                }
-               
-            }
-            return p;
-        }
-
-        private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            txtApplicantID.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            txtName.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            txtAddress.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-            txtTelephoneNo.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-            txtEmail.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-            txtDOB.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-            txtTypeOfApplication.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
-            
-        }
 
         private void dtgStaffDetails_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -165,11 +134,46 @@ namespace temp1
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            txtComment.Clear();
+            /*txtComment.Clear();
             txtComment2.Clear();
             txtHeading.Clear();
             txtSubHeading.Clear();
-            txtSubHeading2.Clear();
+            txtSubHeading2.Clear();*/
+
+            GroupBox groupBox = new GroupBox();
+            if (this.txtComment == null)
+            {
+                MessageBox.Show("The field is already empty");
+            }
+            else if (this.txtComment2 == null)
+            {
+                MessageBox.Show("The field is already empty");
+            }
+            else if (this.txtSubHeading == null)
+            {
+                MessageBox.Show("The field is already empty");
+            }
+            else if (this.txtSubHeading2 == null)
+            {
+                MessageBox.Show("The field is already empty");
+            }
+            else
+            {
+                MessageBox.Show("You have deleted the fields! Please continue.");
+                this.txtComment.Clear();
+                this.txtComment2.Clear();
+                this.txtSubHeading.Clear();
+                this.txtSubHeading2.Clear();
+            }
+            
+            
+        }
+
+        private void txtFeedback_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Feedback ss = new Feedback();
+            ss.Show();
         }
     }
     }

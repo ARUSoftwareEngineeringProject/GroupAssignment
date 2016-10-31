@@ -11,6 +11,7 @@ namespace temp1
     {
         int cRight = 1;
         int cLeft = 1;
+        bool comboBox3Moved = false;
         public Temp()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace temp1
             DataTable dt = new DataTable();
             sda.Fill(dt);
             dataGridView1.DataSource = dt;
-                   
+                  
             SqlDataAdapter sda1 = new SqlDataAdapter("SELECT * FROM Staff ", con);
             DataTable table = new DataTable();
             sda1.Fill(table);
@@ -132,7 +133,7 @@ namespace temp1
 
         private void grpSection_Enter(object sender, EventArgs e)
         {
-
+           
         }
 
         private void txtHeading_Click(object sender, EventArgs e)
@@ -171,6 +172,97 @@ namespace temp1
             txtSubHeading.Clear();
             txtSubHeading2.Clear();
         }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string comboBoxChange = this.comboBox3.Text;
+            if (comboBox3Moved == false)
+            {
+                if (comboBoxChange == "Move Down")
+                {
+                    comboBox3Moved = true;
+
+                    System.Drawing.Point headingTemp = txtSubHeading.Location;
+                    txtSubHeading.Location = txtSubHeading2.Location;
+                    txtSubHeading2.Location = headingTemp;
+
+                    System.Drawing.Point commentTemp = txtComment.Location;
+                    txtComment.Location = txtComment2.Location;
+                    txtComment2.Location = commentTemp;
+                    System.Drawing.Point comboBox3Temp = comboBox3.Location;
+                    comboBox3.Location = comboBox4.Location;
+                    comboBox4.Location = comboBox3Temp;
+
+                }
+            }
+            else if (comboBox3Moved == true)
+            {
+                if (comboBoxChange == "Move Up")
+                {
+                    comboBox3Moved = false;
+                    System.Drawing.Point headingTemp = txtSubHeading.Location;
+                    txtSubHeading.Location = txtSubHeading2.Location;
+                    txtSubHeading2.Location = headingTemp;
+
+                    System.Drawing.Point commentTemp = txtComment.Location;
+                    txtComment.Location = txtComment2.Location;
+                    txtComment2.Location = commentTemp;
+                    System.Drawing.Point comboBox3Temp = comboBox3.Location;
+                    comboBox3.Location = comboBox4.Location;
+                    comboBox4.Location = comboBox3Temp;
+
+                }
+
+            }
+
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string comboBoxChange = this.comboBox3.Text;
+            if (comboBox3Moved == false)
+            {
+                if (comboBoxChange == "Move Up")
+                {
+                    comboBox3Moved = true;
+
+                    System.Drawing.Point headingTemp = txtSubHeading.Location;
+                    txtSubHeading.Location = txtSubHeading2.Location;
+                    txtSubHeading2.Location = headingTemp;
+
+                    System.Drawing.Point commentTemp = txtComment.Location;
+                    txtComment.Location = txtComment2.Location;
+                    txtComment2.Location = commentTemp;
+                    System.Drawing.Point comboBox3Temp = comboBox3.Location;
+                    comboBox3.Location = comboBox4.Location;
+                    comboBox4.Location = comboBox3Temp;
+
+                }
+            }
+            else if (comboBox3Moved == true)
+            {
+                if (comboBoxChange == "Move Down")
+                {
+                    comboBox3Moved = false;
+                    System.Drawing.Point headingTemp = txtSubHeading.Location;
+                    txtSubHeading.Location = txtSubHeading2.Location;
+                    txtSubHeading2.Location = headingTemp;
+
+                    System.Drawing.Point commentTemp = txtComment.Location;
+                    txtComment.Location = txtComment2.Location;
+                    txtComment2.Location = commentTemp;
+                    System.Drawing.Point comboBox3Temp = comboBox3.Location;
+                    comboBox3.Location = comboBox4.Location;
+                    comboBox4.Location = comboBox3Temp;
+
+                }
+
+            }
+
+        }
+
     }
     }
 

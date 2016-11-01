@@ -23,7 +23,7 @@ namespace temp1
             // TODO: This line of code loads data into the 'happyTechDatabaseDataSet3.Applicants' table. You can move, or remove it, as needed.
             this.applicantsTableAdapter.Fill(this.happyTechDatabaseDataSet3.Applicants);
 
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\software engineering\Happy Tech\GroupAssign2\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\Najat\Desktop\SEAssignment\GroupAssignment2\temp1\temp1\HappyTechDatabase.mdf; Integrated Security = True; Connect Timeout = 30");
             SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Applicants", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -42,5 +42,6 @@ namespace temp1
             txtDOB.Text = dtgApplicant.SelectedRows[0].Cells[5].Value.ToString();
             txtTypeOfApplication.Text = dtgApplicant.SelectedRows[0].Cells[6].Value.ToString();
         }
+
     }
 }

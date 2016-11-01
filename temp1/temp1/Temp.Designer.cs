@@ -132,6 +132,7 @@
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(64, 21);
             this.comboBox3.TabIndex = 19;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // txtSubHeading
             // 
@@ -175,6 +176,7 @@
             this.cmbSectionOptions.Name = "cmbSectionOptions";
             this.cmbSectionOptions.Size = new System.Drawing.Size(146, 21);
             this.cmbSectionOptions.TabIndex = 8;
+            this.cmbSectionOptions.SelectedIndexChanged += new System.EventHandler(this.cmbSectionOptions_SelectedIndexChanged);
             // 
             // btnDelete
             // 

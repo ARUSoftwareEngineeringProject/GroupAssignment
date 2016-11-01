@@ -11,19 +11,23 @@ namespace temp1
     {
         int cRight = 1;
         int cLeft = 1;
+        bool comboBox3Moved = false;
+        bool cmbSectionOptionsMoved = false;
         public Temp()
+
         {
             InitializeComponent();
         }
-      
+
+
         private void Main_Load(object sender, EventArgs e)
         {
-           
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\software engineering\Happy Tech\GroupAssign2\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Najat\Desktop\SEAssignment\GroupAssignment2\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
             SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Applicants", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-                           
+
             SqlDataAdapter sda1 = new SqlDataAdapter("SELECT * FROM Staff ", con);
             DataTable table = new DataTable();
             sda1.Fill(table);
@@ -54,8 +58,8 @@ namespace temp1
         TextBox AddNewTextBox(GroupBox gb)
         {
             TextBox txt = new TextBox();
-           gb.Controls.Add(txt);
-           txt.Top = cLeft * 25;
+            gb.Controls.Add(txt);
+            txt.Top = cLeft * 25;
             txt.Left = 150;
             txt.Text = " " + this.cLeft.ToString();
             cLeft = cLeft + 1;
@@ -67,6 +71,7 @@ namespace temp1
         {
             GroupBox groupBox = new GroupBox();
             groupBox.BackColor = System.Drawing.Color.Blue;
+            ComboBox cbA = new ComboBox();
             groupBox.Controls.Add(this.comboBox4);
             groupBox.Controls.Add(this.comboBox3);
             groupBox.Controls.Add(this.txtComment);
@@ -74,7 +79,21 @@ namespace temp1
             groupBox.Controls.Add(this.txtSubHeading);
             groupBox.Controls.Add(this.txtSubHeading2);
             groupBox.Controls.Add(this.cmbSectionOptions);
-            groupBox.Controls.Add(this.btnDelete);
+
+            Button btDel = new Button();
+            // 
+            // btnDelete
+            // 
+            btDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+//            this.btDel.Location = new System.Drawing.Point(728, 35);
+            btDel.Name = "btnDelete";
+            btDel.Size = new System.Drawing.Size(36, 24);
+            btDel.TabIndex = 8;
+            btDel.Text = "X";
+            btDel.UseVisualStyleBackColor = true;
+            btDel.Click += new System.EventHandler(this.btnDelete_Click);
+
+            groupBox.Controls.Add(btDel);
             groupBox.Controls.Add(this.btnAdd);
             groupBox.Controls.Add(this.txtHeading);
             groupBox.ForeColor = System.Drawing.Color.Tomato;
@@ -88,9 +107,10 @@ namespace temp1
             groupBox.ForeColor = System.Drawing.Color.Green;
             groupBox.Location = new System.Drawing.Point(34, 600);
             this.Controls.Add(groupBox);
+            
 
         }
-               
+
 
         private void dtgStaffDetails_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -111,19 +131,21 @@ namespace temp1
 
         private void btnSaveTemplate_Click(object sender, EventArgs e)
         {
-            if (txtStaffID.Text!= "" & txtStaffName.Text!="" & txtStaffContact.Text!="" & txtHeading.Text != "" & txtSubHeading.Text != "" & txtComment.Text != "")
-            { 
-                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\software engineering\Happy Tech\GroupAssign2\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+            if (txtStaffID.Text != "" & txtStaffName.Text != "" & txtStaffContact.Text != "" & txtHeading.Text != "" & txtSubHeading.Text != "" & txtComment.Text != "")
+            {
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Najat\Desktop\SEAssignment\GroupAssignment2\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
                 SqlCommand command = new SqlCommand();
                 command.Connection = con;
                 command.CommandType = CommandType.Text;
                 con.Open();
-                command.CommandText = "insert into Template (StaffID, StaffName, Heading, subHeading, comment) value('" + txtStaffID.Text + "','" + txtStaffName.Text + "','" + txtStaffContact.Text + "','" + txtHeading.Text + "', '" + txtSubHeading.Text + "', '" + txtComment.Text + "', '" + txtSubHeading2.Text + "', '" + txtComment2.Text + "' )";
+                Convert.ToInt32(txtStaffID.Text);
+                Convert.ToInt32(txtStaffContact.Text);
+                command.CommandText = "insert into Template (StaffID, StaffName, Heading, subHeading, comment) value(" + txtStaffID.Text + ",'" + txtStaffName.Text + "','" + txtStaffContact.Text + "','" + txtHeading.Text + "', '" + txtSubHeading.Text + "', '" + txtComment.Text + "' )";
                 command.ExecuteNonQuery();
                 con.Close();
 
                 MessageBox.Show("Datas Saved");
-      
+
                 txtHeading.Clear();
                 txtSubHeading.Clear();
                 txtComment.Clear();
@@ -134,12 +156,8 @@ namespace temp1
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            /*txtComment.Clear();
-            txtComment2.Clear();
-            txtHeading.Clear();
-            txtSubHeading.Clear();
-            txtSubHeading2.Clear();*/
-
+            ((Button)sender).Parent.Dispose();
+/*
             GroupBox groupBox = new GroupBox();
             if (this.txtComment == null)
             {
@@ -159,14 +177,16 @@ namespace temp1
             }
             else
             {
-                MessageBox.Show("You have deleted the fields! Please continue.");
-                this.txtComment.Clear();
-                this.txtComment2.Clear();
-                this.txtSubHeading.Clear();
-                this.txtSubHeading2.Clear();
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete a field ? ", "Attention", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                   grpSection.Dispose();
+                }
+
+
             }
-            
-            
+*/
+
         }
 
         private void txtFeedback_Click(object sender, EventArgs e)
@@ -175,6 +195,138 @@ namespace temp1
             Feedback ss = new Feedback();
             ss.Show();
         }
-    }
-    }
 
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string comboBoxChange = this.comboBox3.Text;
+            if (comboBox3Moved == false)
+            {
+                if (comboBoxChange == " Move Down")
+                    comboBox3Moved = true;
+
+                System.Drawing.Point headingTemp = txtSubHeading.Location;
+                txtSubHeading.Location = txtSubHeading2.Location;
+                txtSubHeading2.Location = headingTemp;
+
+                System.Drawing.Point commentTemp = txtComment.Location;
+                txtComment.Location = txtComment2.Location;
+                txtComment2.Location = commentTemp;
+                System.Drawing.Point comboBox3Temp = comboBox3.Location;
+                comboBox3.Location = comboBox4.Location;
+                comboBox4.Location = comboBox3Temp;
+
+            }
+
+            else if (comboBox3Moved == true)
+            {
+                if (comboBoxChange == "Move Up")
+                {
+                    comboBox3Moved = false;
+                    System.Drawing.Point headingTemp = txtSubHeading.Location;
+                    txtSubHeading.Location = txtSubHeading2.Location;
+                    txtSubHeading2.Location = headingTemp;
+
+                    System.Drawing.Point commentTemp = txtComment.Location;
+                    txtComment.Location = txtComment2.Location;
+                    txtComment2.Location = commentTemp;
+                    System.Drawing.Point comboBox3Temp = comboBox3.Location;
+                    comboBox3.Location = comboBox4.Location;
+                    comboBox4.Location = comboBox3Temp;
+
+                }
+
+            }
+        }
+
+
+
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string comboBoxChange = this.comboBox3.Text;
+            if (comboBox3Moved == false)
+            {
+                if (comboBoxChange == "Move Up")
+                {
+                    comboBox3Moved = true;
+
+                    System.Drawing.Point headingTemp = txtSubHeading.Location;
+                    txtSubHeading.Location = txtSubHeading2.Location;
+                    txtSubHeading2.Location = headingTemp;
+
+                    System.Drawing.Point commentTemp = txtComment.Location;
+                    txtComment.Location = txtComment2.Location;
+                    txtComment2.Location = commentTemp;
+                    System.Drawing.Point comboBox3Temp = comboBox3.Location;
+                    comboBox3.Location = comboBox4.Location;
+                    comboBox4.Location = comboBox3Temp;
+
+                }
+            }
+            else if (comboBox3Moved == true)
+            {
+                if (comboBoxChange == "Move Down")
+                {
+                    comboBox3Moved = false;
+                    System.Drawing.Point headingTemp = txtSubHeading.Location;
+                    txtSubHeading.Location = txtSubHeading2.Location;
+                    txtSubHeading2.Location = headingTemp;
+
+                    System.Drawing.Point commentTemp = txtComment.Location;
+                    txtComment.Location = txtComment2.Location;
+                    txtComment2.Location = commentTemp;
+                    System.Drawing.Point comboBox3Temp = comboBox3.Location;
+                    comboBox3.Location = comboBox4.Location;
+                    comboBox4.Location = comboBox3Temp;
+
+                }
+
+            }
+
+        }
+
+        private void cmbSectionOptions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            //string comboBoxChange = this.cmbSectionOptions.Text;
+            //if (cmbSectionOptionsMoved == false)
+            //{
+            //    if (comboBoxChange == "Move Up")
+            //    {
+            //        cmbSectionOptionsMoved = true;
+
+            //        System.Drawing.Point headingTemp = txtSubHeading.Location;
+            //        txtSubHeading.Location = txtSubHeading2.Location;
+            //        txtSubHeading2.Location = headingTemp;
+
+            //        System.Drawing.Point commentTemp = txtComment.Location;
+            //        txtComment.Location = txtComment2.Location;
+            //        txtComment2.Location = commentTemp;
+            //        System.Drawing.Point comboBox3Temp = comboBox3.Location;
+            //        comboBox3.Location = comboBox4.Location;
+            //        comboBox4.Location = comboBox3Temp;
+
+            //    }
+            //}
+            //else if (comboBox3Moved == true)
+            //{
+            //    if (comboBoxChange == "Move Down")
+            //    {
+            //        comboBox3Moved = false;
+            //        System.Drawing.Point headingTemp = txtSubHeading.Location;
+            //        txtSubHeading.Location = txtSubHeading2.Location;
+            //        txtSubHeading2.Location = headingTemp;
+
+            //        System.Drawing.Point commentTemp = txtComment.Location;
+            //        txtComment.Location = txtComment2.Location;
+            //        txtComment2.Location = commentTemp;
+            //        System.Drawing.Point comboBox3Temp = comboBox3.Location;
+            //        comboBox3.Location = comboBox4.Location;
+            //        comboBox4.Location = comboBox3Temp;
+
+                }
+            }
+}  
+
+   

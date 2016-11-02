@@ -23,7 +23,7 @@ namespace temp1
         private void Main_Load(object sender, EventArgs e)
         {
 
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\software engineering\Happy Tech\GroupAssignment2\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Najat\Desktop\SEAssignment\GroupAssignment3\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
             SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Applicants", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -157,14 +157,14 @@ namespace temp1
         {
             if (txtStaffID.Text != "" & txtStaffName.Text != "" & txtStaffContact.Text != "" & txtHeading.Text != "" & txtSubHeading.Text != "" & txtComment.Text != "")
             {
-                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\software engineering\Happy Tech\GroupAssignment2\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Najat\Desktop\SEAssignment\GroupAssignment3\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
                 SqlCommand command = new SqlCommand();
                 command.Connection = con;
                 command.CommandType = CommandType.Text;
                 con.Open();
                 Convert.ToInt32(txtStaffID.Text);
                 Convert.ToInt32(txtStaffContact.Text);
-                command.CommandText = "insert into Template (StaffID, StaffName, Heading, subHeading, comment) value(" + txtStaffID.Text + ",'" + txtStaffName.Text + "','" + txtStaffContact.Text + "','" + txtHeading.Text + "', '" + txtSubHeading.Text + "', '" + txtComment.Text + "' )";
+                command.CommandText = "insert into Template (StaffID, StaffName, staffContact, Heading, subHeading, comment) values (" + txtStaffID.Text + ",'" + txtStaffName.Text + "'," + txtStaffContact.Text + ",'" + txtHeading.Text + "', '" + txtSubHeading.Text + "', '" + txtComment.Text + "' )";
                 command.ExecuteNonQuery();
                 con.Close();
 

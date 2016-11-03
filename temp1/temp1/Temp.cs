@@ -13,6 +13,7 @@ namespace temp1
         int cLeft = 1;
         bool comboBox3Moved = false;
         bool comboBox4Moved = false;
+        int grpSectionPosition = 1;
         public Temp()
 
         {
@@ -224,7 +225,7 @@ namespace temp1
             string comboBoxChange = this.comboBox3.Text;
             if (comboBox3Moved == false)
             {
-                if (comboBoxChange == " Move Down")
+                if (comboBoxChange == "Move Down")
                     comboBox3Moved = true;
 
                 System.Drawing.Point headingTemp = txtSubHeading.Location;
@@ -285,7 +286,20 @@ namespace temp1
         }
         private void cmbSectionOptions_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (cmbSectionOptions.Text == "Move Down" & grpSectionPosition == 1)
+            {
+                System.Drawing.Point grpBoxTemp = grpSection2.Location;
+                grpSection2.Location = grpSection.Location;
+                grpSection.Location = grpBoxTemp;
+                grpSectionPosition = 2;
+            }
+            else if (cmbSectionOptions.Text == "Move Up" & grpSectionPosition == 2)
+            {
+                System.Drawing.Point grpBoxTemp = grpSection2.Location;
+                grpSection2.Location = grpSection.Location;
+                grpSection.Location = grpBoxTemp;
+                grpSectionPosition = 1;
+            }
             //string comboBoxChange = this.cmbSectionOptions.Text;
             //if (cmbSectionOptionsMoved == false)
             //{
@@ -368,6 +382,11 @@ namespace temp1
         private void txtHeading2_MouseClick(object sender, MouseEventArgs e)
         {
             txtHeading2.Clear();
+        }
+
+        private void grpSection2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }  

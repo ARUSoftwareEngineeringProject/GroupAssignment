@@ -58,7 +58,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtStaffID = new System.Windows.Forms.TextBox();
             this.txtFeedback = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpSection2 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -74,7 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgStaffDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet2)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.grpSection2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblPosition
@@ -355,25 +355,26 @@
             this.txtFeedback.UseVisualStyleBackColor = true;
             this.txtFeedback.Click += new System.EventHandler(this.txtFeedback_Click);
             // 
-            // groupBox1
+            // grpSection2
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.RosyBrown;
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.comboBox5);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.txtHeading2);
-            this.groupBox1.ForeColor = System.Drawing.Color.Tomato;
-            this.groupBox1.Location = new System.Drawing.Point(31, 419);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(786, 161);
-            this.groupBox1.TabIndex = 38;
-            this.groupBox1.TabStop = false;
+            this.grpSection2.BackColor = System.Drawing.Color.RosyBrown;
+            this.grpSection2.Controls.Add(this.comboBox1);
+            this.grpSection2.Controls.Add(this.comboBox2);
+            this.grpSection2.Controls.Add(this.textBox1);
+            this.grpSection2.Controls.Add(this.textBox2);
+            this.grpSection2.Controls.Add(this.textBox3);
+            this.grpSection2.Controls.Add(this.textBox4);
+            this.grpSection2.Controls.Add(this.comboBox5);
+            this.grpSection2.Controls.Add(this.button1);
+            this.grpSection2.Controls.Add(this.button2);
+            this.grpSection2.Controls.Add(this.txtHeading2);
+            this.grpSection2.ForeColor = System.Drawing.Color.Tomato;
+            this.grpSection2.Location = new System.Drawing.Point(31, 419);
+            this.grpSection2.Name = "grpSection2";
+            this.grpSection2.Size = new System.Drawing.Size(786, 161);
+            this.grpSection2.TabIndex = 38;
+            this.grpSection2.TabStop = false;
+            this.grpSection2.Enter += new System.EventHandler(this.grpSection2_Enter);
             // 
             // comboBox1
             // 
@@ -495,7 +496,7 @@
             this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(1224, 681);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpSection2);
             this.Controls.Add(this.txtFeedback);
             this.Controls.Add(this.txtStaffID);
             this.Controls.Add(this.label10);
@@ -518,8 +519,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgStaffDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet2)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpSection2.ResumeLayout(false);
+            this.grpSection2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -555,7 +556,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtStaffID;
         private System.Windows.Forms.Button txtFeedback;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpSection2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.TextBox textBox1;

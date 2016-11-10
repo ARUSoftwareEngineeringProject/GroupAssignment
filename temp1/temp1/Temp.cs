@@ -9,6 +9,7 @@ namespace temp1
 {
     public partial class Temp : Form
     {
+        public static SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\software engineering\Happy Tech\GroupAssignment3\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
         int cRight = 1;
         int cLeft = 1;
         bool comboBox3Moved = false;
@@ -24,15 +25,19 @@ namespace temp1
         private void Main_Load(object sender, EventArgs e)
         {
 
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Najat\Desktop\SEAssignment\GroupAssignment3\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Applicants", con);
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Staff";
+            cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            sda.Fill(dt);
-
-            SqlDataAdapter sda1 = new SqlDataAdapter("SELECT * FROM Staff ", con);
-            DataTable table = new DataTable();
-            sda1.Fill(table);
-            dtgStaffDetails.DataSource = table;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                cmbStaffID.Items.Add(dr["StaffID"].ToString());
+            }
+            con.Close();
         }
 
 
@@ -384,9 +389,23 @@ namespace temp1
             txtHeading2.Clear();
         }
 
-        private void grpSection2_Enter(object sender, EventArgs e)
+        private void cmbStaffID_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Staff where StaffID = '" + cmbStaffID.SelectedItem.ToString() + "'";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                txtStaffID.Text = dr["StaffID"].ToString();
+                txtStaffName.Text = dr["FullName"].ToString();
+                txtStaffContact.Text = dr["Contact"].ToString();
+            }
+            con.Close();
         }
     }
 }  

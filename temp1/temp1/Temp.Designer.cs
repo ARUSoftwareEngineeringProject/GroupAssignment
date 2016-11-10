@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lblPosition = new System.Windows.Forms.Label();
             this.btnAddSection = new System.Windows.Forms.Button();
             this.grpSection = new System.Windows.Forms.GroupBox();
@@ -45,13 +44,6 @@
             this.btn_SaveTemplate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblStaffID = new System.Windows.Forms.Label();
-            this.dtgStaffDetails = new System.Windows.Forms.DataGridView();
-            this.staffIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.happyTechDatabaseDataSet2 = new temp1.HappyTechDatabaseDataSet2();
-            this.staffTableAdapter = new temp1.HappyTechDatabaseDataSet2TableAdapters.StaffTableAdapter();
             this.txtStaffContact = new System.Windows.Forms.TextBox();
             this.txtStaffName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -70,10 +62,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.txtHeading2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.cmbStaffID = new System.Windows.Forms.ComboBox();
             this.grpSection.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgStaffDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet2)).BeginInit();
             this.grpSection2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -248,60 +238,6 @@
             this.lblStaffID.TabIndex = 15;
             this.lblStaffID.Text = "PLEASE SELECT STAFF ID";
             // 
-            // dtgStaffDetails
-            // 
-            this.dtgStaffDetails.AllowUserToAddRows = false;
-            this.dtgStaffDetails.AllowUserToDeleteRows = false;
-            this.dtgStaffDetails.AutoGenerateColumns = false;
-            this.dtgStaffDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgStaffDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.staffIDDataGridViewTextBoxColumn,
-            this.fullNameDataGridViewTextBoxColumn1,
-            this.contactDataGridViewTextBoxColumn});
-            this.dtgStaffDetails.DataSource = this.staffBindingSource;
-            this.dtgStaffDetails.Location = new System.Drawing.Point(21, 44);
-            this.dtgStaffDetails.Name = "dtgStaffDetails";
-            this.dtgStaffDetails.ReadOnly = true;
-            this.dtgStaffDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgStaffDetails.Size = new System.Drawing.Size(152, 65);
-            this.dtgStaffDetails.TabIndex = 16;
-            this.dtgStaffDetails.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dtgStaffDetails_MouseDoubleClick);
-            // 
-            // staffIDDataGridViewTextBoxColumn
-            // 
-            this.staffIDDataGridViewTextBoxColumn.DataPropertyName = "StaffID";
-            this.staffIDDataGridViewTextBoxColumn.HeaderText = "StaffID";
-            this.staffIDDataGridViewTextBoxColumn.Name = "staffIDDataGridViewTextBoxColumn";
-            this.staffIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fullNameDataGridViewTextBoxColumn1
-            // 
-            this.fullNameDataGridViewTextBoxColumn1.DataPropertyName = "FullName";
-            this.fullNameDataGridViewTextBoxColumn1.HeaderText = "FullName";
-            this.fullNameDataGridViewTextBoxColumn1.Name = "fullNameDataGridViewTextBoxColumn1";
-            this.fullNameDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // contactDataGridViewTextBoxColumn
-            // 
-            this.contactDataGridViewTextBoxColumn.DataPropertyName = "Contact";
-            this.contactDataGridViewTextBoxColumn.HeaderText = "Contact";
-            this.contactDataGridViewTextBoxColumn.Name = "contactDataGridViewTextBoxColumn";
-            this.contactDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // staffBindingSource
-            // 
-            this.staffBindingSource.DataMember = "Staff";
-            this.staffBindingSource.DataSource = this.happyTechDatabaseDataSet2;
-            // 
-            // happyTechDatabaseDataSet2
-            // 
-            this.happyTechDatabaseDataSet2.DataSetName = "HappyTechDatabaseDataSet2";
-            this.happyTechDatabaseDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // staffTableAdapter
-            // 
-            this.staffTableAdapter.ClearBeforeFill = true;
-            // 
             // txtStaffContact
             // 
             this.txtStaffContact.Location = new System.Drawing.Point(402, 133);
@@ -374,7 +310,6 @@
             this.grpSection2.Size = new System.Drawing.Size(786, 161);
             this.grpSection2.TabIndex = 38;
             this.grpSection2.TabStop = false;
-            this.grpSection2.Enter += new System.EventHandler(this.grpSection2_Enter);
             // 
             // comboBox1
             // 
@@ -488,6 +423,15 @@
             this.label2.TabIndex = 39;
             this.label2.Text = "STAFF ID";
             // 
+            // cmbStaffID
+            // 
+            this.cmbStaffID.FormattingEnabled = true;
+            this.cmbStaffID.Location = new System.Drawing.Point(21, 58);
+            this.cmbStaffID.Name = "cmbStaffID";
+            this.cmbStaffID.Size = new System.Drawing.Size(121, 21);
+            this.cmbStaffID.TabIndex = 40;
+            this.cmbStaffID.SelectedIndexChanged += new System.EventHandler(this.cmbStaffID_SelectedIndexChanged);
+            // 
             // Temp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -495,6 +439,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(1224, 681);
+            this.Controls.Add(this.cmbStaffID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.grpSection2);
             this.Controls.Add(this.txtFeedback);
@@ -503,7 +448,6 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtStaffName);
             this.Controls.Add(this.txtStaffContact);
-            this.Controls.Add(this.dtgStaffDetails);
             this.Controls.Add(this.lblStaffID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_SaveTemplate);
@@ -516,9 +460,6 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.grpSection.ResumeLayout(false);
             this.grpSection.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgStaffDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.happyTechDatabaseDataSet2)).EndInit();
             this.grpSection2.ResumeLayout(false);
             this.grpSection2.PerformLayout();
             this.ResumeLayout(false);
@@ -544,9 +485,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblStaffID;
         private System.Windows.Forms.DataGridView dtgStaffDetails;
-        private HappyTechDatabaseDataSet2 happyTechDatabaseDataSet2;
+        //private HappyTechDatabaseDataSet2 happyTechDatabaseDataSet2;
         private System.Windows.Forms.BindingSource staffBindingSource;
-        private HappyTechDatabaseDataSet2TableAdapters.StaffTableAdapter staffTableAdapter;
+        //private HappyTechDatabaseDataSet2TableAdapters.StaffTableAdapter staffTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn staffIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn contactDataGridViewTextBoxColumn;
@@ -568,6 +509,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtHeading2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbStaffID;
     }
 }
 

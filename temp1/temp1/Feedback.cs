@@ -13,6 +13,7 @@ namespace temp1
 {
     public partial class Feedback : Form
     {
+        public static SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\software engineering\Happy Tech\GroupAssignment3\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
         public Feedback()
         {
             InitializeComponent();
@@ -20,28 +21,44 @@ namespace temp1
 
         private void Feedback_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'happyTechDatabaseDataSet3.Applicants' table. You can move, or remove it, as needed.
-            this.applicantsTableAdapter.Fill(this.happyTechDatabaseDataSet3.Applicants);
 
-            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\Najat\Desktop\SEAssignment\GroupAssignment2\temp1\temp1\HappyTechDatabase.mdf; Integrated Security = True; Connect Timeout = 30");
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Applicants", con);
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Applicants";
+            cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            sda.Fill(dt);
-            dtgApplicant.DataSource = dt;
-                            
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                cmbApplicantID.Items.Add(dr["ApplicantID"].ToString());
+            }
+            con.Close();
 
         }
 
-        private void dtgApplicant_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void cmbApplicantID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtApplicantID.Text = dtgApplicant.SelectedRows[0].Cells[0].Value.ToString();
-            txtName.Text = dtgApplicant.SelectedRows[0].Cells[1].Value.ToString();
-            txtAddress.Text = dtgApplicant.SelectedRows[0].Cells[2].Value.ToString();
-            txtTelephoneNo.Text = dtgApplicant.SelectedRows[0].Cells[3].Value.ToString();
-            txtEmail.Text = dtgApplicant.SelectedRows[0].Cells[4].Value.ToString();
-            txtDOB.Text = dtgApplicant.SelectedRows[0].Cells[5].Value.ToString();
-            txtTypeOfApplication.Text = dtgApplicant.SelectedRows[0].Cells[6].Value.ToString();
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Applicants where ApplicantID = '" + cmbApplicantID.SelectedItem.ToString() + "'";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                txtApplicantID.Text = dr["ApplicantID"].ToString();
+                txtName.Text = dr["FullName"].ToString();
+                txtAddress.Text = dr["Address"].ToString();
+                txtTelephoneNo.Text = dr["telephoneNo"].ToString();
+                txtEmail.Text = dr["Email"].ToString();
+                txtDOB.Text = dr["DOB"].ToString();
+                txtTypeOfApplication.Text = dr["typeOfApplication"].ToString();
+            }
+            con.Close();
         }
-
     }
 }

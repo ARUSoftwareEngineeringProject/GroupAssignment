@@ -8,25 +8,35 @@ using System.Collections;
 
 namespace temp1
 {
+    /// <summary>
+    /// class for the main proccesses 
+    /// </summary>
     public partial class Temp : Form
     {
+        //opening connection to database and declaring all the varibles 
         public static SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Najat\Desktop\SEAssignment\GroupAssignment4\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
         int cRight = 1;
         int cLeft = 1;
         bool comboBox3Moved = false;
         bool comboBox4Moved = false;
         int grpSectionPosition = 1;
+
         public Temp()
 
         {
             InitializeComponent();
         }
 
-
+        /// <summary>
+        /// load all staff ID into the combobox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Main_Load(object sender, EventArgs e)
         {
-
+            //opening the connection to the database
             con.Open();
+            //adding all staff ID 
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from Staff";
@@ -34,10 +44,12 @@ namespace temp1
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
+            // fillin staff information into the text boxes
             foreach (DataRow dr in dt.Rows)
             {
                 cmbStaffID.Items.Add(dr["StaffID"].ToString());
             }
+            //closing the connection to the database
             con.Close();
         }
 
@@ -47,7 +59,6 @@ namespace temp1
             GroupBox gb = (GroupBox)(((Button)sender).Parent);
             AddNewTextBox2(gb);
             AddNewTextBox(gb);
-
         }
 
         TextBox AddNewTextBox2(GroupBox gb)
@@ -59,7 +70,6 @@ namespace temp1
             txt1.Text = " " + this.cRight.ToString();
             cRight = cRight + 1;
             return txt1;
-
         }
 
         TextBox AddNewTextBox(GroupBox gb)
@@ -143,18 +153,13 @@ namespace temp1
         }
 
 
-        private void dtgStaffDetails_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            txtStaffID.Text = dtgStaffDetails.SelectedRows[0].Cells[0].Value.ToString();
-            txtStaffName.Text = dtgStaffDetails.SelectedRows[0].Cells[1].Value.ToString();
-            txtStaffContact.Text = dtgStaffDetails.SelectedRows[0].Cells[2].Value.ToString();
-        }
-
+   
         private void grpSection_Enter(object sender, EventArgs e)
         {
 
         }
 
+        //clearing the heading to enter heading name
         private void txtHeading_Click(object sender, EventArgs e)
         {
             txtHeading.Clear();
@@ -182,6 +187,7 @@ namespace temp1
             //    txtComment.Clear();
             // }
 
+            //calling templateSave class to use the string 
             TemplateSave temp = new TemplateSave();
             temp.name = txtHeading.Text;
             temp.heading = new ArrayList();
@@ -206,13 +212,17 @@ namespace temp1
             SqlCommand command = new SqlCommand();
             command.Connection = con;
             command.CommandType = CommandType.Text;
+            //opening the connection to the database
             con.Open();
+            //conversion for text boxes 
             Convert.ToInt32(txtStaffID.Text);
             Convert.ToInt32(txtStaffContact.Text);
+            //saving data to datebase
             command.CommandText = "insert into Template (StaffID, StaffName, staffContact) values (" + txtStaffID.Text + ",'" + txtStaffName.Text + "'," + txtStaffContact.Text + ", '"+temp+"' )";
             command.ExecuteNonQuery();
+            //deleting the connection to the database
             con.Close();
-
+            //confirming data is saved
             MessageBox.Show("Datas Saved");
         }
 
@@ -251,7 +261,11 @@ namespace temp1
 
 
         }
-
+        /// <summary>
+        /// loading the feedback template
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtFeedback_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -425,6 +439,7 @@ namespace temp1
 
         private void cmbStaffID_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //opening the connection to the database
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
@@ -433,12 +448,14 @@ namespace temp1
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
+            //filling the text boxes
             foreach (DataRow dr in dt.Rows)
             {
                 txtStaffID.Text = dr["StaffID"].ToString();
                 txtStaffName.Text = dr["FullName"].ToString();
                 txtStaffContact.Text = dr["Contact"].ToString();
             }
+            //closing the connection to the database
             con.Close();
         }
     }

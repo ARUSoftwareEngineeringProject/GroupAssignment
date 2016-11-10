@@ -4,12 +4,13 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Reflection;
 using System.Drawing;
+using System.Collections;
 
 namespace temp1
 {
     public partial class Temp : Form
     {
-        public static SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\software engineering\Happy Tech\GroupAssignment3\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+        public static SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Najat\Desktop\SEAssignment\GroupAssignment4\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
         int cRight = 1;
         int cLeft = 1;
         bool comboBox3Moved = false;
@@ -159,30 +160,63 @@ namespace temp1
             txtHeading.Clear();
         }
 
-        private void btnSaveTemplate_Click(object sender, EventArgs e)
+        public void btnSaveTemplate_Click(object sender, EventArgs e)
         {
-            if (txtStaffID.Text != "" & txtStaffName.Text != "" & txtStaffContact.Text != "" & txtHeading.Text != "" & txtSubHeading.Text != "" & txtComment.Text != "")
+            //if (txtStaffID.Text != "" & txtStaffName.Text != "" & txtStaffContact.Text != "" & txtHeading.Text != "" & txtSubHeading.Text != "" & txtComment.Text != "")
+            //{
+            //    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Najat\Desktop\SEAssignment\GroupAssignment3\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+            //    SqlCommand command = new SqlCommand();
+            //    command.Connection = con;
+            //    command.CommandType = CommandType.Text;
+            //    con.Open();
+            //    Convert.ToInt32(txtStaffID.Text);
+            //    Convert.ToInt32(txtStaffContact.Text);
+            //    command.CommandText = "insert into Template (StaffID, StaffName, staffContact, Heading, subHeading, comment) values (" + txtStaffID.Text + ",'" + txtStaffName.Text + "'," + txtStaffContact.Text + ",'" + txtHeading.Text + "', '" + txtSubHeading.Text + "', '" + txtComment.Text + "' )";
+            //    command.ExecuteNonQuery();
+            //    con.Close();
+
+            //    
+
+            //    txtHeading.Clear();
+            //    txtSubHeading.Clear();
+            //    txtComment.Clear();
+            // }
+
+            TemplateSave temp = new TemplateSave();
+            temp.name = txtHeading.Text;
+            temp.heading = new ArrayList();
+            // every heading
             {
-                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Najat\Desktop\SEAssignment\GroupAssignment3\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
-                SqlCommand command = new SqlCommand();
-                command.Connection = con;
-                command.CommandType = CommandType.Text;
-                con.Open();
-                Convert.ToInt32(txtStaffID.Text);
-                Convert.ToInt32(txtStaffContact.Text);
-                command.CommandText = "insert into Template (StaffID, StaffName, staffContact, Heading, subHeading, comment) values (" + txtStaffID.Text + ",'" + txtStaffName.Text + "'," + txtStaffContact.Text + ",'" + txtHeading.Text + "', '" + txtSubHeading.Text + "', '" + txtComment.Text + "' )";
-                command.ExecuteNonQuery();
-                con.Close();
+                Heading heading = new Heading();
+                heading.headingName = txtHeading.Text;
+                heading.comment = new ArrayList();
 
-                MessageBox.Show("Datas Saved");
 
-                txtHeading.Clear();
-                txtSubHeading.Clear();
-                txtComment.Clear();
-
+                // every comments of the cuurent heading 
+                {
+                    Comments c = new Comments();
+                    c.subHeading = txtSubHeading.Text;
+                    c.comment = txtComment.Text;
+                    //add the comment to array list heading 
+                    heading.comment.Add(c);
+                }
+                temp.heading.Add(heading);
             }
+            //To insert new template 
+            SqlCommand command = new SqlCommand();
+            command.Connection = con;
+            command.CommandType = CommandType.Text;
+            con.Open();
+            Convert.ToInt32(txtStaffID.Text);
+            Convert.ToInt32(txtStaffContact.Text);
+            command.CommandText = "insert into Template (StaffID, StaffName, staffContact) values (" + txtStaffID.Text + ",'" + txtStaffName.Text + "'," + txtStaffContact.Text + ", '"+temp+"' )";
+            command.ExecuteNonQuery();
+            con.Close();
 
+            MessageBox.Show("Datas Saved");
         }
+
+
 
         private void btnDelete_Click(object sender, EventArgs e)
         {

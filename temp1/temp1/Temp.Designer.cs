@@ -491,11 +491,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn staffIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn contactDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TextBox txtStaffContact;
-        private System.Windows.Forms.TextBox txtStaffName;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtStaffID;
         private System.Windows.Forms.Button txtFeedback;
         private System.Windows.Forms.GroupBox grpSection2;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -510,6 +507,9 @@
         private System.Windows.Forms.TextBox txtHeading2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbStaffID;
+        protected System.Windows.Forms.TextBox txtStaffContact;
+        protected System.Windows.Forms.TextBox txtStaffName;
+        protected System.Windows.Forms.TextBox txtStaffID;
     }
 }
 

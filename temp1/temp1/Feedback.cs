@@ -17,7 +17,7 @@ namespace temp1
     public partial class Feedback : Form
     {
         // declaring varibles and connection to database
-        public static SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Najat\Desktop\SEAssignment\GroupAssignment4\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+        public static SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\software engineering\Happy Tech\GroupAssignment\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
         public Feedback()
         {
             InitializeComponent();
@@ -78,5 +78,15 @@ namespace temp1
             //closing the connection to database 
             con.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Feedback.ActiveForm.Close();
+         }
     }
 }

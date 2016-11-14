@@ -14,7 +14,7 @@ namespace temp1
     public partial class Temp : Form
     {
         //opening connection to database and declaring all the varibles 
-        public static SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Najat\Desktop\SEAssignment\GroupAssignment4\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+        public static SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\software engineering\Happy Tech\GroupAssignment\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
         int cRight = 1;
         int cLeft = 1;
         bool comboBox3Moved = false;
@@ -218,7 +218,9 @@ namespace temp1
             Convert.ToInt32(txtStaffID.Text);
             Convert.ToInt32(txtStaffContact.Text);
             //saving data to datebase
-            command.CommandText = "insert into Template (StaffID, StaffName, staffContact) values (" + txtStaffID.Text + ",'" + txtStaffName.Text + "'," + txtStaffContact.Text + ", '"+temp+"' )";
+            command.CommandText = "select * from Staff where StaffID = '" + cmbStaffID.SelectedItem.ToString() + "'";
+            command.CommandText = "insert into Template (StaffID, StaffName, staffContact) values from Staff (StaffID, FullName, Contact)";//(" + txtStaffID.Text + ",'" + txtStaffName.Text + "'," + txtStaffContact.Text + ")";
+            command.CommandText = "insert into Template (SubHeading, Comment) values ('" + txtSubHeading.Text + "','" + txtComment.Text + "')";
             command.ExecuteNonQuery();
             //deleting the connection to the database
             con.Close();

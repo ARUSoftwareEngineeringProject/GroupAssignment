@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comments.cs" />
+    <Compile Include="DatabaseConnection.cs" />
     <Compile Include="Feedback.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -219,9 +219,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 295);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.Size = new System.Drawing.Size(108, 13);
             this.label1.TabIndex = 48;
-            this.label1.Text = "HEADING";
+            this.label1.Text = "SELECT TEMPLATE";
             // 
             // label9
             // 
@@ -331,7 +331,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(86, 295);
+            this.textBox1.Location = new System.Drawing.Point(127, 292);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(163, 20);

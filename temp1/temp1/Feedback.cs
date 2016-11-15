@@ -86,7 +86,7 @@ namespace temp1
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Feedback.ActiveForm.Close();
+            this.Close();
          }
     }
 }

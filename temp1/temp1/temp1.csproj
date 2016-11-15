@@ -68,6 +68,12 @@
       <DependentUpon>Feedback.cs</DependentUpon>
     </Compile>
     <Compile Include="Heading.cs" />
+    <Compile Include="HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomePage.Designer.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Temp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     <Compile Include="TemplateSave.cs" />
     <EmbeddedResource Include="Feedback.resx">
       <DependentUpon>Feedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomePage.resx">
+      <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff.resx">
       <DependentUpon>Staff.cs</DependentUpon>

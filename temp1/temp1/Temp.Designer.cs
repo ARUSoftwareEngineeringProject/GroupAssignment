@@ -63,6 +63,8 @@
             this.txtHeading2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbStaffID = new System.Windows.Forms.ComboBox();
+            this.txtTemplateName = new System.Windows.Forms.TextBox();
+            this.lblTemplateName = new System.Windows.Forms.Label();
             this.grpSection.SuspendLayout();
             this.grpSection2.SuspendLayout();
             this.SuspendLayout();
@@ -240,7 +242,7 @@
             // 
             // txtStaffContact
             // 
-            this.txtStaffContact.Location = new System.Drawing.Point(402, 133);
+            this.txtStaffContact.Location = new System.Drawing.Point(502, 133);
             this.txtStaffContact.Name = "txtStaffContact";
             this.txtStaffContact.ReadOnly = true;
             this.txtStaffContact.Size = new System.Drawing.Size(163, 20);
@@ -248,7 +250,7 @@
             // 
             // txtStaffName
             // 
-            this.txtStaffName.Location = new System.Drawing.Point(402, 81);
+            this.txtStaffName.Location = new System.Drawing.Point(502, 81);
             this.txtStaffName.Name = "txtStaffName";
             this.txtStaffName.ReadOnly = true;
             this.txtStaffName.Size = new System.Drawing.Size(163, 20);
@@ -257,7 +259,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(269, 133);
+            this.label9.Location = new System.Drawing.Point(369, 133);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(94, 13);
             this.label9.TabIndex = 33;
@@ -266,7 +268,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(269, 81);
+            this.label10.Location = new System.Drawing.Point(369, 81);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(74, 13);
             this.label10.TabIndex = 34;
@@ -274,7 +276,7 @@
             // 
             // txtStaffID
             // 
-            this.txtStaffID.Location = new System.Drawing.Point(402, 37);
+            this.txtStaffID.Location = new System.Drawing.Point(502, 37);
             this.txtStaffID.Name = "txtStaffID";
             this.txtStaffID.ReadOnly = true;
             this.txtStaffID.Size = new System.Drawing.Size(64, 20);
@@ -287,7 +289,7 @@
             this.txtFeedback.Name = "txtFeedback";
             this.txtFeedback.Size = new System.Drawing.Size(91, 43);
             this.txtFeedback.TabIndex = 37;
-            this.txtFeedback.Text = "FEEDBACK FORM";
+            this.txtFeedback.Text = "HOME PAGE";
             this.txtFeedback.UseVisualStyleBackColor = true;
             this.txtFeedback.Click += new System.EventHandler(this.txtFeedback_Click);
             // 
@@ -417,7 +419,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(269, 40);
+            this.label2.Location = new System.Drawing.Point(369, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 39;
@@ -432,6 +434,22 @@
             this.cmbStaffID.TabIndex = 40;
             this.cmbStaffID.SelectedIndexChanged += new System.EventHandler(this.cmbStaffID_SelectedIndexChanged);
             // 
+            // txtTemplateName
+            // 
+            this.txtTemplateName.Location = new System.Drawing.Point(12, 130);
+            this.txtTemplateName.Name = "txtTemplateName";
+            this.txtTemplateName.Size = new System.Drawing.Size(163, 20);
+            this.txtTemplateName.TabIndex = 41;
+            // 
+            // lblTemplateName
+            // 
+            this.lblTemplateName.AutoSize = true;
+            this.lblTemplateName.Location = new System.Drawing.Point(9, 107);
+            this.lblTemplateName.Name = "lblTemplateName";
+            this.lblTemplateName.Size = new System.Drawing.Size(182, 13);
+            this.lblTemplateName.TabIndex = 42;
+            this.lblTemplateName.Text = "PLEASE ENTER TEMPLATE NAME";
+            // 
             // Temp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -439,6 +457,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(1224, 681);
+            this.Controls.Add(this.lblTemplateName);
+            this.Controls.Add(this.txtTemplateName);
             this.Controls.Add(this.cmbStaffID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.grpSection2);
@@ -510,6 +530,8 @@
         protected System.Windows.Forms.TextBox txtStaffContact;
         protected System.Windows.Forms.TextBox txtStaffName;
         protected System.Windows.Forms.TextBox txtStaffID;
+        protected System.Windows.Forms.TextBox txtTemplateName;
+        private System.Windows.Forms.Label lblTemplateName;
     }
 }
 

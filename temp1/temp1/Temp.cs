@@ -88,18 +88,18 @@ namespace temp1
         {
             GroupBox groupBox = new GroupBox();
             groupBox.BackColor = System.Drawing.Color.Blue;
-            
+
             groupBox.Controls.Add(this.comboBox4);
             ComboBox three = new ComboBox();
             three.BackColor = System.Drawing.Color.Beige;
-           three.FormattingEnabled = true;
+            three.FormattingEnabled = true;
             three.Items.AddRange(new object[] {
             "Move Up",
             "Move Down",
             "Edit",
             "Delete"});
             three.Location = new System.Drawing.Point(641, 74);
-           three.Name = "comboBox3";
+            three.Name = "comboBox3";
             three.Size = new System.Drawing.Size(64, 21);
             three.TabIndex = 19;
             three.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
@@ -123,10 +123,10 @@ namespace temp1
             options.Size = new System.Drawing.Size(146, 21);
             options.TabIndex = 8;
             options.SelectedIndexChanged += new System.EventHandler(this.cmbSectionOptions_SelectedIndexChanged);
-            
+
             Button btDel = new Button();
             btDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-//          this.btDel.Location = new System.Drawing.Point(728, 35);
+            //          this.btDel.Location = new System.Drawing.Point(728, 35);
             btDel.Name = "btnDelete";
             btDel.Size = new System.Drawing.Size(36, 24);
             btDel.TabIndex = 8;
@@ -148,12 +148,12 @@ namespace temp1
             groupBox.ForeColor = System.Drawing.Color.Green;
             groupBox.Location = new System.Drawing.Point(34, 600);
             this.Controls.Add(groupBox);
-            
+
 
         }
 
 
-   
+
         private void grpSection_Enter(object sender, EventArgs e)
         {
 
@@ -196,13 +196,12 @@ namespace temp1
             con.Open();
             //conversion for text boxes 
             int staffid = Convert.ToInt32(txtStaffID.Text);
-            int staffContact =Convert.ToInt32(txtStaffContact.Text);
+            int staffContact = Convert.ToInt32(txtStaffContact.Text);
             //saving data to database
-            //while (temp != " ") 
-            //{
-            command.CommandText = "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, Comment) values(" + staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" + txtHeading.Text + "','" + temp + "')";
+            command.CommandText = "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, SubHeading, Comment) values(" + staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" + txtHeading.Text + "','" + txtSubHeading.Text + "','" + txtComment.Text + "')";
+            command.CommandText = "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, SubHeading, Comment) values(" + staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" + txtHeading.Text + "','" + txtSubHeading2.Text + "', '" + txtComment2.Text + "')";
+            //command.CommandText = "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, Comment) values(" + staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" + txtHeading.Text + "','" + temp + "')";
             command.ExecuteNonQuery();
-            //}
             //closing the connection to the database
             con.Close();
             //confirming data is saved
@@ -213,7 +212,7 @@ namespace temp1
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            
+
             GroupBox groupBox = new GroupBox();
             if (this.txtComment == null)
             {
@@ -249,7 +248,7 @@ namespace temp1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        
+
         private void txtFeedback_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -373,9 +372,9 @@ namespace temp1
             //        comboBox3.Location = comboBox4.Location;
             //        comboBox4.Location = comboBox3Temp;
 
-                }
+        }
 
-        
+
         private void button1_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete a field ? ", "Attention", MessageBoxButtons.YesNo);
@@ -394,27 +393,27 @@ namespace temp1
 
         TextBox AddNewTextBox3(GroupBox gb)
         {
-                TextBox txt1 = new TextBox();
-                gb.Controls.Add(txt1);
-                txt1.Top = cRight * 25;
-                txt1.Left = 270;
-                txt1.Text = " " + this.cRight.ToString();
-                cRight = cRight + 1;
-                return txt1;
+            TextBox txt1 = new TextBox();
+            gb.Controls.Add(txt1);
+            txt1.Top = cRight * 25;
+            txt1.Left = 270;
+            txt1.Text = " " + this.cRight.ToString();
+            cRight = cRight + 1;
+            return txt1;
 
-            }
+        }
 
-            TextBox AddNewTextBox4(GroupBox gb)
+        TextBox AddNewTextBox4(GroupBox gb)
         {
-                TextBox txt = new TextBox();
-                gb.Controls.Add(txt);
-                txt.Top = cLeft * 25;
-                txt.Left = 150;
-                txt.Text = " " + this.cLeft.ToString();
-                cLeft = cLeft + 1;
-                return txt;
+            TextBox txt = new TextBox();
+            gb.Controls.Add(txt);
+            txt.Top = cLeft * 25;
+            txt.Left = 150;
+            txt.Text = " " + this.cLeft.ToString();
+            cLeft = cLeft + 1;
+            return txt;
 
-            }
+        }
 
         private void txtHeading2_MouseClick(object sender, MouseEventArgs e)
         {
@@ -443,6 +442,5 @@ namespace temp1
             con.Close();
         }
     }
-}  
+}
 
-   

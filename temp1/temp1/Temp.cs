@@ -167,26 +167,6 @@ namespace temp1
 
         public void btnSaveTemplate_Click(object sender, EventArgs e)
         {
-            //if (txtStaffID.Text != "" & txtStaffName.Text != "" & txtStaffContact.Text != "" & txtHeading.Text != "" & txtSubHeading.Text != "" & txtComment.Text != "")
-            //{
-            //    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Najat\Desktop\SEAssignment\GroupAssignment3\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
-            //    SqlCommand command = new SqlCommand();
-            //    command.Connection = con;
-            //    command.CommandType = CommandType.Text;
-            //    con.Open();
-            //    Convert.ToInt32(txtStaffID.Text);
-            //    Convert.ToInt32(txtStaffContact.Text);
-            //    command.CommandText = "insert into Template (StaffID, StaffName, staffContact, Heading, subHeading, comment) values (" + txtStaffID.Text + ",'" + txtStaffName.Text + "'," + txtStaffContact.Text + ",'" + txtHeading.Text + "', '" + txtSubHeading.Text + "', '" + txtComment.Text + "' )";
-            //    command.ExecuteNonQuery();
-            //    con.Close();
-
-            //    
-
-            //    txtHeading.Clear();
-            //    txtSubHeading.Clear();
-            //    txtComment.Clear();
-            // }
-
             //calling templateSave class to use the string 
             TemplateSave temp = new TemplateSave();
             temp.name = txtHeading.Text;
@@ -198,7 +178,7 @@ namespace temp1
                 heading.comment = new ArrayList();
 
 
-                // every comments of the cuurent heading 
+                // every comments of the current heading 
                 {
                     Comments c = new Comments();
                     c.subHeading = txtSubHeading.Text;
@@ -215,14 +195,15 @@ namespace temp1
             //opening the connection to the database
             con.Open();
             //conversion for text boxes 
-            Convert.ToInt32(txtStaffID.Text);
-            Convert.ToInt32(txtStaffContact.Text);
-            //saving data to datebase
-            command.CommandText = "select * from Staff where StaffID = '" + cmbStaffID.SelectedItem.ToString() + "'";
-            command.CommandText = "insert into Template (StaffID, StaffName, staffContact) values from Staff (StaffID, FullName, Contact)";//(" + txtStaffID.Text + ",'" + txtStaffName.Text + "'," + txtStaffContact.Text + ")";
-            command.CommandText = "insert into Template (SubHeading, Comment) values ('" + txtSubHeading.Text + "','" + txtComment.Text + "')";
+            int staffid = Convert.ToInt32(txtStaffID.Text);
+            int staffContact =Convert.ToInt32(txtStaffContact.Text);
+            //saving data to database
+            //while (temp != " ") 
+            //{
+            command.CommandText = "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, Comment) values(" + staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" + txtHeading.Text + "','" + temp + "')";
             command.ExecuteNonQuery();
-            //deleting the connection to the database
+            //}
+            //closing the connection to the database
             con.Close();
             //confirming data is saved
             MessageBox.Show("Datas Saved");
@@ -268,10 +249,11 @@ namespace temp1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        
         private void txtFeedback_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Feedback ss = new Feedback();
+            HomePage ss = new HomePage();
             ss.Show();
         }
 

@@ -41,7 +41,7 @@
             this.btnCreateTemplate.Name = "btnCreateTemplate";
             this.btnCreateTemplate.Size = new System.Drawing.Size(210, 93);
             this.btnCreateTemplate.TabIndex = 0;
-            this.btnCreateTemplate.Text = "CREATE TEMPLATE";
+            this.btnCreateTemplate.Text = "TEMPLATE  FORM";
             this.btnCreateTemplate.UseVisualStyleBackColor = false;
             this.btnCreateTemplate.Click += new System.EventHandler(this.btnCreateTemplate_Click);
             // 

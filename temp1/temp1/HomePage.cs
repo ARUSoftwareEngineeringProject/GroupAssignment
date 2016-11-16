@@ -20,7 +20,7 @@ namespace temp1
         private void btnCreateTemplate_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Temp tt = new Temp();
+            TemplateOptions tt = new TemplateOptions();
             tt.Show();
         }
 

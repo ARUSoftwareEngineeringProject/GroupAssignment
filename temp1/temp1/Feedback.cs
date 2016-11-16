@@ -88,5 +88,20 @@ namespace temp1
         {
             this.Close();
          }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTemplateName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTemplateName_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

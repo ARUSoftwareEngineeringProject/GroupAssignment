@@ -52,3 +52,19 @@ H:\software engineering\Happy Tech\GroupAssignment\temp1\temp1\bin\Debug\temp1.e
 H:\software engineering\Happy Tech\GroupAssignment\temp1\temp1\bin\Debug\temp1.pdb
 H:\software engineering\Happy Tech\GroupAssignment\temp1\temp1\obj\Debug\temp1.HomePage.resources
 H:\software engineering\Happy Tech\GroupAssignment\temp1\temp1\obj\Debug\temp1.SelectEditDelete.resources
+C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\bin\Debug\temp1.exe.config
+C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\obj\Debug\temp1.exe
+C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\obj\Debug\temp1.pdb
+C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\bin\Debug\HappyTechDatabase.mdf
+C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\bin\Debug\HappyTechDatabase_log.ldf
+C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\bin\Debug\temp1.exe
+C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\bin\Debug\temp1.pdb
+C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\obj\Debug\temp1.csprojResolveAssemblyReference.cache
+C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\obj\Debug\temp1.Feedback.resources
+C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\obj\Debug\temp1.HomePage.resources
+C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\obj\Debug\temp1.SelectEditDelete.resources
+C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\obj\Debug\temp1.Staff.resources
+C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\obj\Debug\temp1.Temp.resources
+C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\obj\Debug\temp1.Properties.Resources.resources
+C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\obj\Debug\temp1.csproj.GenerateResource.Cache
+C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\obj\Debug\temp1.TemplateOptions.resources

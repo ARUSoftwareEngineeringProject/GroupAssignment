@@ -104,6 +104,7 @@ namespace temp1
             three.TabIndex = 19;
             three.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
 
+
             groupBox.Controls.Add(this.comboBox3);
             groupBox.Controls.Add(this.txtComment);
             groupBox.Controls.Add(this.txtComment2);
@@ -198,8 +199,8 @@ namespace temp1
             int staffid = Convert.ToInt32(txtStaffID.Text);
             int staffContact = Convert.ToInt32(txtStaffContact.Text);
             //saving data to database
-            command.CommandText = "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, SubHeading, Comment) values(" + staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" + txtHeading.Text + "','" + txtSubHeading.Text + "','" + txtComment.Text + "')";
-            command.CommandText = "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, SubHeading, Comment) values(" + staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" + txtHeading.Text + "','" + txtSubHeading2.Text + "', '" + txtComment2.Text + "')";
+            command.CommandText = "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, SubHeading, Comment, Position) values(" + staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" + txtHeading.Text + "','" + txtSubHeading.Text + "','" + txtComment.Text + "','" + txtPosition.Text + "')";
+            command.CommandText = "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, SubHeading, Comment, Position) values(" + staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" + txtHeading.Text + "','" + txtSubHeading2.Text + "', '" + txtComment2.Text + "', '" + txtPosition.Text + "')";
             //command.CommandText = "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, Comment) values(" + staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" + txtHeading.Text + "','" + temp + "')";
             command.ExecuteNonQuery();
             //closing the connection to the database
@@ -440,6 +441,11 @@ namespace temp1
             }
             //closing the connection to the database
             con.Close();
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

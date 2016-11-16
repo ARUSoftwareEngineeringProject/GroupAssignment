@@ -74,6 +74,12 @@
     <Compile Include="HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="SelectEditDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectEditDelete.Designer.cs">
+      <DependentUpon>SelectEditDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Temp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectEditDelete.resx">
+      <DependentUpon>SelectEditDelete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff.resx">
       <DependentUpon>Staff.cs</DependentUpon>

@@ -65,6 +65,8 @@
             this.cmbStaffID = new System.Windows.Forms.ComboBox();
             this.txtTemplateName = new System.Windows.Forms.TextBox();
             this.lblTemplateName = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtPosition = new System.Windows.Forms.TextBox();
             this.grpSection.SuspendLayout();
             this.grpSection2.SuspendLayout();
             this.SuspendLayout();
@@ -242,7 +244,7 @@
             // 
             // txtStaffContact
             // 
-            this.txtStaffContact.Location = new System.Drawing.Point(502, 133);
+            this.txtStaffContact.Location = new System.Drawing.Point(400, 133);
             this.txtStaffContact.Name = "txtStaffContact";
             this.txtStaffContact.ReadOnly = true;
             this.txtStaffContact.Size = new System.Drawing.Size(163, 20);
@@ -250,7 +252,7 @@
             // 
             // txtStaffName
             // 
-            this.txtStaffName.Location = new System.Drawing.Point(502, 81);
+            this.txtStaffName.Location = new System.Drawing.Point(400, 81);
             this.txtStaffName.Name = "txtStaffName";
             this.txtStaffName.ReadOnly = true;
             this.txtStaffName.Size = new System.Drawing.Size(163, 20);
@@ -259,7 +261,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(369, 133);
+            this.label9.Location = new System.Drawing.Point(267, 133);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(94, 13);
             this.label9.TabIndex = 33;
@@ -268,7 +270,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(369, 81);
+            this.label10.Location = new System.Drawing.Point(267, 81);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(74, 13);
             this.label10.TabIndex = 34;
@@ -276,7 +278,7 @@
             // 
             // txtStaffID
             // 
-            this.txtStaffID.Location = new System.Drawing.Point(502, 37);
+            this.txtStaffID.Location = new System.Drawing.Point(400, 37);
             this.txtStaffID.Name = "txtStaffID";
             this.txtStaffID.ReadOnly = true;
             this.txtStaffID.Size = new System.Drawing.Size(64, 20);
@@ -419,7 +421,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(369, 40);
+            this.label2.Location = new System.Drawing.Point(267, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 39;
@@ -450,6 +452,23 @@
             this.lblTemplateName.TabIndex = 42;
             this.lblTemplateName.Text = "PLEASE ENTER TEMPLATE NAME";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(209, 208);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(164, 13);
+            this.label3.TabIndex = 43;
+            this.label3.Text = "PLEASE ENTER THE POSITON";
+            // 
+            // txtPosition
+            // 
+            this.txtPosition.Location = new System.Drawing.Point(400, 205);
+            this.txtPosition.Name = "txtPosition";
+            this.txtPosition.Size = new System.Drawing.Size(163, 20);
+            this.txtPosition.TabIndex = 44;
+            this.txtPosition.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            // 
             // Temp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -457,6 +476,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(1224, 681);
+            this.Controls.Add(this.txtPosition);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblTemplateName);
             this.Controls.Add(this.txtTemplateName);
             this.Controls.Add(this.cmbStaffID);
@@ -532,6 +553,8 @@
         protected System.Windows.Forms.TextBox txtStaffID;
         protected System.Windows.Forms.TextBox txtTemplateName;
         private System.Windows.Forms.Label lblTemplateName;
+        private System.Windows.Forms.Label label3;
+        protected System.Windows.Forms.TextBox txtPosition;
     }
 }
 

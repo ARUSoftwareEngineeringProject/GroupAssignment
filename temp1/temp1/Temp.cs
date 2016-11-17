@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Data;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Reflection;
-using System.Drawing;
 using System.Collections;
+using System.Data;
+
 
 namespace temp1
 {
@@ -13,8 +11,8 @@ namespace temp1
     /// </summary>
     public partial class Temp : Form
     {
-        //opening connection to database and declaring all the varibles 
-        public static SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+        //declaring all the varibles 
+        
         int cRight = 1;
         int cLeft = 1;
         bool comboBox3Moved = false;
@@ -34,23 +32,18 @@ namespace temp1
         /// <param name="e"></param>
         private void Main_Load(object sender, EventArgs e)
         {
-            //opening the connection to the database
-            con.Open();
-            //adding all staff ID 
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from Staff";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            // fillin staff information into the text boxes
-            foreach (DataRow dr in dt.Rows)
+            //fill in the grid 
+            DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("select * from Staff");
+
+
+            //get the table from the dataset
+            DataTable dtPerson = dsPerson.Tables[0];
+
+            foreach (DataRow dr in dsPerson.Tables[0].Rows)
             {
                 cmbStaffID.Items.Add(dr["StaffID"].ToString());
             }
-            //closing the connection to the database
-            con.Close();
+
         }
 
 
@@ -189,24 +182,19 @@ namespace temp1
                 }
                 temp.heading.Add(heading);
             }
-            //To insert new template 
-            SqlCommand command = new SqlCommand();
-            command.Connection = con;
-            command.CommandType = CommandType.Text;
-            //opening the connection to the database
-            con.Open();
-            //conversion for text boxes 
+
             int staffid = Convert.ToInt32(txtStaffID.Text);
             int staffContact = Convert.ToInt32(txtStaffContact.Text);
-            //saving data to database
-            command.CommandText = "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, SubHeading, Comment, Position) values(" + staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" + txtHeading.Text + "','" + txtSubHeading.Text + "','" + txtComment.Text + "','" + txtPosition.Text + "')";
-            command.CommandText = "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, SubHeading, Comment, Position) values(" + staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" + txtHeading.Text + "','" + txtSubHeading2.Text + "', '" + txtComment2.Text + "', '" + txtPosition.Text + "')";
-            //command.CommandText = "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, Comment) values(" + staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" + txtHeading.Text + "','" + temp + "')";
-            command.ExecuteNonQuery();
-            //closing the connection to the database
-            con.Close();
+
+            //fill in the grid 
+            DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, SubHeading, Comment, Position) values(" + staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" + txtHeading.Text + "','" + txtSubHeading.Text + "','" + txtComment.Text + "','" + txtPosition.Text + "')");
+            DataSet drPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, SubHeading, Comment, Position) values(" + staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" + txtHeading.Text + "','" + txtSubHeading2.Text + "', '" + txtComment2.Text + "', '" + txtPosition.Text + "')");
+            //DataSet dvPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, Comment) values(" + staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" + txtHeading.Text + "','" + temp + "')");
+
             //confirming data is saved
             MessageBox.Show("Datas Saved");
+
+            
         }
 
 
@@ -337,42 +325,7 @@ namespace temp1
                 grpSection.Location = grpBoxTemp;
                 grpSectionPosition = 1;
             }
-            //string comboBoxChange = this.cmbSectionOptions.Text;
-            //if (cmbSectionOptionsMoved == false)
-            //{
-            //    if (comboBoxChange == "Move Up")
-            //    {
-            //        cmbSectionOptionsMoved = true;
-
-            //        System.Drawing.Point headingTemp = txtSubHeading.Location;
-            //        txtSubHeading.Location = txtSubHeading2.Location;
-            //        txtSubHeading2.Location = headingTemp;
-
-            //        System.Drawing.Point commentTemp = txtComment.Location;
-            //        txtComment.Location = txtComment2.Location;
-            //        txtComment2.Location = commentTemp;
-            //        System.Drawing.Point comboBox3Temp = comboBox3.Location;
-            //        comboBox3.Location = comboBox4.Location;
-            //        comboBox4.Location = comboBox3Temp;
-
-            //    }
-            //}
-            //else if (comboBox3Moved == true)
-            //{
-            //    if (comboBoxChange == "Move Down")
-            //    {
-            //        comboBox3Moved = false;
-            //        System.Drawing.Point headingTemp = txtSubHeading.Location;
-            //        txtSubHeading.Location = txtSubHeading2.Location;
-            //        txtSubHeading2.Location = headingTemp;
-
-            //        System.Drawing.Point commentTemp = txtComment.Location;
-            //        txtComment.Location = txtComment2.Location;
-            //        txtComment2.Location = commentTemp;
-            //        System.Drawing.Point comboBox3Temp = comboBox3.Location;
-            //        comboBox3.Location = comboBox4.Location;
-            //        comboBox4.Location = comboBox3Temp;
-
+           
         }
 
 
@@ -423,25 +376,23 @@ namespace temp1
 
         private void cmbStaffID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //opening the connection to the database
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from Staff where StaffID = '" + cmbStaffID.SelectedItem.ToString() + "'";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            //filling the text boxes
-            foreach (DataRow dr in dt.Rows)
-            {
-                txtStaffID.Text = dr["StaffID"].ToString();
-                txtStaffName.Text = dr["FullName"].ToString();
-                txtStaffContact.Text = dr["Contact"].ToString();
-            }
-            //closing the connection to the database
-            con.Close();
-        }
+            //fill in the grid 
+            DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("select * from Staff where StaffID = '" + cmbStaffID.SelectedItem.ToString() + "'");
+
+
+            //get the table from the dataset
+            DataTable dtPerson = dsPerson.Tables[0];
+
+            //set up the data grid view
+            
+           foreach (DataRow dr in dsPerson.Tables[0].Rows)
+             {
+                 txtStaffID.Text = dr["StaffID"].ToString();
+                 txtStaffName.Text = dr["FullName"].ToString();
+                 txtStaffContact.Text = dr["Contact"].ToString();
+             }
+
+         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {

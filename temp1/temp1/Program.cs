@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace temp1
@@ -16,8 +13,14 @@ namespace temp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           // Application.Run(new Staff());
-            Application.Run(new HomePage());
+            
+
+            //set the connection string
+            string connectionString = (@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\software engineering\Happy Tech\GroupAssignment\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+            DatabaseConnection.ConnectionStr = connectionString;
+
+            Application.Run(new Staff());
+           // Application.Run(new HomePage());
         }
     }
 }

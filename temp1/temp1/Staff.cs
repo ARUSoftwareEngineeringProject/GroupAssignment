@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+
 
 namespace temp1
 {
@@ -29,32 +23,29 @@ namespace temp1
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //opening connection to database 
-            SqlConnection con =
-                new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\software engineering\Happy Tech\GroupAssignment\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
-            // checking the login table 
-            SqlDataAdapter sda =
-                new SqlDataAdapter(
-                    "Select Count(*) From Login where LoginID='" + txtStaffID.Text + "' and Password ='" +
-                    txtPassword.Text + "'", con);
-            DataTable table = new DataTable();       
-            
-            // if statement for if login information is correct then close login and load template 
-           sda.Fill(table);
-           if (table.Rows[0][0].ToString() == "1")
-            {                   
+            //fill in the grid 
+            DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("Select Count(*) From Login where StaffNumber ='" + txtStaffID.Text + "' and Password ='" +
+                    txtPassword.Text + "'");
+
+
+            //get the table from the dataset
+            DataTable dtPerson = dsPerson.Tables[0];
+
+            if (dtPerson.Rows[0][0].ToString() == "1")
+            {
                 this.Hide();
                 Temp ss = new Temp();
                 ss.Show();
             }
-           // if the login information is wrong display the message 
+            // if the login information is wrong display the message 
             else
             {
                 MessageBox.Show("Please enter the correct credentials. If you have forgotten them, contact IT support");
             }
-        }
 
+        }
         
-    }
+
+        }
        
 }

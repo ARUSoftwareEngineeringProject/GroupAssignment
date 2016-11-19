@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+
 
 namespace temp1
 {
@@ -16,12 +10,14 @@ namespace temp1
     /// </summary>
     public partial class Feedback : Form
     {
-        // declaring varibles and connection to database
-        public static SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\software engineering\Happy Tech\GroupAssignment\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+               
         public Feedback()
         {
             InitializeComponent();
         }
+
+        //declare string to store feedback option from database
+        private static string select;
 
         /// <summary>
         /// populating the applicant combobox with required applicant Id
@@ -30,42 +26,43 @@ namespace temp1
         /// <param name="e"></param>
         private void Feedback_Load(object sender, EventArgs e)
         {
-            //opening the connection to the database 
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            //checking applicant table and displaying the applicant ID
-            cmd.CommandText = "select * from Applicants";
-            cmd.ExecuteNonQuery();
-            //proccessing of checking the table 
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            // displaying each individual applicant ID
-            foreach (DataRow dr in dt.Rows)
+            //fill in the grid 
+            DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("select * from Applicants");
+
+
+            //get the table from the dataset
+            DataTable dtPerson = dsPerson.Tables[0];
+
+            foreach (DataRow dr in dsPerson.Tables[0].Rows)
             {
                 cmbApplicantID.Items.Add(dr["ApplicantID"].ToString());
             }
-            //closing the connection to database 
-            con.Close();
 
+            //fill in the grid 
+            DataSet dvPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("select * from Template");
+
+
+            //get the table from the dataset
+            DataTable dpPerson = dsPerson.Tables[0];
+
+            foreach (DataRow dr in dvPerson.Tables[0].Rows)
+            {
+                cmbTempID.Items.Add(dr["TemplateName"].ToString());
+            }
         }
 
         private void cmbApplicantID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //opening the connection to the database
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            //displaying the applicant ID
-            cmd.CommandText = "select * from Applicants where ApplicantID = '" + cmbApplicantID.SelectedItem.ToString() + "'";
-            //proccessing of checking the table 
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            // fillin applicant information into the text boxes
-            foreach (DataRow dr in dt.Rows)
+            //fill in the grid 
+            DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("select * from Applicants where ApplicantID = '" + cmbApplicantID.SelectedItem.ToString() + "'");
+
+
+            //get the table from the dataset
+            DataTable dtPerson = dsPerson.Tables[0];
+
+            //set up the data grid view
+
+            foreach (DataRow dr in dsPerson.Tables[0].Rows)
             {
                 txtApplicantID.Text = dr["ApplicantID"].ToString();
                 txtName.Text = dr["FullName"].ToString();
@@ -75,12 +72,6 @@ namespace temp1
                 txtDOB.Text = dr["DOB"].ToString();
                 txtTypeOfApplication.Text = dr["typeOfApplication"].ToString();
             }
-            //closing the connection to database 
-            con.Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -88,20 +79,61 @@ namespace temp1
         {
             this.Close();
          }
-
-        private void label10_Click(object sender, EventArgs e)
+       
+        private void cmbTempID_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //fill in the grid 
+            DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("select * from Template where TemplateName = '" + cmbTempID.SelectedItem.ToString() + "'");
+
+
+            //get the table from the dataset
+            DataTable dtPerson = dsPerson.Tables[0];
+
+            //set up the data grid view
+
+            foreach (DataRow dr in dsPerson.Tables[0].Rows)
+            {
+                txtPosition.Text = dr["Position"].ToString();
+            }
 
         }
 
-        private void txtTemplateName_TextChanged(object sender, EventArgs e)
+        private void txtHeading_MouseClick(object sender, MouseEventArgs e)
         {
+            txtHeading.Clear();
+        }
+
+        private void radGood_MouseClick(object sender, MouseEventArgs e)
+        {
+            //fill in the grid 
+            DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("Select Comment From Template where TemplateName ='" + cmbTempID.SelectedItem.ToString() + "'and SubHeading = 'good'");
+
+
+            //get the table from the dataset
+            DataTable dtPerson = dsPerson.Tables[0];
+
+            foreach (DataRow dr in dsPerson.Tables[0].Rows)
+            {
+                select = dr["Comment"].ToString();
+                MessageBox.Show(" ",select);
+            }
 
         }
 
-        private void lblTemplateName_Click(object sender, EventArgs e)
+        private void radPoor_MouseClick(object sender, MouseEventArgs e)
         {
+            //fill in the grid 
+            DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("Select  Comment From Template where TemplateName ='" + cmbTempID.SelectedItem.ToString() + "'and SubHeading = 'poor'");
 
+
+            //get the table from the dataset
+            DataTable dtPerson = dsPerson.Tables[0];
+
+            foreach (DataRow dr in dsPerson.Tables[0].Rows)
+            {
+                select = dr["Comment"].ToString();
+                MessageBox.Show(" ", select);
+            }
         }
     }
 }

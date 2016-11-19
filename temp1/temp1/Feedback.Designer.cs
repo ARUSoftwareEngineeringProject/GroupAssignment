@@ -54,8 +54,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.cmbTempID = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtTemplateName = new System.Windows.Forms.TextBox();
-            this.lblTemplateName = new System.Windows.Forms.Label();
             this.txtPosition = new System.Windows.Forms.TextBox();
             this.txtHeading = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -209,6 +207,7 @@
             this.radGood.TabStop = true;
             this.radGood.Text = "Good";
             this.radGood.UseVisualStyleBackColor = true;
+            this.radGood.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radGood_MouseClick);
             // 
             // radPoor
             // 
@@ -220,6 +219,7 @@
             this.radPoor.TabStop = true;
             this.radPoor.Text = "Poor";
             this.radPoor.UseVisualStyleBackColor = true;
+            this.radPoor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radPoor_MouseClick);
             // 
             // btnSave
             // 
@@ -229,7 +229,6 @@
             this.btnSave.TabIndex = 62;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnEmail
             // 
@@ -272,49 +271,31 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(2, 289);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(122, 13);
+            this.label9.Size = new System.Drawing.Size(142, 13);
             this.label9.TabIndex = 68;
-            this.label9.Text = "SELECT TEMPLATE ID";
+            this.label9.Text = "SELECT TEMPLATE NAME";
             // 
             // cmbTempID
             // 
             this.cmbTempID.FormattingEnabled = true;
-            this.cmbTempID.Location = new System.Drawing.Point(129, 285);
+            this.cmbTempID.Location = new System.Drawing.Point(183, 285);
             this.cmbTempID.Name = "cmbTempID";
             this.cmbTempID.Size = new System.Drawing.Size(121, 21);
             this.cmbTempID.TabIndex = 67;
+            this.cmbTempID.SelectedIndexChanged += new System.EventHandler(this.cmbTempID_SelectedIndexChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(611, 293);
+            this.label10.Location = new System.Drawing.Point(377, 293);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(83, 13);
             this.label10.TabIndex = 71;
             this.label10.Text = " THE POSITON";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // txtTemplateName
-            // 
-            this.txtTemplateName.Location = new System.Drawing.Point(424, 286);
-            this.txtTemplateName.Name = "txtTemplateName";
-            this.txtTemplateName.Size = new System.Drawing.Size(163, 20);
-            this.txtTemplateName.TabIndex = 69;
-            this.txtTemplateName.TextChanged += new System.EventHandler(this.txtTemplateName_TextChanged);
-            // 
-            // lblTemplateName
-            // 
-            this.lblTemplateName.AutoSize = true;
-            this.lblTemplateName.Location = new System.Drawing.Point(288, 293);
-            this.lblTemplateName.Name = "lblTemplateName";
-            this.lblTemplateName.Size = new System.Drawing.Size(101, 13);
-            this.lblTemplateName.TabIndex = 70;
-            this.lblTemplateName.Text = " TEMPLATE NAME";
-            this.lblTemplateName.Click += new System.EventHandler(this.lblTemplateName_Click);
             // 
             // txtPosition
             // 
-            this.txtPosition.Location = new System.Drawing.Point(716, 286);
+            this.txtPosition.Location = new System.Drawing.Point(500, 286);
             this.txtPosition.Name = "txtPosition";
             this.txtPosition.Size = new System.Drawing.Size(163, 20);
             this.txtPosition.TabIndex = 72;
@@ -327,18 +308,17 @@
             this.txtHeading.Size = new System.Drawing.Size(155, 20);
             this.txtHeading.TabIndex = 73;
             this.txtHeading.Text = "HEADING";
+            this.txtHeading.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtHeading_MouseClick);
             // 
             // Feedback
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(944, 480);
             this.Controls.Add(this.txtHeading);
             this.Controls.Add(this.txtPosition);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.txtTemplateName);
-            this.Controls.Add(this.lblTemplateName);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.cmbTempID);
             this.Controls.Add(this.txtAdditionalComment);
@@ -408,8 +388,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmbTempID;
         private System.Windows.Forms.Label label10;
-        protected System.Windows.Forms.TextBox txtTemplateName;
-        private System.Windows.Forms.Label lblTemplateName;
         protected System.Windows.Forms.TextBox txtPosition;
         private System.Windows.Forms.TextBox txtHeading;
     }

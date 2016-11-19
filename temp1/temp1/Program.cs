@@ -19,8 +19,8 @@ namespace temp1
             string connectionString = (@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=H:\software engineering\Happy Tech\GroupAssignment\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
             DatabaseConnection.ConnectionStr = connectionString;
 
-            Application.Run(new Staff());
-           // Application.Run(new HomePage());
+            //Application.Run(new Staff());
+            Application.Run(new HomePage());
         }
     }
 }

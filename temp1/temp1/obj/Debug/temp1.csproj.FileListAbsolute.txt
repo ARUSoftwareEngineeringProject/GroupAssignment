@@ -68,3 +68,4 @@ C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\obj\Debug\temp1
 C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\obj\Debug\temp1.Properties.Resources.resources
 C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\obj\Debug\temp1.csproj.GenerateResource.Cache
 C:\Users\Najat\Desktop\SEAssignment\GroupAssignment7\temp1\temp1\obj\Debug\temp1.TemplateOptions.resources
+H:\software engineering\Happy Tech\GroupAssignment\temp1\temp1\obj\Debug\temp1.TemplateOptions.resources

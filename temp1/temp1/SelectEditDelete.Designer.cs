@@ -118,7 +118,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(545, 275);
+            this.btnUpdate.Location = new System.Drawing.Point(457, 275);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(88, 43);
             this.btnUpdate.TabIndex = 54;
@@ -128,7 +128,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(647, 275);
+            this.btnDelete.Location = new System.Drawing.Point(586, 275);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 43);
             this.btnDelete.TabIndex = 55;
@@ -141,7 +141,7 @@
             this.btnExit.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.Red;
-            this.btnExit.Location = new System.Drawing.Point(684, 22);
+            this.btnExit.Location = new System.Drawing.Point(691, 283);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(38, 35);
             this.btnExit.TabIndex = 65;

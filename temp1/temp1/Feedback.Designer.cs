@@ -229,6 +229,7 @@
             this.btnSave.TabIndex = 62;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnEmail
             // 
@@ -253,7 +254,6 @@
             // 
             this.txtAdditionalComment.Location = new System.Drawing.Point(185, 434);
             this.txtAdditionalComment.Name = "txtAdditionalComment";
-            this.txtAdditionalComment.ReadOnly = true;
             this.txtAdditionalComment.Size = new System.Drawing.Size(643, 20);
             this.txtAdditionalComment.TabIndex = 66;
             // 

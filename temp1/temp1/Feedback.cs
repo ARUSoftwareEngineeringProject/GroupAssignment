@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using System.IO;
+using System.Net.Mail;
+using System.Net;
 
 
 namespace temp1
@@ -25,6 +28,51 @@ namespace temp1
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Feedback_Load(object sender, EventArgs e)
+        {
+            LoadMain();
+        }
+        //Call FillApplicant method
+        private void cmbApplicantID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FillApplicant();
+        }
+        //Close Form
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        //Call TempId method
+        private void cmbTempID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TempId();
+        }
+        //Clear heading text box
+        private void txtHeading_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtHeading.Clear();
+        }
+        //Call Good method
+        private void radGood_MouseClick(object sender, MouseEventArgs e)
+        {
+            Good();
+        }
+        //Call Poor method
+        private void radPoor_MouseClick(object sender, MouseEventArgs e)
+        {
+            Poor();
+        }
+
+        // Call SaveTextFile method
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveTextFile();
+        }
+
+        /// <summary>
+        /// METHODS
+        /// </summary>
+
+        private void LoadMain()
         {
             //fill in the grid 
             DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("select * from Applicants");
@@ -51,7 +99,9 @@ namespace temp1
             }
         }
 
-        private void cmbApplicantID_SelectedIndexChanged(object sender, EventArgs e)
+
+
+        private void FillApplicant()
         {
             //fill in the grid 
             DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("select * from Applicants where ApplicantID = '" + cmbApplicantID.SelectedItem.ToString() + "'");
@@ -73,14 +123,10 @@ namespace temp1
                 txtTypeOfApplication.Text = dr["typeOfApplication"].ToString();
             }
 
+
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-         }
-       
-        private void cmbTempID_SelectedIndexChanged(object sender, EventArgs e)
+        private void TempId()
         {
             //fill in the grid 
             DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("select * from Template where TemplateName = '" + cmbTempID.SelectedItem.ToString() + "'");
@@ -98,12 +144,8 @@ namespace temp1
 
         }
 
-        private void txtHeading_MouseClick(object sender, MouseEventArgs e)
-        {
-            txtHeading.Clear();
-        }
-
-        private void radGood_MouseClick(object sender, MouseEventArgs e)
+        
+        private void Good()
         {
             //fill in the grid 
             DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("Select Comment From Template where TemplateName ='" + cmbTempID.SelectedItem.ToString() + "'and SubHeading = 'good'");
@@ -115,12 +157,12 @@ namespace temp1
             foreach (DataRow dr in dsPerson.Tables[0].Rows)
             {
                 select = dr["Comment"].ToString();
-                MessageBox.Show(" ",select);
+                MessageBox.Show(" ", select);
             }
-
         }
 
-        private void radPoor_MouseClick(object sender, MouseEventArgs e)
+       
+        private void Poor()
         {
             //fill in the grid 
             DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("Select  Comment From Template where TemplateName ='" + cmbTempID.SelectedItem.ToString() + "'and SubHeading = 'poor'");
@@ -133,6 +175,33 @@ namespace temp1
             {
                 select = dr["Comment"].ToString();
                 MessageBox.Show(" ", select);
+            }
+        }
+
+        private async void SaveTextFile()
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Text Documents|*.txt", ValidateNames = true })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    using (StreamWriter sw = new StreamWriter(sfd.FileName))
+                    {
+                        await sw.WriteLineAsync(txtName.Text);
+                        await sw.WriteLineAsync(txtAddress.Text);
+                        await sw.WriteLineAsync(txtEmail.Text);
+                        await sw.WriteLineAsync();
+                        await sw.WriteLineAsync(txtTypeOfApplication.Text);
+                        await sw.WriteLineAsync();
+                        await sw.WriteLineAsync(txtPosition.Text);
+                        await sw.WriteLineAsync();
+                        await sw.WriteLineAsync(txtHeading.Text);
+                        await sw.WriteLineAsync();
+                        await sw.WriteLineAsync(select);
+                        await sw.WriteLineAsync();
+                        await sw.WriteLineAsync(txtAdditionalComment.Text);
+                        MessageBox.Show("Text file has been saved", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
             }
         }
     }

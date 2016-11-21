@@ -2,16 +2,16 @@
 using System.Windows.Forms;
 using System.Collections;
 using System.Data;
-using System;
+
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
+
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 
 namespace temp1
@@ -23,7 +23,7 @@ namespace temp1
     {
         //declaring all the varibles 
 
-        FlowLayoutPanel flowLayoutPanel1 = new FlowLayoutPanel();
+  
         bool comboBox3Moved = false;
         bool comboBox4Moved = false;
         int grpSectionPosition = 1;
@@ -274,58 +274,99 @@ namespace temp1
         }
 
         //clearing the heading to enter heading name
-        private void txtHeading_Click(object sender, EventArgs e)
-        {
-            txtHeading.Clear();
-        }
+        //private void txtHeading_Click(object sender, EventArgs e)
+        //{
+        //    txtHeading.Clear();
+        //}
 
-        public void btnSaveTemplate_Click(object sender, EventArgs e)
+        //public void btnSaveTemplate_Click(object sender, EventArgs e)
+        //{
+        //    //calling templateSave class to use the string 
+        //    TemplateSave temp = new TemplateSave();
+        //    temp.name = txtHeading.Text;
+        //    temp.heading = new ArrayList();
+        //    // every heading
+        //    {
+        //        Heading heading = new Heading();
+        //        heading.headingName = txtHeading.Text;
+        //        heading.comment = new ArrayList();
+
+
+        //        // every comments of the current heading 
+        //        {
+        //            Comments c = new Comments();
+        //            c.subHeading = txtSubHeading.Text;
+        //            c.comment = txtComment.Text;
+        //            //add the comment to array list heading 
+        //            heading.comment.Add(c);
+        //        }
+        //        temp.heading.Add(heading);
+        //    }
+
+        //    int staffid = Convert.ToInt32(txtStaffID.Text);
+        //    int staffContact = Convert.ToInt32(txtStaffContact.Text);
+
+        //    //fill in the grid 
+        //    DataSet dsPerson =
+        //        DatabaseConnection.getDBConnectionInstance()
+        //            .getDataSet(
+        //                "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, SubHeading, Comment, Position) values(" +
+        //                staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" +
+        //                txtHeading.Text + "','" + txtSubHeading.Text + "','" + txtComment.Text + "','" +
+        //                txtPosition.Text + "')");
+        //    DataSet drPerson =
+        //        DatabaseConnection.getDBConnectionInstance()
+        //            .getDataSet(
+        //                "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, SubHeading, Comment, Position) values(" +
+        //                staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" +
+        //                txtHeading.Text + "','" + txtSubHeading2.Text + "', '" + txtComment2.Text + "', '" +
+        //                txtPosition.Text + "')");
+        //    //DataSet dvPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, Comment) values(" + staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" + txtHeading.Text + "','" + temp + "')");
+
+        //    //confirming data is saved
+        //    MessageBox.Show("Datas Saved");
+
+
+        //}
+
+        private void cmbStaffID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //calling templateSave class to use the string 
-            TemplateSave temp = new TemplateSave();
-            temp.name = txtHeading.Text;
-            temp.heading = new ArrayList();
-            // every heading
+            //fill in the grid 
+            DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("select * from Staff where StaffID = '" + cmbStaffID.SelectedItem.ToString() + "'");
+
+
+            //get the table from the dataset
+            DataTable dtPerson = dsPerson.Tables[0];
+
+            //set up the data grid view
+
+            foreach (DataRow dr in dsPerson.Tables[0].Rows)
             {
-                Heading heading = new Heading();
-                heading.headingName = txtHeading.Text;
-                heading.comment = new ArrayList();
-
-
-                // every comments of the current heading 
-                {
-                    Comments c = new Comments();
-                    c.subHeading = txtSubHeading.Text;
-                    c.comment = txtComment.Text;
-                    //add the comment to array list heading 
-                    heading.comment.Add(c);
-                }
-                temp.heading.Add(heading);
+                txtStaffID.Text = dr["StaffID"].ToString();
+                txtStaffName.Text = dr["FullName"].ToString();
+                txtStaffContact.Text = dr["Contact"].ToString();
             }
 
-            int staffid = Convert.ToInt32(txtStaffID.Text);
-            int staffContact = Convert.ToInt32(txtStaffContact.Text);
+        }
 
-            //fill in the grid 
-            DataSet dsPerson =
-                DatabaseConnection.getDBConnectionInstance()
-                    .getDataSet(
-                        "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, SubHeading, Comment, Position) values(" +
-                        staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" +
-                        txtHeading.Text + "','" + txtSubHeading.Text + "','" + txtComment.Text + "','" +
-                        txtPosition.Text + "')");
-            DataSet drPerson =
-                DatabaseConnection.getDBConnectionInstance()
-                    .getDataSet(
-                        "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, SubHeading, Comment, Position) values(" +
-                        staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" +
-                        txtHeading.Text + "','" + txtSubHeading2.Text + "', '" + txtComment2.Text + "', '" +
-                        txtPosition.Text + "')");
-            //DataSet dvPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, Comment) values(" + staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" + txtHeading.Text + "','" + temp + "')");
+        private void txtHeading2_TextChanged(object sender, EventArgs e)
+        {
 
-            //confirming data is saved
-            MessageBox.Show("Datas Saved");
+        }
 
+        private void btnAddSection_Click(object sender, EventArgs e)
+        {
+            AddMyGroupBox();
+
+        }
+
+        private void groupBox1_Enter_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }
@@ -464,39 +505,19 @@ namespace temp1
 
 
 
+    
 
 
-
-//        private void txtHeading2_MouseClick(object sender, MouseEventArgs e)
-//        {
-//            txtHeading2.Clear();
-//        }
-
-//        private void cmbStaffID_SelectedIndexChanged(object sender, EventArgs e)
-//        {
-//            //fill in the grid 
-//            DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("select * from Staff where StaffID = '" + cmbStaffID.SelectedItem.ToString() + "'");
-
-
-//            //get the table from the dataset
-//            DataTable dtPerson = dsPerson.Tables[0];
-
-//            //set up the data grid view
-
-//           foreach (DataRow dr in dsPerson.Tables[0].Rows)
-//             {
-//                 txtStaffID.Text = dr["StaffID"].ToString();
-//                 txtStaffName.Text = dr["FullName"].ToString();
-//                 txtStaffContact.Text = dr["Contact"].ToString();
-//             }
-
-//         }
-
-//        private void textBox5_TextChanged(object sender, EventArgs e)
-//        {
-
-//        }
-//    }
+//private void txtHeading2_MouseClick(object sender, MouseEventArgs e)
+//{
+//    txtHeading2.Clear();
 //}
 
+
+
+//private void textBox5_TextChanged(object sender, EventArgs e)
+//{
+
+//}
+    
 

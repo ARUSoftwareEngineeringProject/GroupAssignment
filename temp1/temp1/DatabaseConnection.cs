@@ -46,7 +46,7 @@ namespace temp1
             connectionToDB = new System.Data.SqlClient.SqlConnection(connectionStr);
 
             //open the connection
-           // connectionToDB.Open();
+            connectionToDB.Open();
         }
 
         public void closeConnection()
@@ -69,7 +69,7 @@ namespace temp1
             dataSet = new System.Data.DataSet();
 
             //fill in the dataSet with the data coming from the DB 
-            //dataAdapter.Fill(dataSet);
+            dataAdapter.Fill(dataSet);
 
             closeConnection();
             //return the dataset

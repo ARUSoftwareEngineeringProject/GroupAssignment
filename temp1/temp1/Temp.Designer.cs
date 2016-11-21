@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+         
             this.lblPosition = new System.Windows.Forms.Label();
             this.btnAddSection = new System.Windows.Forms.Button();
             this.grpSection = new System.Windows.Forms.GroupBox();
@@ -83,13 +84,14 @@
             // 
             // btnAddSection
             // 
-            this.btnAddSection.Location = new System.Drawing.Point(31, 195);
-            this.btnAddSection.Name = "btnAddSection";
-            this.btnAddSection.Size = new System.Drawing.Size(75, 38);
-            this.btnAddSection.TabIndex = 5;
-            this.btnAddSection.Text = "ADD SECTION";
-            this.btnAddSection.UseVisualStyleBackColor = true;
-            this.btnAddSection.Click += new System.EventHandler(this.btnAddSection_Click);
+            this.btnAdd.Location = new System.Drawing.Point(31, 195);
+            this.btnAdd.Name = "btnAddSection";
+            this.btnAdd.Size = new System.Drawing.Size(75, 38);
+            this.btnAdd.TabIndex = 5;
+            this.btnAdd.Text = "ADD SECTION";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+
             // 
             // grpSection
             // 
@@ -124,7 +126,7 @@
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(64, 21);
             this.comboBox4.TabIndex = 19;
-            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
+          //  this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
             // comboBox3
             // 
@@ -138,7 +140,7 @@
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(64, 21);
             this.comboBox3.TabIndex = 19;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            //this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // txtSubHeading
             // 
@@ -180,7 +182,7 @@
             this.cmbSectionOptions.Name = "cmbSectionOptions";
             this.cmbSectionOptions.Size = new System.Drawing.Size(146, 21);
             this.cmbSectionOptions.TabIndex = 8;
-            this.cmbSectionOptions.SelectedIndexChanged += new System.EventHandler(this.cmbSectionOptions_SelectedIndexChanged);
+            //this.cmbSectionOptions.SelectedIndexChanged += new System.EventHandler(this.cmbSectionOptions_SelectedIndexChanged);
             // 
             // btnDelete
             // 
@@ -293,7 +295,7 @@
             this.txtFeedback.TabIndex = 37;
             this.txtFeedback.Text = "HOME PAGE";
             this.txtFeedback.UseVisualStyleBackColor = true;
-            this.txtFeedback.Click += new System.EventHandler(this.txtFeedback_Click);
+          //  this.txtFeedback.Click += new System.EventHandler(this.txtFeedback_Click);
             // 
             // grpSection2
             // 
@@ -406,7 +408,7 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "+";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+          //  this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txtHeading2
             // 
@@ -416,7 +418,7 @@
             this.txtHeading2.Size = new System.Drawing.Size(155, 20);
             this.txtHeading2.TabIndex = 0;
             this.txtHeading2.Text = "HEADING";
-            this.txtHeading2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtHeading2_MouseClick);
+            //this.txtHeading2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtHeading2_MouseClick);
             // 
             // label2
             // 
@@ -434,7 +436,7 @@
             this.cmbStaffID.Name = "cmbStaffID";
             this.cmbStaffID.Size = new System.Drawing.Size(121, 21);
             this.cmbStaffID.TabIndex = 40;
-            this.cmbStaffID.SelectedIndexChanged += new System.EventHandler(this.cmbStaffID_SelectedIndexChanged);
+          //  this.cmbStaffID.SelectedIndexChanged += new System.EventHandler(this.cmbStaffID_SelectedIndexChanged);
             // 
             // txtTemplateName
             // 
@@ -467,7 +469,7 @@
             this.txtPosition.Name = "txtPosition";
             this.txtPosition.Size = new System.Drawing.Size(163, 20);
             this.txtPosition.TabIndex = 44;
-            this.txtPosition.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+         //   this.txtPosition.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // Temp
             // 

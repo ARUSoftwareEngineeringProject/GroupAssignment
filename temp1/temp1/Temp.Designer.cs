@@ -40,7 +40,7 @@ namespace temp1
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtStaffID = new System.Windows.Forms.TextBox();
-            this.txtFeedback = new System.Windows.Forms.Button();
+            this.txtHomePage = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbStaffID = new System.Windows.Forms.ComboBox();
             this.txtTemplateName = new System.Windows.Forms.TextBox();
@@ -80,6 +80,7 @@ namespace temp1
             this.btn_SaveTemplate.TabIndex = 7;
             this.btn_SaveTemplate.Text = "SAVE TEMPLATE";
             this.btn_SaveTemplate.UseVisualStyleBackColor = true;
+            this.btn_SaveTemplate.Click += new System.EventHandler(this.btnSaveTemplate_Click);
             // 
             // label1
             // 
@@ -140,15 +141,16 @@ namespace temp1
             this.txtStaffID.Size = new System.Drawing.Size(64, 20);
             this.txtStaffID.TabIndex = 35;
             // 
-            // txtFeedback
+            // txtHomePage
             // 
-            this.txtFeedback.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFeedback.Location = new System.Drawing.Point(900, 47);
-            this.txtFeedback.Name = "txtFeedback";
-            this.txtFeedback.Size = new System.Drawing.Size(91, 43);
-            this.txtFeedback.TabIndex = 37;
-            this.txtFeedback.Text = "HOME PAGE";
-            this.txtFeedback.UseVisualStyleBackColor = true;
+            this.txtHomePage.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHomePage.Location = new System.Drawing.Point(900, 47);
+            this.txtHomePage.Name = "txtHomePage";
+            this.txtHomePage.Size = new System.Drawing.Size(91, 43);
+            this.txtHomePage.TabIndex = 37;
+            this.txtHomePage.Text = "HOME PAGE";
+            this.txtHomePage.UseVisualStyleBackColor = true;
+            this.txtHomePage.Click += new System.EventHandler(this.txtHomePage_Click);
             // 
             // label2
             // 
@@ -204,12 +206,11 @@ namespace temp1
             // 
             this.groupBox1.Controls.Add(this.flowLayoutPanel1);
             this.groupBox1.Controls.Add(this.btnAddSection);
-            this.groupBox1.Location = new System.Drawing.Point(111, 281);
+            this.groupBox1.Location = new System.Drawing.Point(12, 244);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(931, 358);
             this.groupBox1.TabIndex = 46;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter_1);
             // 
             // flowLayoutPanel1
             // 
@@ -226,7 +227,7 @@ namespace temp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.SlateGray;
-            this.ClientSize = new System.Drawing.Size(1224, 681);
+            this.ClientSize = new System.Drawing.Size(1009, 635);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtPosition);
             this.Controls.Add(this.label3);
@@ -234,7 +235,7 @@ namespace temp1
             this.Controls.Add(this.txtTemplateName);
             this.Controls.Add(this.cmbStaffID);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtFeedback);
+            this.Controls.Add(this.txtHomePage);
             this.Controls.Add(this.txtStaffID);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -246,7 +247,6 @@ namespace temp1
             this.Controls.Add(this.lblPosition);
             this.Name = "Temp";
             this.Text = "TEMPLATE";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -260,16 +260,16 @@ namespace temp1
         private System.Windows.Forms.Button btn_SaveTemplate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblStaffID;
-        private System.Windows.Forms.DataGridView dtgStaffDetails;
+        //private System.Windows.Forms.DataGridView dtgStaffDetails;
         //private HappyTechDatabaseDataSet2 happyTechDatabaseDataSet2;
-        private System.Windows.Forms.BindingSource staffBindingSource;
+        //private System.Windows.Forms.BindingSource staffBindingSource;
         //private HappyTechDatabaseDataSet2TableAdapters.StaffTableAdapter staffTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn staffIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contactDataGridViewTextBoxColumn;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn staffIDDataGridViewTextBoxColumn;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn1;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn contactDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button txtFeedback;
+        private System.Windows.Forms.Button txtHomePage;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbStaffID;
         protected System.Windows.Forms.TextBox txtStaffContact;

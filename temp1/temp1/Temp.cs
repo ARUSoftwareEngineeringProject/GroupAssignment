@@ -1,18 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Collections;
 using System.Data;
 
-using System.Collections.Generic;
-using System.ComponentModel;
-
 using System.Drawing;
-using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
+using System.Collections;
+using System.Collections.Generic;
 
 namespace temp1
 {
@@ -23,7 +15,7 @@ namespace temp1
     {
         //declaring all the varibles 
 
-  
+
         bool comboBox3Moved = false;
         bool comboBox4Moved = false;
         int grpSectionPosition = 1;
@@ -67,7 +59,7 @@ namespace temp1
 
             // Add button location and properties
 
-            btnAdd.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte) (0)));
+            btnAdd.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
             btnAdd.Location = new Point(120, 15);
             btnAdd.Name = "btnDelete";
             btnAdd.Size = new Size(20, 20);
@@ -87,7 +79,7 @@ namespace temp1
 
             // Delete button location and properties
 
-            btDelete.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte) (0)));
+            btDelete.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
             btDelete.Location = new Point(500, 20);
             btDelete.Name = "btnDelete";
             btDelete.Size = new Size(20, 20);
@@ -119,10 +111,9 @@ namespace temp1
             neCB.Items.AddRange(new object[]
             {
                 "Move Up",
-                "Move Down",
-                "Edit",
+                "Move Down",            
                 "Delete",
-                "Add Heading"
+                
             });
 
             // create the new group box that stores the subheading, comment and the combobox
@@ -157,7 +148,7 @@ namespace temp1
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            GroupBox groupBox1 = (GroupBox) (((Button) sender).Parent);
+            GroupBox groupBox1 = (GroupBox)(((Button)sender).Parent);
 
             DialogResult result = MessageBox.Show("Do you want to add additional sections ?", "Message",
                 MessageBoxButtons.YesNo);
@@ -175,7 +166,7 @@ namespace temp1
                 MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                ((Button) sender).Parent.Dispose();
+                ((Button)sender).Parent.Dispose();
             }
         }
 
@@ -255,79 +246,79 @@ namespace temp1
             AddMyGroupBox();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
-
-
-        private void grpSection_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         //clearing the heading to enter heading name
-        //private void txtHeading_Click(object sender, EventArgs e)
-        //{
-        //    txtHeading.Clear();
-        //}
 
-        //public void btnSaveTemplate_Click(object sender, EventArgs e)
-        //{
-        //    //calling templateSave class to use the string 
-        //    TemplateSave temp = new TemplateSave();
-        //    temp.name = txtHeading.Text;
-        //    temp.heading = new ArrayList();
-        //    // every heading
-        //    {
-        //        Heading heading = new Heading();
-        //        heading.headingName = txtHeading.Text;
-        //        heading.comment = new ArrayList();
+        public void btnSaveTemplate_Click(object sender, EventArgs e)
+        {
+            //get the FlowLayout
 
+            Control[] allControls = this.Controls.Find("groupBox1", true);
+            Control[] fl = allControls[0].Controls.Find("flowLayoutPanel1", true);
 
-        //        // every comments of the current heading 
-        //        {
-        //            Comments c = new Comments();
-        //            c.subHeading = txtSubHeading.Text;
-        //            c.comment = txtComment.Text;
-        //            //add the comment to array list heading 
-        //            heading.comment.Add(c);
-        //        }
-        //        temp.heading.Add(heading);
-        //    }
+            //flp contains all the SectionGroupBoxes
+            FlowLayoutPanel flp = (FlowLayoutPanel)fl[0];
 
-        //    int staffid = Convert.ToInt32(txtStaffID.Text);
-        //    int staffContact = Convert.ToInt32(txtStaffContact.Text);
+            //get the  section groupBoxes
 
-        //    //fill in the grid 
-        //    DataSet dsPerson =
-        //        DatabaseConnection.getDBConnectionInstance()
-        //            .getDataSet(
-        //                "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, SubHeading, Comment, Position) values(" +
-        //                staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" +
-        //                txtHeading.Text + "','" + txtSubHeading.Text + "','" + txtComment.Text + "','" +
-        //                txtPosition.Text + "')");
-        //    DataSet drPerson =
-        //        DatabaseConnection.getDBConnectionInstance()
-        //            .getDataSet(
-        //                "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, SubHeading, Comment, Position) values(" +
-        //                staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" +
-        //                txtHeading.Text + "','" + txtSubHeading2.Text + "', '" + txtComment2.Text + "', '" +
-        //                txtPosition.Text + "')");
-        //    //DataSet dvPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, Comment) values(" + staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" + txtHeading.Text + "','" + temp + "')");
+            IEnumerator ie = flp.Controls.GetEnumerator();
+            while (ie.MoveNext() )
+            {
+                Control control = (Control)ie.Current;
+                if(control.GetType().Name == "GroupBox")
+                {
+                    GroupBox sectionGb = (GroupBox)control;
+                    //b.Controls.
+                    MessageBox.Show("Datas Saved");
+                }
+            }
 
-        //    //confirming data is saved
-        //    MessageBox.Show("Datas Saved");
+            //calling templateSave class to use the string 
+           //TemplateSave temp = new TemplateSave();
+           // temp.name = txtTemplateName.Text;
+           // temp.heading = new ArrayList();
+           // // every heading
+           // {
+           //     TextBox txtHeading = AddtxtHeading();
+           //     Heading heading = new Heading();
+           //     heading.headingName = txtHeading.Text;
+           //     heading.comment = new ArrayList();
 
 
-        //}
+           //     //every comments of the current heading
+           //     {
+           //         TextBox neTB = AddNwTb();
+           //         TextBox neTB1 = AddNwTb();
+           //         Comments c = new Comments();
+           //         c.subHeading = neTB.Text;
+           //         c.comment = neTB1.Text;
+           //         //add the comment to array list heading 
+           //         heading.comment.Add(c);
+           //     }
+           //     temp.heading.Add(heading);
+           // }
+
+           // int staffid = Convert.ToInt32(txtStaffID.Text);
+           // int staffContact = Convert.ToInt32(txtStaffContact.Text);
+
+           // //fill in the grid 
+           // {
+           //     TextBox txtHeading = AddtxtHeading();
+           //     TextBox neTB = AddNwTb();
+           //     TextBox neTB1 = AddNwTb();
+           //     DataSet dsPerson =
+           // DatabaseConnection.getDBConnectionInstance()
+           // .getDataSet(
+           // "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, SubHeading, Comment, Position) values(" +
+           // staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" +
+           // txtHeading.Text + "','" + neTB.Text + "','" + neTB1.Text + "','" +
+           // txtPosition.Text + "')");
+           //     //confirming data is saved
+                MessageBox.Show("Datas Saved");
+            //}
+            
+
+        }
 
         private void cmbStaffID_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -349,175 +340,25 @@ namespace temp1
 
         }
 
-        private void txtHeading2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAddSection_Click(object sender, EventArgs e)
         {
             AddMyGroupBox();
 
         }
 
-        private void groupBox1_Enter_1(object sender, EventArgs e)
+
+
+        private void txtHomePage_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
+            this.Hide();
+            HomePage tt = new HomePage();
+            tt.Show();
         }
     }
 }
 
 
-//private void btnDelete_Click(object sender, EventArgs e)
-//{
-
-//    GroupBox groupBox = new GroupBox();
-//    if (this.txtComment == null)
-//    {
-//        MessageBox.Show("The field is already empty");
-//    }
-//    else if (this.txtComment2 == null)
-//    {
-//        MessageBox.Show("The field is already empty");
-//    }
-//    else if (this.txtSubHeading == null)
-//    {
-//        MessageBox.Show("The field is already empty");
-//    }
-//    else if (this.txtSubHeading2 == null)
-//    {
-//        MessageBox.Show("The field is already empty");
-//    }
-//    else
-//    {
-//        DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete a field ? ", "Attention", MessageBoxButtons.YesNo);
-//        if (dialogResult == DialogResult.Yes)
-//        {
-//            ((Button)sender).Parent.Dispose();
-//        }
-
-
-//    }
 
 
 
-
-/// <summary>
-/// loading the feedback template
-/// </summary>
-/// <param name="sender"></param>
-/// <param name="e"></param>
-
-//        private void txtFeedback_Click(object sender, EventArgs e)
-//        {
-//            this.Hide();
-//            HomePage ss = new HomePage();
-//            ss.Show();
-//        }
-
-//        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-//        {
-//            string comboBoxChange = this.comboBox3.Text;
-//            if (comboBox3Moved == false)
-//            {
-//                if (comboBoxChange == "Move Down")
-//                    comboBox3Moved = true;
-
-//                System.Drawing.Point headingTemp = txtSubHeading.Location;
-//                txtSubHeading.Location = txtSubHeading2.Location;
-//                txtSubHeading2.Location = headingTemp;
-
-//                System.Drawing.Point commentTemp = txtComment.Location;
-//                txtComment.Location = txtComment2.Location;
-//                txtComment2.Location = commentTemp;
-//                System.Drawing.Point comboBox3Temp = comboBox3.Location;
-//                comboBox3.Location = comboBox4.Location;
-//                comboBox4.Location = comboBox3Temp;
-
-//            }
-
-//            else if (comboBox3Moved == true)
-//            {
-//                if (comboBoxChange == "Move Up")
-//                {
-//                    comboBox3Moved = false;
-//                    System.Drawing.Point headingTemp = txtSubHeading.Location;
-//                    txtSubHeading.Location = txtSubHeading2.Location;
-//                    txtSubHeading2.Location = headingTemp;
-
-//                    System.Drawing.Point commentTemp = txtComment.Location;
-//                    txtComment.Location = txtComment2.Location;
-//                    txtComment2.Location = commentTemp;
-//                    System.Drawing.Point comboBox3Temp = comboBox3.Location;
-//                    comboBox3.Location = comboBox4.Location;
-//                    comboBox4.Location = comboBox3Temp;
-
-//                }
-
-//            }
-//            if (comboBoxChange == "Delete")
-//            {
-//                comboBox3.Dispose();
-//                txtComment.Dispose();
-//                txtSubHeading.Dispose();
-//            }
-//        }
-
-
-
-
-//        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
-//        {
-//            string comboBoxChanged = this.comboBox4.Text;
-//            if (comboBox4Moved == false)
-//            {
-//                if (comboBoxChanged == "Delete")
-//                {
-//                    comboBox4.Dispose();
-//                    txtComment2.Dispose();
-//                    txtSubHeading2.Dispose();
-//                }
-//            }
-//        }
-//        private void cmbSectionOptions_SelectedIndexChanged(object sender, EventArgs e)
-//        {
-//            if (cmbSectionOptions.Text == "Move Down" & grpSectionPosition == 1)
-//            {
-//                System.Drawing.Point grpBoxTemp = grpSection2.Location;
-//                grpSection2.Location = grpSection.Location;
-//                grpSection.Location = grpBoxTemp;
-//                grpSectionPosition = 2;
-//            }
-//            else if (cmbSectionOptions.Text == "Move Up" & grpSectionPosition == 2)
-//            {
-//                System.Drawing.Point grpBoxTemp = grpSection2.Location;
-//                grpSection2.Location = grpSection.Location;
-//                grpSection.Location = grpBoxTemp;
-//                grpSectionPosition = 1;
-//            }
-
-//        }
-
-
-
-    
-
-
-//private void txtHeading2_MouseClick(object sender, MouseEventArgs e)
-//{
-//    txtHeading2.Clear();
-//}
-
-
-
-//private void textBox5_TextChanged(object sender, EventArgs e)
-//{
-
-//}
-    
 

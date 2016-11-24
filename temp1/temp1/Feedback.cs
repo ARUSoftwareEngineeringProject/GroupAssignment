@@ -204,5 +204,32 @@ namespace temp1
                 }
             }
         }
+
+        private void btnEmail_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("iSkhalawi@gmail.com");
+                mail.To.Add(txtEmail.Text);
+                mail.Subject = "Test Mail";
+                mail.Body = "This is for testing SMTP mail from GMAIL";
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("iSkhalawi@gmail.com", "sultan5566");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+                MessageBox.Show("mail Send");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }
+  
+

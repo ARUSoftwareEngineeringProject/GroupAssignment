@@ -205,6 +205,9 @@ namespace temp1
             }
         }
 
+      //  http://csharp.net-informations.com/communications/csharp-smtp-mail.htm
+
+
         private void btnEmail_Click(object sender, EventArgs e)
         {
             try
@@ -217,8 +220,14 @@ namespace temp1
                 mail.Subject = "Test Mail";
                 mail.Body = "This is for testing SMTP mail from GMAIL";
 
+                // http://www.coding-issues.com/2012/11/sending-email-with-attachments-from-c.html
+
+                Attachment attachment;
+                attachment = new Attachment("c:/Sultan.PDF");
+                mail.Attachments.Add(attachment);
+
                 SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("iSkhalawi@gmail.com", "sultan5566");
+                SmtpServer.Credentials = new NetworkCredential("iSkhalawi@gmail.com", "sultan5566");
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);

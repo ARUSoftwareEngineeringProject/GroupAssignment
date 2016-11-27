@@ -4,6 +4,9 @@ using System.Windows.Forms;
 using System.IO;
 using System.Net.Mail;
 using System.Net;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.parser;
 
 
 namespace temp1
@@ -13,7 +16,7 @@ namespace temp1
     /// </summary>
     public partial class Feedback : Form
     {
-               
+
         public Feedback()
         {
             InitializeComponent();
@@ -144,7 +147,7 @@ namespace temp1
 
         }
 
-        
+
         private void Good()
         {
             //fill in the grid 
@@ -161,7 +164,7 @@ namespace temp1
             }
         }
 
-       
+
         private void Poor()
         {
             //fill in the grid 
@@ -205,7 +208,7 @@ namespace temp1
             }
         }
 
-      //  http://csharp.net-informations.com/communications/csharp-smtp-mail.htm
+        //  http://csharp.net-informations.com/communications/csharp-smtp-mail.htm
 
 
         private void btnEmail_Click(object sender, EventArgs e)
@@ -238,7 +241,56 @@ namespace temp1
                 MessageBox.Show(ex.ToString());
             }
         }
+        /// <summary>
+        /// Method to save the file as pdf 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_savePDF_Click(object sender, EventArgs e)
+        {
+            // open the file dialog to name the pdf document and save it in chosen directory
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Title = "Save as PDF";
+            //File type is pdf 
+            sfd.Filter = "(*.pdf)|*.pdf";
+            //Declaring the directory 
+            sfd.InitialDirectory = @"C:\";
+            // If statement to open the file and documented after the file is named  
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                // Creating the document and the page size to start writing in the file 
+                Document doc = new Document(iTextSharp.text.PageSize.A4);
+                PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
+
+                //To Open the document and add data into it 
+                doc.Open();
+
+                // using list to add each Textbox in new line
+                iTextSharp.text.List list = new List(List.UNORDERED);
+                list.Add(new iTextSharp.text.ListItem(txtName.Text));
+                list.Add(txtAddress.Text);
+                list.Add(txtEmail.Text);
+                list.Add("");
+                list.Add(txtTypeOfApplication.Text);
+                list.Add("");
+                list.Add(txtPosition.Text);
+                list.Add("");
+                list.Add(txtHeading.Text);
+                list.Add("");
+                list.Add(select);
+                list.Add("");
+                list.Add(txtAdditionalComment.Text);
+
+                // To add the above information in pdf file
+                doc.Add(list);
+
+                //Closing document 
+                doc.Close();
+                // Message box to 
+                MessageBox.Show("PDF file has been saved", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
-  
+
 

@@ -13,10 +13,10 @@ namespace temp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
+
 
             //set the connection string
-            string connectionString = (@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Khalawi\Source\Repos\GroupAssignment2\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+            string connectionString = (@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Najat\Desktop\SEAssignment\GroupAssignment12\temp1\temp1\HappyTechDatabase.mdf;Integrated Security=True;Connect Timeout=30");
             DatabaseConnection.ConnectionStr = connectionString;
 
             //Application.Run(new Staff());

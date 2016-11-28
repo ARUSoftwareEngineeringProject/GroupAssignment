@@ -47,12 +47,12 @@ namespace temp1
         }
 
 
-        // Method to add the button
+        // Method to add the  add button
 
         private Button addAddButton()
 
         {
-
+            // Declare new button 
             Button btnAdd = new Button();
 
 
@@ -69,9 +69,11 @@ namespace temp1
             return btnAdd;
         }
 
+        // Add the delete button method 
 
         private Button addDeleteButton()
         {
+            // Declare a new button 
 
             Button btDelete = new Button();
 
@@ -97,15 +99,22 @@ namespace temp1
 
         private void AddNwTb(GroupBox groupBox)
         {
+            // declare new text box  
+
             TextBox neTB = new TextBox();
+
+            // Define the size of the text box
             neTB.Size = new Size(80, 50);
 
             TextBox neTB1 = new TextBox();
             neTB1.Size = new Size(300, 50);
 
+            // declare new combo box 
             ComboBox neCB = new ComboBox();
-            neCB.Size = new Size(70, 50);
 
+            // define the size of the combo box and set its properties 
+
+            neCB.Size = new Size(70, 50);
             neCB.BackColor = Color.Red;
             neCB.Items.AddRange(new object[]
             {
@@ -116,7 +125,17 @@ namespace temp1
             });
 
             // create the new group box that stores the subheading, comment and the combobox
+
+            /*
+           // Declare a new group box
+           */
+
             GroupBox groupBoxComment = new GroupBox();
+
+            /*
+           // Declare a new flow lay out panel   
+           */
+
             FlowLayoutPanel flp = new FlowLayoutPanel();
             flp.FlowDirection = FlowDirection.LeftToRight;
 
@@ -138,6 +157,7 @@ namespace temp1
             //flp.Size = new Size(650,150);
             groupBoxComment.Controls.Add(flp);
             groupBox.Controls.Add(groupBoxComment);
+            groupBox.AutoSize = true;
             //flp.WrapContents = false;
 
 
@@ -153,10 +173,15 @@ namespace temp1
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            // identify the sendr and get the button from the sender 
             GroupBox groupBox1 = (GroupBox)(((Button)sender).Parent);
+
             grpBoxList.Add(groupBox1);
+
             DialogResult result = MessageBox.Show("Do you want to add additional sections ?", "Message",
                 MessageBoxButtons.YesNo);
+
+            // if statement to check the user input 
 
             if (result == DialogResult.Yes)
 
@@ -167,8 +192,12 @@ namespace temp1
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete a field ? ", "Attention",
                 MessageBoxButtons.YesNo);
+
+            // If statement to check the user input 
+
             if (dialogResult == DialogResult.Yes)
             {
                 ((Button)sender).Parent.Dispose();
@@ -180,6 +209,11 @@ namespace temp1
 
         private ComboBox addComboBoxBox3()
         {
+
+            /*
+           // Declare a new combo box and set its properties  
+           */
+
             ComboBox cmbSectionOptions = new ComboBox();
 
             cmbSectionOptions.BackColor = Color.Beige;
@@ -206,7 +240,7 @@ namespace temp1
         private TextBox AddtxtHeading()
         {
             /*
-            // Declear a new text box 
+            // Declare a new text box and set its properties
             */
             TextBox txtHeading = new TextBox();
             txtHeading.Location = new Point(6, 15);
@@ -222,34 +256,42 @@ namespace temp1
         private void AddMyGroupBox()
 
         {
+            /*
+            // Declare a new group box and set its properties  
+            */
 
             GroupBox groupBox1 = new GroupBox();
             groupBox1.BackColor = Color.Blue;
             groupBox1.Size = new Size(650, 150); //??
+
+            // declare the button from the button method 
             Button btnAdd = addAddButton();
-            ComboBox cmbSectionOptions = addComboBoxBox3();
-            TextBox txtHeading = AddtxtHeading();
             Button btnDelete = addDeleteButton();
 
 
-            //AddNwTb(groupBox1);
+            // declare the combo box from the combo box method 
+            ComboBox cmbSectionOptions = addComboBoxBox3();
 
+            // declare the text box  from the text box method 
+            TextBox txtHeading = AddtxtHeading();
+          
+
+
+            // Group box is adding the controls 
 
             groupBox1.Controls.Add(btnAdd);
             groupBox1.Controls.Add(btnDelete);
             groupBox1.Controls.Add(cmbSectionOptions);
             groupBox1.Controls.Add(txtHeading);
+
+            // Flow lay out panel  controls is adding the group box 
             flowLayoutPanel1.Controls.Add(groupBox1);
+
+            // directing the flow lay out panel to be starting from top to down 
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
 
         }
 
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            AddMyGroupBox();
-        }
 
 
         //clearing the heading to enter heading name
@@ -419,8 +461,9 @@ namespace temp1
 
         private void btnAddSection_Click(object sender, EventArgs e)
         {
-            AddMyGroupBox();
+            // calling the method to add the main groupBox 
 
+            AddMyGroupBox();
         }
 
 

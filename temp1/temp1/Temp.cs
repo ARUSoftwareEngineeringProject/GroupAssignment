@@ -33,15 +33,15 @@ namespace temp1
         private void Main_Load(object sender, EventArgs e)
         {
             //fill in the grid 
-            DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("select * from Staff");
+           // DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("select * from Staff");
 
 
             //get the table from the dataset
-            DataTable dtPerson = dsPerson.Tables[0];
+           // DataTable dtPerson = dsPerson.Tables[0];
 
-            foreach (DataRow dr in dsPerson.Tables[0].Rows)
+           // foreach (DataRow dr in dsPerson.Tables[0].Rows)
             {
-                cmbStaffID.Items.Add(dr["StaffID"].ToString());
+           //     cmbStaffID.Items.Add(dr["StaffID"].ToString());
             }
 
         }
@@ -353,8 +353,11 @@ namespace temp1
             {
                 try
                 {
-                    // finding the location of the selected group box in the list of group boxes
+                    
                     int grpBoxIndex = grpSections.FindIndex(x => x == groupBoxComment);
+                    if (grpBoxIndex+1 <= grpSections.Count-1)
+                    {
+                    // finding the location of the selected group box in the list of group boxes
 
 
                     Control firstGB = grpSections[grpBoxIndex].Parent;
@@ -372,6 +375,7 @@ namespace temp1
                     firstGB.Controls.Add(grpSections[grpBoxIndex]);
 
                     secondGB.Controls.Add(grpSections[grpBoxIndex + 1]);
+                    }
                 }
                 // catches the error if the group box selected was the last in the list whilst attempting to move it down
                 catch (ArgumentOutOfRangeException) { }
@@ -384,23 +388,27 @@ namespace temp1
                 {
                     // finding the location of the selected group box in the list of group boxes
                     int grpBoxIndex = grpSections.FindIndex(x => x == groupBoxComment);
+                    if (grpBoxIndex - 1 >= 0)
+                    {
 
 
-                    Control firstGB = grpSections[grpBoxIndex].Parent;
-                    grpSections[grpBoxIndex].Parent.Controls.Remove(grpSections[grpBoxIndex]);
+                        Control firstGB = grpSections[grpBoxIndex].Parent;
+                        grpSections[grpBoxIndex].Parent.Controls.Remove(grpSections[grpBoxIndex]);
 
-                    Control secondGB = grpSections[grpBoxIndex - 1].Parent;
-                    grpSections[grpBoxIndex - 1].Parent.Controls.Remove(grpSections[grpBoxIndex - 1]);
+                        Control secondGB = grpSections[grpBoxIndex - 1].Parent;
+                        grpSections[grpBoxIndex - 1].Parent.Controls.Remove(grpSections[grpBoxIndex - 1]);
 
-                    //swapping the index of the group box in the list itself 
-                    GroupBox grpBoxTemp = grpSections[grpBoxIndex - 1];
-                    grpSections[grpBoxIndex - 1] = grpSections[grpBoxIndex];
-                    grpSections[grpBoxIndex] = grpBoxTemp;
+                        //swapping the index of the group box in the list itself 
+                        GroupBox grpBoxTemp = grpSections[grpBoxIndex - 1];
+                        grpSections[grpBoxIndex - 1] = grpSections[grpBoxIndex];
+                        grpSections[grpBoxIndex] = grpBoxTemp;
 
-                    firstGB.Controls.Add(grpSections[grpBoxIndex]);
+                        firstGB.Controls.Add(grpSections[grpBoxIndex]);
 
-                    secondGB.Controls.Add(grpSections[grpBoxIndex - 1]);
+                        secondGB.Controls.Add(grpSections[grpBoxIndex - 1]);
+                    }
                 }
+
                 // catches the error if the group box selected was the last in the list whilst attempting to move it down
                 catch (ArgumentOutOfRangeException) { }
 

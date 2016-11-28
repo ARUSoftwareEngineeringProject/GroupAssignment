@@ -13,12 +13,11 @@ namespace temp1
     /// </summary>
     public partial class Temp : Form
     {
-        //declaring all the varibles 
+        //declaring all the variables 
 
+        public List<GroupBox> grpSections = new List<GroupBox>();
+        public List<GroupBox> grpBoxList = new List<GroupBox>();
 
-        bool comboBox3Moved = false;
-        bool comboBox4Moved = false;
-        int grpSectionPosition = 1;
 
         public Temp()
 
@@ -121,6 +120,12 @@ namespace temp1
             FlowLayoutPanel flp = new FlowLayoutPanel();
             flp.FlowDirection = FlowDirection.LeftToRight;
 
+            grpSections.Add(groupBoxComment);
+            neCB.SelectedIndexChanged += delegate(object sender, EventArgs args)
+            {
+                neCB_SelectedIndexChanged(sender, args, neCB, groupBoxComment, groupBox);
+            };
+
             //flp.WrapContents = false;
             flp.Controls.Add(neTB);
             flp.Controls.Add(neTB1);
@@ -149,7 +154,7 @@ namespace temp1
         private void btnAdd_Click(object sender, EventArgs e)
         {
             GroupBox groupBox1 = (GroupBox)(((Button)sender).Parent);
-
+            grpBoxList.Add(groupBox1);
             DialogResult result = MessageBox.Show("Do you want to add additional sections ?", "Message",
                 MessageBoxButtons.YesNo);
 
@@ -339,6 +344,70 @@ namespace temp1
             }
 
         }
+
+
+        private void neCB_SelectedIndexChanged(object sender, EventArgs e, ComboBox neCB, GroupBox groupBoxComment, GroupBox groupBox)
+        {
+            //ComboBox neCB = null;
+            if (neCB.Text == "Move Down")
+            {
+                try
+                {
+                    // finding the location of the selected group box in the list of group boxes
+                    int grpBoxIndex = grpSections.FindIndex(x => x == groupBoxComment);
+
+
+                    Control firstGB = grpSections[grpBoxIndex].Parent;
+                    grpSections[grpBoxIndex].Parent.Controls.Remove(grpSections[grpBoxIndex]);
+
+                    Control secondGB = grpSections[grpBoxIndex + 1].Parent;
+                    grpSections[grpBoxIndex + 1].Parent.Controls.Remove(grpSections[grpBoxIndex + 1]);
+
+
+                    //swapping the index of the group box in the list itself 
+                    GroupBox grpBoxTemp = grpSections[grpBoxIndex + 1];
+                    grpSections[grpBoxIndex + 1] = grpSections[grpBoxIndex];
+                    grpSections[grpBoxIndex] = grpBoxTemp;
+
+                    firstGB.Controls.Add(grpSections[grpBoxIndex]);
+
+                    secondGB.Controls.Add(grpSections[grpBoxIndex + 1]);
+                }
+                // catches the error if the group box selected was the last in the list whilst attempting to move it down
+                catch (ArgumentOutOfRangeException) { }
+
+
+            }
+            else if (neCB.Text == "Move Up")
+            {
+                try
+                {
+                    // finding the location of the selected group box in the list of group boxes
+                    int grpBoxIndex = grpSections.FindIndex(x => x == groupBoxComment);
+
+
+                    Control firstGB = grpSections[grpBoxIndex].Parent;
+                    grpSections[grpBoxIndex].Parent.Controls.Remove(grpSections[grpBoxIndex]);
+
+                    Control secondGB = grpSections[grpBoxIndex - 1].Parent;
+                    grpSections[grpBoxIndex - 1].Parent.Controls.Remove(grpSections[grpBoxIndex - 1]);
+
+                    //swapping the index of the group box in the list itself 
+                    GroupBox grpBoxTemp = grpSections[grpBoxIndex - 1];
+                    grpSections[grpBoxIndex - 1] = grpSections[grpBoxIndex];
+                    grpSections[grpBoxIndex] = grpBoxTemp;
+
+                    firstGB.Controls.Add(grpSections[grpBoxIndex]);
+
+                    secondGB.Controls.Add(grpSections[grpBoxIndex - 1]);
+                }
+                // catches the error if the group box selected was the last in the list whilst attempting to move it down
+                catch (ArgumentOutOfRangeException) { }
+
+
+            }
+        }
+
 
         private void btnAddSection_Click(object sender, EventArgs e)
         {

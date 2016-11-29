@@ -33,15 +33,15 @@ namespace temp1
         private void Main_Load(object sender, EventArgs e)
         {
             //fill in the grid 
-           // DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("select * from Staff");
+           DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("select * from Staff");
 
 
             //get the table from the dataset
-           // DataTable dtPerson = dsPerson.Tables[0];
+           DataTable dtPerson = dsPerson.Tables[0];
 
-           // foreach (DataRow dr in dsPerson.Tables[0].Rows)
+           foreach (DataRow dr in dsPerson.Tables[0].Rows)
             {
-           //     cmbStaffID.Items.Add(dr["StaffID"].ToString());
+                cmbStaffID.Items.Add(dr["StaffID"].ToString());
             }
 
         }
@@ -298,72 +298,55 @@ namespace temp1
 
         public void btnSaveTemplate_Click(object sender, EventArgs e)
         {
-            //get the FlowLayout
+            
+           int i = 0;
+            bool validData = false;
 
-            Control[] allControls = this.Controls.Find("groupBox1", true);
-            Control[] fl = allControls[0].Controls.Find("flowLayoutPanel1", true);
-
-            //flp contains all the SectionGroupBoxes
-            FlowLayoutPanel flp = (FlowLayoutPanel)fl[0];
-
-            //get the  section groupBoxes
-
-            IEnumerator ie = flp.Controls.GetEnumerator();
-            while (ie.MoveNext() )
+            foreach (Control control in groupBox1.Controls)
             {
-                Control control = (Control)ie.Current;
-                if(control.GetType().Name == "GroupBox")
+                if (control is FlowLayoutPanel && control.HasChildren)
                 {
-                    GroupBox sectionGb = (GroupBox)control;
-                    //b.Controls.
-                    MessageBox.Show("Datas Saved");
+                    foreach (Control ctrl in control.Controls)
+                    {
+                        if (ctrl is GroupBox && ctrl.HasChildren)
+                        {
+                            foreach (Control ctrl2 in control.Controls)
+                            {
+                                if (ctrl2 is GroupBox && ctrl2.HasChildren)
+                                {
+                                    foreach (Control tbox in ctrl2.Controls)
+                                    {
+                                        if (tbox is TextBox)
+                                        {
+                                            //TextBox neTB = tbox as TextBox;
+                                            foreach (Control contrl in this.Controls)
+                                            {
+                                                if (contrl.Name == ("Textbox" + i.ToString()))
+                                                {
+                                                    contrl.Text = "tbox";
+                                                }
+                                                
+                                            }
+                                            validData &= !string.IsNullOrWhiteSpace(tbox.Text);
+
+                                            int staffid = Convert.ToInt32(txtStaffID.Text);
+                                            int staffContact = Convert.ToInt32(txtStaffContact.Text);
+
+                                            DatabaseConnection.getDBConnectionInstance()
+                                            .getDataSet("insert into Template (StaffID, StaffName, staffContact, TemplateName, Position, Heading, SubHeading, Comment) values(" +
+                                           staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "','" + txtPosition.Text + "','" +
+                                            tbox.Text + "','" + tbox.Text + "','" + tbox.Text + "')");
+                                            MessageBox.Show("The Data has been saved");
+                                            i = i + 1;
+                                        }
+                                        
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
-
-            //calling templateSave class to use the string 
-           //TemplateSave temp = new TemplateSave();
-           // temp.name = txtTemplateName.Text;
-           // temp.heading = new ArrayList();
-           // // every heading
-           // {
-           //     TextBox txtHeading = AddtxtHeading();
-           //     Heading heading = new Heading();
-           //     heading.headingName = txtHeading.Text;
-           //     heading.comment = new ArrayList();
-
-
-           //     //every comments of the current heading
-           //     {
-           //         TextBox neTB = AddNwTb();
-           //         TextBox neTB1 = AddNwTb();
-           //         Comments c = new Comments();
-           //         c.subHeading = neTB.Text;
-           //         c.comment = neTB1.Text;
-           //         //add the comment to array list heading 
-           //         heading.comment.Add(c);
-           //     }
-           //     temp.heading.Add(heading);
-           // }
-
-           // int staffid = Convert.ToInt32(txtStaffID.Text);
-           // int staffContact = Convert.ToInt32(txtStaffContact.Text);
-
-           // //fill in the grid 
-           // {
-           //     TextBox txtHeading = AddtxtHeading();
-           //     TextBox neTB = AddNwTb();
-           //     TextBox neTB1 = AddNwTb();
-           //     DataSet dsPerson =
-           // DatabaseConnection.getDBConnectionInstance()
-           // .getDataSet(
-           // "insert into Template (StaffID, StaffName, staffContact, TemplateName, Heading, SubHeading, Comment, Position) values(" +
-           // staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "', '" +
-           // txtHeading.Text + "','" + neTB.Text + "','" + neTB1.Text + "','" +
-           // txtPosition.Text + "')");
-           //     //confirming data is saved
-                MessageBox.Show("Datas Saved");
-            //}
-            
 
         }
 

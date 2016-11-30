@@ -216,3 +216,7 @@ C:\Users\Khalawi\Source\Repos\GroupAssignment3\temp1\temp1\obj\Debug\temp1.Temp.
 C:\Users\Khalawi\Source\Repos\GroupAssignment3\temp1\temp1\obj\Debug\temp1.Properties.Resources.resources
 C:\Users\Khalawi\Source\Repos\GroupAssignment3\temp1\temp1\obj\Debug\temp1.TemplateOptions.resources
 C:\Users\Khalawi\Source\Repos\GroupAssignment3\temp1\temp1\obj\Debug\temp1.csproj.GenerateResource.Cache
+H:\software engineering\Happy Tech\GroupAssignment\temp1\temp1\bin\Debug\itextsharp.dll
+H:\software engineering\Happy Tech\GroupAssignment\temp1\temp1\bin\Debug\itextsharp.pdfa.dll
+H:\software engineering\Happy Tech\GroupAssignment\temp1\temp1\bin\Debug\itextsharp.xtra.dll
+H:\software engineering\Happy Tech\GroupAssignment\temp1\temp1\bin\Debug\itextsharp.xml

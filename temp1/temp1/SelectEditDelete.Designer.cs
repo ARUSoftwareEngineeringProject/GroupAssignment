@@ -114,7 +114,7 @@
             this.lblTemplateName.Size = new System.Drawing.Size(101, 13);
             this.lblTemplateName.TabIndex = 49;
             this.lblTemplateName.Text = " TEMPLATE NAME";
-            this.lblTemplateName.Click += new System.EventHandler(this.lblTemplateName_Click);
+            //this.lblTemplateName.Click += new System.EventHandler(this.lblTemplateName_Click);
             // 
             // btnUpdate
             // 

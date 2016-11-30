@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
+/// <summary>
+/// form for editing and deleting any values from the database - Template form
+/// </summary>
 namespace temp1
 {
     public partial class SelectEditDelete : Form
@@ -11,12 +13,11 @@ namespace temp1
         {
             InitializeComponent();
         }
-       
-        private void lblTemplateName_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// https://www.youtube.com/watch?v=tm4GHnHw2wc&index=13&list=PLGtk9G6Hf1aEHV-IrHi7g0O5tcRSL__6a
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbTempID_SelectedIndexChanged(object sender, EventArgs e)
         {
             //fill in the grid 
@@ -47,6 +48,7 @@ namespace temp1
             //confirming data is updated
             MessageBox.Show("Datas Updated");
 
+            //clearing the textboxes ready for new function
             txtTemplateName.Clear();
             txtPosition.Clear();
             txtHeading.Clear();
@@ -80,6 +82,8 @@ namespace temp1
             //confirming data is deleted
             MessageBox.Show("Datas Deleted");
 
+            //clearing the textboxes ready for new function
+            txtTemplateName.Clear();
             txtTemplateName.Clear();
             txtPosition.Clear();
             txtHeading.Clear();
@@ -87,10 +91,12 @@ namespace temp1
             txtComment.Clear();
 
         }
-
+        // exit the form
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+            HomePage ff = new HomePage();
+            ff.Show();
         }
     }
 }

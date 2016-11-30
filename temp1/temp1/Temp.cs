@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Data;
-
 using System.Drawing;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace temp1
@@ -27,7 +25,7 @@ namespace temp1
 
         /// <summary>
         /// load all staff ID into the combobox
-        /// </summary>
+        /// https://vle.anglia.ac.uk/modules/2016/MOD003263/SEM1-F01CAM/Documents/Forms/AllItems.aspx?RootFolder=%2Fmodules%2F2016%2FMOD003263%2FSEM1-F01CAM%2FDocuments%2FWeek%204%20-%20DB&FolderCTID=0x01200071BC415A030994458DC817EAC52D3853&View=%7B5AC15BA6-DE4F-4691-A76D-08391FA3AB70%7D
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Main_Load(object sender, EventArgs e)
@@ -294,7 +292,7 @@ namespace temp1
 
 
 
-        //clearing the heading to enter heading name
+        //saving all the data values into the Template table in Database
 
         public void btnSaveTemplate_Click(object sender, EventArgs e)
         {
@@ -318,26 +316,26 @@ namespace temp1
                                     {
                                         if (tbox is TextBox)
                                         {
-                                            //TextBox neTB = tbox as TextBox;
+                                            
                                             foreach (Control contrl in this.Controls)
                                             {
                                                 if (contrl.Name == ("Textbox" + i.ToString()))
                                                 {
                                                     contrl.Text = "tbox";
                                                 }
-                                                
+
                                             }
                                             validData &= !string.IsNullOrWhiteSpace(tbox.Text);
 
                                             int staffid = Convert.ToInt32(txtStaffID.Text);
                                             int staffContact = Convert.ToInt32(txtStaffContact.Text);
-
-                                            DatabaseConnection.getDBConnectionInstance()
-                                            .getDataSet("insert into Template (StaffID, StaffName, staffContact, TemplateName, Position, Heading, SubHeading, Comment) values(" +
-                                           staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "','" + txtPosition.Text + "','" +
-                                            tbox.Text + "','" + tbox.Text + "','" + tbox.Text + "')");
-                                            MessageBox.Show("The Data has been saved");
-                                            i = i + 1;
+                                           
+                                                DatabaseConnection.getDBConnectionInstance()
+                                                .getDataSet("insert into Template (StaffID, StaffName, staffContact, TemplateName, Position, Heading, SubHeading, Comment) values(" +
+                                               staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "','" + txtPosition.Text + "','" +
+                                                tbox.Text + "','" + tbox.Text + "','" + tbox.Text + "')");
+                                                MessageBox.Show("The Data has been saved");
+                                            
                                         }
                                         
                                     }
@@ -350,6 +348,8 @@ namespace temp1
 
         }
 
+        //https://www.youtube.com/watch?v=tm4GHnHw2wc&index=13&list=PLGtk9G6Hf1aEHV-IrHi7g0O5tcRSL__6a
+        //https://vle.anglia.ac.uk/modules/2016/MOD003263/SEM1-F01CAM/Documents/Forms/AllItems.aspx?RootFolder=%2Fmodules%2F2016%2FMOD003263%2FSEM1-F01CAM%2FDocuments%2FWeek%204%20-%20DB&FolderCTID=0x01200071BC415A030994458DC817EAC52D3853&View=%7B5AC15BA6-DE4F-4691-A76D-08391FA3AB70%7D
         private void cmbStaffID_SelectedIndexChanged(object sender, EventArgs e)
         {
             //fill in the grid 
@@ -359,8 +359,8 @@ namespace temp1
             //get the table from the dataset
             DataTable dtPerson = dsPerson.Tables[0];
 
-            //set up the data grid view
-
+            //fill in the particular textboxes with values from corresponding Table Columns
+            //https://www.youtube.com/watch?v=EvnjxYpwbvc&index=14&list=PLGtk9G6Hf1aEHV-IrHi7g0O5tcRSL__6a
             foreach (DataRow dr in dsPerson.Tables[0].Rows)
             {
                 txtStaffID.Text = dr["StaffID"].ToString();
@@ -450,7 +450,7 @@ namespace temp1
         }
 
 
-
+        //Link to return to the Homepage form
         private void txtHomePage_Click(object sender, EventArgs e)
         {
             this.Hide();

@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/// <summary>
+/// Options for Template required
+/// </summary>
 namespace temp1
 {
     public partial class HomePage : Form
@@ -17,6 +13,7 @@ namespace temp1
             InitializeComponent();
         }
 
+        //To open the Template Options form
         private void btnCreateTemplate_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -24,6 +21,7 @@ namespace temp1
             tt.Show();
         }
 
+        //To open the feedback form
         private void btnFeedbackForm_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -31,9 +29,11 @@ namespace temp1
             ff.Show();
         }
 
+        //https://msdn.microsoft.com/en-us/library/ms157894(v=vs.110).aspx
+        //To exit the whole application
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
     }
 }

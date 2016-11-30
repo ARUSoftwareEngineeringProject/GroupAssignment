@@ -74,7 +74,7 @@ namespace temp1
             // btn_SaveTemplate
             // 
             this.btn_SaveTemplate.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_SaveTemplate.Location = new System.Drawing.Point(759, 47);
+            this.btn_SaveTemplate.Location = new System.Drawing.Point(780, 47);
             this.btn_SaveTemplate.Name = "btn_SaveTemplate";
             this.btn_SaveTemplate.Size = new System.Drawing.Size(91, 43);
             this.btn_SaveTemplate.TabIndex = 7;

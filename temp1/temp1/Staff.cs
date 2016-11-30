@@ -15,12 +15,13 @@ namespace temp1
             InitializeComponent();
         }
 
+        //https://msdn.microsoft.com/en-us/library/ms157894(v=vs.110).aspx
         private void btnExit_Click_1(object sender, EventArgs e)
         {
-            // for exit btn 
-            this.Close();
+            // for exiting the whole application 
+            Application.Exit();
         }
-
+        //https://www.youtube.com/watch?v=tcmmCcMs8yU&index=6&list=PLGtk9G6Hf1aEHV-IrHi7g0O5tcRSL__6a
         private void btnLogin_Click(object sender, EventArgs e)
         {
             //fill in the grid 

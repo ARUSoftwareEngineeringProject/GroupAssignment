@@ -6,7 +6,6 @@ using System.Net.Mail;
 using System.Net;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using iTextSharp.text.pdf.parser;
 
 
 namespace temp1
@@ -27,7 +26,7 @@ namespace temp1
 
         /// <summary>
         /// populating the applicant combobox with required applicant Id
-        /// </summary>
+        /// https://vle.anglia.ac.uk/modules/2016/MOD003263/SEM1-F01CAM/Documents/Forms/AllItems.aspx?RootFolder=%2Fmodules%2F2016%2FMOD003263%2FSEM1-F01CAM%2FDocuments%2FWeek%204%20-%20DB&FolderCTID=0x01200071BC415A030994458DC817EAC52D3853&View=%7B5AC15BA6-DE4F-4691-A76D-08391FA3AB70%7D
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Feedback_Load(object sender, EventArgs e)
@@ -43,6 +42,8 @@ namespace temp1
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+            HomePage ff = new HomePage();
+            ff.Show();
         }
         //Call TempId method
         private void cmbTempID_SelectedIndexChanged(object sender, EventArgs e)
@@ -90,7 +91,7 @@ namespace temp1
             }
 
             //fill in the grid 
-            DataSet dvPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("select * from Template");
+            DataSet dvPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("Select TemplateName, MAX(TemplateID) as x from Template Group by TemplateName");
 
 
             //get the table from the dataset
@@ -103,7 +104,9 @@ namespace temp1
         }
 
 
-
+        /// <summary>
+        /// https://www.youtube.com/watch?v=tm4GHnHw2wc&index=13&list=PLGtk9G6Hf1aEHV-IrHi7g0O5tcRSL__6a
+        /// </summary>
         private void FillApplicant()
         {
             //fill in the grid 
@@ -138,7 +141,7 @@ namespace temp1
             //get the table from the dataset
             DataTable dtPerson = dsPerson.Tables[0];
 
-            //set up the data grid view
+            //input into Position textbox
 
             foreach (DataRow dr in dsPerson.Tables[0].Rows)
             {
@@ -180,7 +183,7 @@ namespace temp1
                 MessageBox.Show(" ", select);
             }
         }
-
+        // https://www.youtube.com/watch?v=V9c-_pCdUc4&list=PLGtk9G6Hf1aEHV-IrHi7g0O5tcRSL__6a&index=18
         private async void SaveTextFile()
         {
             using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Text Documents|*.txt", ValidateNames = true })

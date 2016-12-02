@@ -314,9 +314,9 @@
             // 
             // btn_savePDF
             // 
-            this.btn_savePDF.Location = new System.Drawing.Point(762, 249);
+            this.btn_savePDF.Location = new System.Drawing.Point(762, 242);
             this.btn_savePDF.Name = "btn_savePDF";
-            this.btn_savePDF.Size = new System.Drawing.Size(106, 31);
+            this.btn_savePDF.Size = new System.Drawing.Size(115, 47);
             this.btn_savePDF.TabIndex = 74;
             this.btn_savePDF.Text = "Save as Pdf";
             this.btn_savePDF.UseVisualStyleBackColor = true;
@@ -326,7 +326,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(929, 504);
             this.Controls.Add(this.btn_savePDF);
             this.Controls.Add(this.txtHeading);

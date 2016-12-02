@@ -113,7 +113,6 @@ namespace temp1
             // define the size of the combo box and set its properties 
 
             neCB.Size = new Size(70, 50);
-            neCB.BackColor = Color.Red;
             neCB.Items.AddRange(new object[]
             {
                 "Move Up",
@@ -259,7 +258,7 @@ namespace temp1
             */
 
             GroupBox groupBox1 = new GroupBox();
-            groupBox1.BackColor = Color.Blue;
+            groupBox1.BackColor = Color.LightGray;
             groupBox1.Size = new Size(650, 150); //??
 
             // declare the button from the button method 
@@ -456,6 +455,11 @@ namespace temp1
             this.Hide();
             HomePage tt = new HomePage();
             tt.Show();
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

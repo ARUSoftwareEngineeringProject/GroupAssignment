@@ -223,8 +223,8 @@ namespace temp1
 
                 mail.From = new MailAddress("iSkhalawi@gmail.com");
                 mail.To.Add(txtEmail.Text);
-                mail.Subject = "Test Mail";
-                mail.Body = "This is for testing SMTP mail from GMAIL";
+                mail.Subject = (" Feedback on " + txtTypeOfApplication.Text) ;
+                mail.Body = ("Hello " + txtName.Text + " This is an email regarding the jop you have applied for");
 
                 // http://www.coding-issues.com/2012/11/sending-email-with-attachments-from-c.html
 
@@ -237,7 +237,7 @@ namespace temp1
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);
-                MessageBox.Show("mail Send");
+                MessageBox.Show("Mail Sent");
             }
             catch (Exception ex)
             {

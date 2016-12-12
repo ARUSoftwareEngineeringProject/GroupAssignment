@@ -39,7 +39,7 @@ namespace temp1
             }
            
         }
-
+        
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             //fill in the grid 
@@ -73,7 +73,7 @@ namespace temp1
                 cmbTempID.Items.Add(dr["TemplateID"].ToString());
             }
         }
-
+        //https://www.youtube.com/watch?v=GysB6QEc04Y
         private void btnDelete_Click(object sender, EventArgs e)
         {
             //fill in the grid 

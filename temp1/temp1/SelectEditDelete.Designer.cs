@@ -152,6 +152,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(751, 351);
             this.Controls.Add(this.btnExit);
@@ -166,7 +167,10 @@
             this.Controls.Add(this.lblTemplateName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbTempID);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SelectEditDelete";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SelectEditDelete";
             this.Load += new System.EventHandler(this.SelectEditDelete_Load);
             this.ResumeLayout(false);

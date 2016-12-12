@@ -15,8 +15,7 @@ namespace temp1
         private System.Data.SqlClient.SqlConnection connectionToDB;
 
         private System.Data.SqlClient.SqlDataAdapter dataAdapter;
-
-        //constructors
+        
 
 
         //properties

@@ -136,7 +136,7 @@ namespace temp1
             /*
            // Declare a new group box
            */
-
+       
             GroupBox groupBoxComment = new GroupBox();
 
             /*
@@ -152,30 +152,27 @@ namespace temp1
                 neCB_SelectedIndexChanged(sender, args, neCB, groupBoxComment, groupBox);
             };
             
-            
+            // the flow layout panel is adding the controls
+
             flp.Controls.Add(neTB);
             flp.Controls.Add(neTB1);
             flp.Controls.Add(neCB);
 
+            // setting flow layout panel properties
             flp.Dock = DockStyle.Fill;
             flp.AutoSize = true;
 
-
-            
+            // group box is adding the controls 
             groupBoxComment.Controls.Add(flp);
             groupBox.Controls.Add(groupBoxComment);
+
+            // group box properties 
             groupBox.AutoSize = true;
-            
-
-
-            
             groupBoxComment.Size = new Size(100, 50);
             groupBoxComment.AutoSize = true;
             groupBoxComment.Location = new Point(20, 50);
 
-
-           
-
+            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -477,12 +474,12 @@ namespace temp1
             tt.Show();
         }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void flowLayoutPanel1_paint(object sender, EventArgs e)
         {
 
         }
-
     }
+   
 }
 
 

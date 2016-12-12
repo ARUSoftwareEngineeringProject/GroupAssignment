@@ -282,7 +282,7 @@ namespace temp1
         private System.Windows.Forms.Label label3;
         protected System.Windows.Forms.TextBox txtPosition;
         private System.Windows.Forms.GroupBox groupBox1;
-        private FlowLayoutPanel flowLayoutPanel2;
+        //private FlowLayoutPanel flowLayoutPanel2;
         private FlowLayoutPanel flowLayoutPanel1;
     }
 }

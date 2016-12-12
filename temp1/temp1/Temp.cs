@@ -30,17 +30,27 @@ namespace temp1
         /// <param name="e"></param>
         private void Main_Load(object sender, EventArgs e)
         {
-            //fill in the grid 
-           DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("select * from Staff");
-
-
-            //get the table from the dataset
-           DataTable dtPerson = dsPerson.Tables[0];
-
-           foreach (DataRow dr in dsPerson.Tables[0].Rows)
+            try
             {
-                cmbStaffID.Items.Add(dr["StaffID"].ToString());
+                //fill in the grid 
+                DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("select * from Staff");
+
+
+                //get the table from the dataset
+                DataTable dtPerson = dsPerson.Tables[0];
+
+                foreach (DataRow dr in dsPerson.Tables[0].Rows)
+                {
+                    cmbStaffID.Items.Add(dr["StaffID"].ToString());
+                }
+
             }
+            catch (Exception z)
+            {
+                Console.WriteLine("Error. Please Contact IT support", z);
+                MessageBox.Show("Unable to connect");
+            }
+
 
         }
 
@@ -116,9 +126,9 @@ namespace temp1
             neCB.Items.AddRange(new object[]
             {
                 "Move Up",
-                "Move Down",            
+                "Move Down",
                 "Delete",
-                
+
             });
 
             // create the new group box that stores the subheading, comment and the combobox
@@ -137,7 +147,7 @@ namespace temp1
             flp.FlowDirection = FlowDirection.LeftToRight;
 
             grpSections.Add(groupBoxComment);
-            neCB.SelectedIndexChanged += delegate(object sender, EventArgs args)
+            neCB.SelectedIndexChanged += delegate (object sender, EventArgs args)
             {
                 neCB_SelectedIndexChanged(sender, args, neCB, groupBoxComment, groupBox);
             };
@@ -271,7 +281,7 @@ namespace temp1
 
             // declare the text box  from the text box method 
             TextBox txtHeading = AddtxtHeading();
-          
+
 
 
             // Group box is adding the controls 
@@ -295,54 +305,62 @@ namespace temp1
 
         public void btnSaveTemplate_Click(object sender, EventArgs e)
         {
-            
-           int i = 0;
-            bool validData = false;
-
-            foreach (Control control in groupBox1.Controls)
+            try
             {
-                if (control is FlowLayoutPanel && control.HasChildren)
+                int i = 0;
+                bool validData = false;
+
+                foreach (Control control in groupBox1.Controls)
                 {
-                    foreach (Control ctrl in control.Controls)
+                    if (control is FlowLayoutPanel && control.HasChildren)
                     {
-                        if (ctrl is GroupBox && ctrl.HasChildren)
+                        foreach (Control ctrl in control.Controls)
                         {
-                            foreach (Control ctrl2 in control.Controls)
+                            if (ctrl is GroupBox && ctrl.HasChildren)
                             {
-                                if (ctrl2 is GroupBox && ctrl2.HasChildren)
+                                foreach (Control ctrl2 in control.Controls)
                                 {
-                                    foreach (Control tbox in ctrl2.Controls)
+                                    if (ctrl2 is GroupBox && ctrl2.HasChildren)
                                     {
-                                        if (tbox is TextBox)
+                                        foreach (Control tbox in ctrl2.Controls)
                                         {
-                                            
-                                            foreach (Control contrl in this.Controls)
+                                            if (tbox is TextBox)
                                             {
-                                                if (contrl.Name == ("Textbox" + i.ToString()))
+
+                                                foreach (Control contrl in this.Controls)
                                                 {
-                                                    contrl.Text = "tbox";
+                                                    if (contrl.Name == ("Textbox" + i.ToString()))
+                                                    {
+                                                        contrl.Text = "tbox";
+                                                    }
+
                                                 }
+                                                validData &= !string.IsNullOrWhiteSpace(tbox.Text);
 
-                                            }
-                                            validData &= !string.IsNullOrWhiteSpace(tbox.Text);
+                                                int staffid = Convert.ToInt32(txtStaffID.Text);
+                                                int staffContact = Convert.ToInt32(txtStaffContact.Text);
 
-                                            int staffid = Convert.ToInt32(txtStaffID.Text);
-                                            int staffContact = Convert.ToInt32(txtStaffContact.Text);
-                                           
                                                 DatabaseConnection.getDBConnectionInstance()
                                                 .getDataSet("insert into Template (StaffID, StaffName, staffContact, TemplateName, Position, Heading, SubHeading, Comment) values(" +
                                                staffid + ",'" + txtStaffName.Text + "'," + staffContact + ",'" + txtTemplateName.Text + "','" + txtPosition.Text + "','" +
                                                 tbox.Text + "','" + tbox.Text + "','" + tbox.Text + "')");
                                                 MessageBox.Show("The Data has been saved");
-                                            
+
+                                            }
+
                                         }
-                                        
                                     }
                                 }
                             }
                         }
                     }
                 }
+            
+            }
+            catch (Exception z)
+            {
+                Console.WriteLine("Error. Please Contact IT support", z);
+                MessageBox.Show("Unable to save");
             }
 
         }
@@ -377,28 +395,28 @@ namespace temp1
             {
                 try
                 {
-                    
+
                     int grpBoxIndex = grpSections.FindIndex(x => x == groupBoxComment);
-                    if (grpBoxIndex+1 <= grpSections.Count-1)
+                    if (grpBoxIndex + 1 <= grpSections.Count - 1)
                     {
-                    // finding the location of the selected group box in the list of group boxes
+                        // finding the location of the selected group box in the list of group boxes
 
 
-                    Control firstGB = grpSections[grpBoxIndex].Parent;
-                    grpSections[grpBoxIndex].Parent.Controls.Remove(grpSections[grpBoxIndex]);
+                        Control firstGB = grpSections[grpBoxIndex].Parent;
+                        grpSections[grpBoxIndex].Parent.Controls.Remove(grpSections[grpBoxIndex]);
 
-                    Control secondGB = grpSections[grpBoxIndex + 1].Parent;
-                    grpSections[grpBoxIndex + 1].Parent.Controls.Remove(grpSections[grpBoxIndex + 1]);
+                        Control secondGB = grpSections[grpBoxIndex + 1].Parent;
+                        grpSections[grpBoxIndex + 1].Parent.Controls.Remove(grpSections[grpBoxIndex + 1]);
 
 
-                    //swapping the index of the group box in the list itself 
-                    GroupBox grpBoxTemp = grpSections[grpBoxIndex + 1];
-                    grpSections[grpBoxIndex + 1] = grpSections[grpBoxIndex];
-                    grpSections[grpBoxIndex] = grpBoxTemp;
+                        //swapping the index of the group box in the list itself 
+                        GroupBox grpBoxTemp = grpSections[grpBoxIndex + 1];
+                        grpSections[grpBoxIndex + 1] = grpSections[grpBoxIndex];
+                        grpSections[grpBoxIndex] = grpBoxTemp;
 
-                    firstGB.Controls.Add(grpSections[grpBoxIndex]);
+                        firstGB.Controls.Add(grpSections[grpBoxIndex]);
 
-                    secondGB.Controls.Add(grpSections[grpBoxIndex + 1]);
+                        secondGB.Controls.Add(grpSections[grpBoxIndex + 1]);
                     }
                 }
                 // catches the error if the group box selected was the last in the list whilst attempting to move it down
@@ -446,6 +464,8 @@ namespace temp1
             // calling the method to add the main groupBox 
 
             AddMyGroupBox();
+
+
         }
 
 
@@ -461,6 +481,7 @@ namespace temp1
         {
 
         }
+
     }
 }
 

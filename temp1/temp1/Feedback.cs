@@ -16,6 +16,7 @@ namespace temp1
     public partial class Feedback : Form
     {
 
+        private static string pdfPath;
         public Feedback()
         {
             InitializeComponent();
@@ -223,13 +224,13 @@ namespace temp1
 
                 mail.From = new MailAddress("iSkhalawi@gmail.com");
                 mail.To.Add(txtEmail.Text);
-                mail.Subject = "Test Mail";
-                mail.Body = "This is for testing SMTP mail from GMAIL";
+                mail.Subject = (" Feedback on " + txtTypeOfApplication.Text);
+                mail.Body = ("Hello " + txtName.Text + " This is an email regarding the job you have applied for");
 
                 // http://www.coding-issues.com/2012/11/sending-email-with-attachments-from-c.html
 
                 Attachment attachment;
-                attachment = new Attachment("c:/Sultan.PDF");
+                attachment = new Attachment(pdfPath);
                 mail.Attachments.Add(attachment);
 
                 SmtpServer.Port = 587;
@@ -237,7 +238,7 @@ namespace temp1
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);
-                MessageBox.Show("mail Send");
+                MessageBox.Show("Mail Sent");
             }
             catch (Exception ex)
             {
@@ -251,6 +252,7 @@ namespace temp1
         /// <param name="e"></param>
         private void btn_savePDF_Click(object sender, EventArgs e)
         {
+            
             // open the file dialog to name the pdf document and save it in chosen directory
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Title = "Save as PDF";
@@ -262,6 +264,7 @@ namespace temp1
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 // Creating the document and the page size to start writing in the file 
+                pdfPath = sfd.FileName;
                 Document doc = new Document(iTextSharp.text.PageSize.A4);
                 PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
 

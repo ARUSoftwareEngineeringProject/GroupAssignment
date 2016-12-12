@@ -21,32 +21,43 @@ namespace temp1
             // for exiting the whole application 
             Application.Exit();
         }
-        //https://www.youtube.com/watch?v=tcmmCcMs8yU&index=6&list=PLGtk9G6Hf1aEHV-IrHi7g0O5tcRSL__6a
-        private void btnLogin_Click(object sender, EventArgs e)
+
+       //https://www.youtube.com/watch?v=tcmmCcMs8yU&index=6&list=PLGtk9G6Hf1aEHV-IrHi7g0O5tcRSL__6a
+        public void btnLogin_Click(object sender, EventArgs e)
         {
-            //fill in the grid 
-            DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("Select Count(*) From Login where StaffNumber ='" + txtStaffID.Text + "' and Password ='" +
-                    txtPassword.Text + "'");
-
-
-            //get the table from the dataset
-            DataTable dtPerson = dsPerson.Tables[0];
-
-            if (dtPerson.Rows[0][0].ToString() == "1")
+            try
             {
-                this.Hide();
-                Temp ss = new Temp();
-                ss.Show();
+                //fill in the grid 
+                DataSet dsPerson = DatabaseConnection.getDBConnectionInstance().getDataSet("Select Count(*) From Login where StaffNumber ='" + txtStaffID.Text + "' and Password ='" +
+                        txtPassword.Text + "'");
+
+
+                //get the table from the dataset
+                DataTable dtPerson = dsPerson.Tables[0];
+
+                if (dtPerson.Rows[0][0].ToString() == "1")
+                {
+                    this.Hide();
+                    HomePage ss = new HomePage();
+                    ss.Show();
+                }
+                // if the login information is wrong display the message 
+                else
+                {
+                    MessageBox.Show("Please enter the correct credentials. If you have forgotten them, contact IT support");
+                }
+
             }
-            // if the login information is wrong display the message 
-            else
+            catch (Exception w)
             {
-                MessageBox.Show("Please enter the correct credentials. If you have forgotten them, contact IT support");
+                Console.WriteLine("Error", w);
+                MessageBox.Show("Unable to connect");
             }
+
+
 
         }
-        
-
-        }
+    }
+            
        
 }

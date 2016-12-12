@@ -151,30 +151,30 @@ namespace temp1
             {
                 neCB_SelectedIndexChanged(sender, args, neCB, groupBoxComment, groupBox);
             };
-
-            //flp.WrapContents = false;
+            
+            
             flp.Controls.Add(neTB);
             flp.Controls.Add(neTB1);
             flp.Controls.Add(neCB);
 
             flp.Dock = DockStyle.Fill;
-            flp.AutoSize = true;
+            //flp.AutoSize = true;
 
 
-            //flp.Size = new Size(650,150);
+            
             groupBoxComment.Controls.Add(flp);
             groupBox.Controls.Add(groupBoxComment);
             groupBox.AutoSize = true;
-            //flp.WrapContents = false;
+            
 
 
-            //groupBoxComment.Controls.Add(flp);
+            
             groupBoxComment.Size = new Size(100, 50);
             groupBoxComment.AutoSize = true;
             groupBoxComment.Location = new Point(20, 50);
 
 
-            //groupBox.Controls.Add(groupBoxComment);
+           
 
         }
 

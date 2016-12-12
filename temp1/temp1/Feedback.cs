@@ -15,7 +15,7 @@ namespace temp1
     /// </summary>
     public partial class Feedback : Form
     {
-
+        private static string pdfPath;
         public Feedback()
         {
             InitializeComponent();
@@ -229,7 +229,7 @@ namespace temp1
                 // http://www.coding-issues.com/2012/11/sending-email-with-attachments-from-c.html
 
                 Attachment attachment;
-                attachment = new Attachment("c:/Sultan.PDF");
+                attachment = new Attachment(pdfPath);
                 mail.Attachments.Add(attachment);
 
                 SmtpServer.Port = 587;
@@ -262,6 +262,7 @@ namespace temp1
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 // Creating the document and the page size to start writing in the file 
+                pdfPath = sfd.FileName;
                 Document doc = new Document(iTextSharp.text.PageSize.A4);
                 PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
 

@@ -148,7 +148,7 @@ namespace temp1
             flp.Controls.Add(neCB);
 
             flp.Dock = DockStyle.Fill;
-            flp.AutoSize = true;
+            //flp.AutoSize = true;
 
 
             
